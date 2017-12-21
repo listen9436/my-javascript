@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        window.onload = function () {
+            var oin1 = document.getElementById("input1");
+            var oin2 = document.getElementById("input2");
+            var obtn1 = document.getElementById("btn1");
+            obtn1.onclick = function () {
+//               alert(typeof  oin1.value)
+//                alert(oin1.value + oin2.value)
+//                "a" + "b"  = "ab"
+//                "1" "1"  =  "11"
+//                parse   Int    解析   Int整数    integer
+                var i1 = parseInt(oin1.value);
+
+//                if(isNaN(i1) == true){
+//                    alert("您第一项输入错误")
+//
+//                }
+                var i2 = parseInt(oin2.value);
+//                if(isNaN(i2) == true){
+//                    alert("您第二项输入错误")
+//
+//                }
+                var b1 = isNaN(i1);
+                var b2 = isNaN(i2);
+
+                if (b1 == true && b2 == true) {//&&   并且
+                    alert("第一和第二输入错误")
+                } else {
+                    if (b1 == true) {
+                        alert("您第一项输入错误")
+
+                    }
+                    if (b2 == true) {
+                        alert("您第二项输入错误")
+                    }
+                }
+//               “a”
+                var result = i1 + i2;
+                if (isNaN(result) == false) {
+                    alert(result);
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<input type="text" id="input1">
+<input type="text" id="input2">
+<input type="button" id="btn1">
+</body>
+</html>

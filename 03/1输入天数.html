@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            var oTxt = document.getElementById('txt');
+            var oBtn = document.getElementById('btn');
+            oBtn.onclick = function(){
+                var oDay = parseInt(oTxt.value);
+                var year = parseInt(oDay/365);
+                var month = parseInt((oDay-365*year)/30);
+                var week = parseInt(((oDay-365*year)%30)/7);
+                var day = parseInt(((oDay-365*year)%30)%7);
+                if(isNaN(oTxt.value)){
+                    alert("请输入数字")
+                }else {
+                alert("一共有"+year+"年"+month+"月"+week+"周"+day+"天")
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="txt">
+<input type="button" value="点我一下，你就知道" id="btn">
+</body>
+</html>

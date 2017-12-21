@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        p{
+            width: 300px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border: 1px solid #00B0E7;
+            background-color: #ffe57d;
+            font-size: 16px;
+            letter-spacing: 1em;
+            font-weight: bold;
+        }
+        .div1{
+            width: 300px;
+            border: 1px solid silver;
+        }
+        .div1 a{
+            display: block;
+            width: 300px;
+            height: 30px;
+            letter-spacing: 0.3em;
+            text-decoration: none;
+        }
+        .div1 a:hover{
+            text-decoration: underline;
+            color:red;
+            font-size: 18px;
+        }
+        span{
+            float: right;
+        }
+        i{
+            float: right;
+        }
+        .span2{
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var arrdiv = document.getElementsByTagName('div');
+            var arrp = document.getElementsByTagName('p');
+            var arrspan = document.getElementsByTagName('span');
+            var  arri = document.getElementsByTagName('i');
+            for(var i=0;i<=arrp.length;i++){
+                //绑定索引
+                arrp[i].index = i;
+                //设置事件
+                arrp[i].onclick = function(){
+                    //-图片
+                    for(var j=0;j<arrdiv.length;j++){
+                        if(arri[this.index].style.display = "none"){
+                            arrspan[this.index].style.display = "block"
+                        }else{
+                            arrspan[this.index].style.display = "none"
+                        }
+                    }
+                    for(var j=0;j<arrdiv.length;j++){
+                        if(arrdiv[this.index].style.display = "block"){
+                            arri[this.index].style.display = "none"
+                        }else {
+                            arri[this.index].style.display = "block";
+                        }
+                    }
+
+                    //DIV显示隐藏
+                    for(var j=0;j<arrdiv.length;j++){
+                        arrdiv[j].style.display = "none";
+                    }
+                    //当前
+                    arrdiv[this.index].style.display = "block";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <p>哲学
+        <i><img src="images/pro_left.png"></i>
+        <span class="span2"><img src="images/pro_down.png"></span>
+    </p>
+    <div class="div1" style="display: block">
+        <a href="#">科学技术哲学</a>
+        <a href="#">宗教学</a>
+        <a href="#">美学</a>
+        <a href="#">伦理学</a>
+        <a href="#">逻辑学</a>
+        <a href="#">外国哲学</a>
+        <a href="#">中国哲学</a>
+        <a href="#">马克思主义哲学</a>
+    </div>
+    <p>经济学
+        <i><img src="images/pro_left.png"></i>
+        <span class="span2"><img src="images/pro_down.png"></span>
+    </p>
+    <div class="div1" style="display: none">
+        <a href="#">应用经济学</a>
+        <a href="#">理论经济学</a>
+        <a href="#">国民经济学</a>
+        <a href="#">区域经济学</a>
+        <a href="#">产业经济学</a>
+        <a href="#">国际贸易学</a>
+        <a href="#">劳动经济学</a>
+        <a href="#">政治经济学</a>
+    </div>
+    <p>法学
+        <i><img src="images/pro_left.png"></i>
+        <span class="span2"><img src="images/pro_down.png"></span>
+    </p>
+    <div class="div1" style="display: none">
+        <a href="#">马克思主义基本原理</a>
+        <a href="#">马克思主义发展史</a>
+        <a href="#">马克思主义中国化研究</a>
+        <a href="#">国外马克思主义研究</a>
+        <a href="#">思想政治教育</a>
+    </div>
+    <p>教育学
+        <i><img src="images/pro_left.png"></i>
+        <span class="span2"><img src="images/pro_down.png"></span>
+    </p>
+    <div class="div1" style="display: none">
+        <a href="#">体育人文社会学</a>
+        <a href="#">体育教育训练学</a>
+        <a href="#">民族传统体育学</a>
+        <a href="#">发展与教育心理学</a>
+        <a href="#">应用心理学</a>
+        <a href="#">教育学原理</a>
+        <a href="#">课程与教学论</a>
+        <a href="#">比较教育学</a>
+        <a href="#">学前教育学</a>
+        <a href="#">高等教育学</a>
+        <a href="#">成人教育学</a>
+        <a href="#">职业技术教育学</a>
+        <a href="#">特殊教育学</a>
+        <a href="#">教育技术学</a>
+    </div>
+    <p>工学
+        <i><img src="images/pro_left.png"></i>
+        <span class="span2"><img src="images/pro_down.png"></span>
+    </p>
+    <div class="div1" style="display: none">
+        <a href="#">一般力学与力学基础</a>
+        <a href="#">固体力学</a>
+        <a href="#">流体力学</a>
+        <a href="#">工程力学</a>
+        <a href="#">机械制造及其自动化</a>
+        <a href="#">机械电子工程</a>
+        <a href="#">机械设计及理论</a>
+        <a href="#">仪器科学与技术</a>
+        <a href="#">精密仪器及机械</a>
+        <a href="#">测试计量技术及仪器</a>
+        <a href="#">懒人图库</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 240px;
+            height: 330px;
+            border: 1px solid #dde5f2;
+            margin: 0 auto;
+            position: relative;
+        }
+        .nav{
+            width: 240px;
+            height: 35px;
+            border-bottom: 2px solid #dde5f2;
+        }
+        .nav a{
+            display: block;
+            width: 50px;
+            height: 25px;
+            float: left;
+            font-size: 14px;
+            color: #535b60;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .a1{
+            margin-left: 10px;
+        }
+        .nav span{
+            float: left;
+            color:#dde5f2;
+            margin-top: 8px;
+        }
+        .nav a:hover{
+            color: #4277d7;
+            text-decoration: underline;
+            font-weight: bold;
+            border-bottom: 2px solid #4277d7;
+        }
+        .content{
+            width: 220px;
+            height: 280px;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        ul{
+            float: left;
+            width: 105px;
+            height: 150px;
+            line-height: 30px;
+            margin-top: 5px;
+            list-style: none;
+        }
+        ul li:hover{
+            color:#4277d7;
+            cursor: pointer;
+            text-decoration: underline;
+        }
+        .li1{
+            color:red;
+        }
+        .li1:hover{
+            color: red;
+        }
+        .span1{
+            background-color: #fbae4c;
+            font-size: 14px;
+            color: #fff;
+            padding: 1px 4px 0 4px;
+            text-align: center;
+        }
+        .span2{
+            background-color: #82b0ef;
+            font-size: 14px;
+            color: #fff;
+            padding: 1px 4px 0 4px;
+            text-align: center;
+        }
+        button{
+            width: 18px;
+            height: 26px;
+            font-size: 20px;
+            border: none;
+            outline: 0 none;
+            background: rgba(12,12,12,.3);
+            color: #fff;
+        }
+        #next{
+            position: absolute;
+            top: 28%;
+            right: 5%;
+        }
+        #after{
+            position: absolute;
+            top: 28%;
+            left: 5%;
+        }
+        #next1{
+            position: absolute;
+            top: 28%;
+            right: 5%;
+        }
+        #after1{
+            position: absolute;
+            top: 28%;
+            left: 5%;
+        }
+        #next2{
+            position: absolute;
+            top: 28%;
+            right: 5%;
+        }
+        #after2{
+            position: absolute;
+            top: 28%;
+            left: 5%;
+        }
+        #next3{
+            position: absolute;
+            top: 28%;
+            right: 5%;
+        }
+        #after3{
+            position: absolute;
+            top: 28%;
+            left: 5%;
+        }
+        button:hover{
+            background:rgba(255,255,255,.6);
+            cursor: pointer;
+        }
+        .box2{
+            font-size: 20px;
+            font-weight: bold;
+            width: 500px;
+            height: 30px;
+            color:#0066cc;
+            -webkit-animation:gogogo 6s infinite linear ;
+        }
+        @-webkit-keyframes gogogo {
+            0% {
+
+                -webkit-transform: rotate(0deg);
+                background-color: #82b0ef;
+                border: 5px solid #e85356;
+
+            }
+            50% {
+                -webkit-transform: rotate(180deg);
+                background-color: aquamarine;
+                border: 5px solid #575994;
+            }
+            100% {
+                -webkit-transform: rotate(360deg);
+                background: #C3D7E4;
+                border: 5px solid greenyellow;
+            }
+        }
+    </style>
+
+
+    <script>
+        window.onload = function (){
+            var arrDiv = document.getElementsByClassName('content');
+            var arrA = document.getElementsByTagName('a');
+            var oAfter = document.getElementById('after');
+            var oNext = document.getElementById('next');
+            var oAfter1 = document.getElementById('after1');
+            var oNext1 = document.getElementById('next1');
+            var oAfter2 = document.getElementById('after2');
+            var oNext2 = document.getElementById('next2');
+            var oAfter3 = document.getElementById('after3');
+            var oNext3 = document.getElementById('next3');
+            var arrimg = document.getElementsByClassName('img');
+            var arrimg1 = document.getElementsByClassName('img1');
+            var arrimg2 = document.getElementsByClassName('img2');
+            var arrimg3 = document.getElementsByClassName('img3');
+            var indeximg = 0;
+            for(var i=0;i<arrA.length;i++){
+                //绑定索引
+                arrA[i].index = i;
+                // 设置事件
+                arrA[i].onmouseover = function () {
+                    //清空
+                    for(var j=0;j<arrDiv.length;j++){
+                        arrDiv[j].style.display = "none";
+                    }
+                    //设置当前
+                        arrDiv[this.index].style.display = "block";
+                }
+                oAfter.onclick = function () {
+                    indeximg = indeximg - 1;
+                    if (indeximg == -1) {
+                        indeximg = 2;
+                    }
+                    for (var j = 0; j < arrimg.length; j++) {
+                        arrimg[j].style.display = "none";
+                    }
+                    arrimg[indeximg].style.display = "block";
+                }
+                oNext.onclick = function(){
+                    indeximg = indeximg+1;
+                    if(indeximg == 3){
+                        indeximg =0;
+                    }
+                    for(var j=0;j<arrimg.length;j++){
+                        arrimg[j].style.display = "none";
+                    }
+                    arrimg[indeximg].style.display = "block";
+                }
+                oAfter1.onclick = function () {
+                    indeximg = indeximg - 1;
+                    if (indeximg == -1) {
+                        indeximg = 2;
+                    }
+                    for (var j = 0; j < arrimg1.length; j++) {
+                        arrimg1[j].style.display = "none";
+                    }
+                    arrimg1[indeximg].style.display = "block";
+                }
+                oNext1.onclick = function(){
+                    indeximg = indeximg+1;
+                    if(indeximg == 3){
+                        indeximg =0;
+                    }
+                    for(var j=0;j<arrimg1.length;j++){
+                        arrimg1[j].style.display = "none";
+                    }
+                    arrimg1[indeximg].style.display = "block";
+                }
+                oAfter2.onclick = function () {
+                    indeximg = indeximg - 1;
+                    if (indeximg == -1) {
+                        indeximg = 2;
+                    }
+                    for (var j = 0; j < arrimg2.length; j++) {
+                        arrimg2[j].style.display = "none";
+                    }
+                    arrimg2[indeximg].style.display = "block";
+                }
+                oNext2.onclick = function(){
+                    indeximg = indeximg+1;
+                    if(indeximg == 3){
+                        indeximg =0;
+                    }
+                    for(var j=0;j<arrimg2.length;j++){
+                        arrimg2[j].style.display = "none";
+                    }
+                    arrimg2[indeximg].style.display = "block";
+                }
+                oAfter3.onclick = function () {
+                    indeximg = indeximg - 1;
+                    if (indeximg == -1) {
+                        indeximg = 2;
+                    }
+                    for (var j = 0; j < arrimg3.length; j++) {
+                        arrimg3[j].style.display = "none";
+                    }
+                    arrimg3[indeximg].style.display = "block";
+                }
+                oNext3.onclick = function(){
+                    indeximg = indeximg+1;
+                    if(indeximg == 3){
+                        indeximg =0;
+                    }
+                    for(var j=0;j<arrimg3.length;j++){
+                        arrimg3[j].style.display = "none";
+                    }
+                    arrimg3[indeximg].style.display = "block";
+                }
+            }
+        }
+
+
+    </script>
+
+
+</head>
+<body>
+    <div class="box">
+        <div class="nav">
+            <a class="a1">热播</a>
+            <span>|</span>
+            <a>电视剧</a>
+            <span>|</span>
+            <a>电影</a>
+            <span>|</span>
+            <a>动漫</a>
+        </div>
+        <div class="content">
+            <img src="img/11.gif" style="display: block" class="img">
+            <img src="img/9.jpg" style="display: none" class="img">
+            <img src="img/3.jpg" style="display: none" class="img">
+            <ul class="ul1">
+                <li><span class="span1">1</span>九州天空城</li>
+                <li class="li1"><span class="span1">2</span>神犬小七2</li>
+                <li><span class="span1">3</span>秀丽江山</li>
+                <li><span class="span2">4</span>半妖倾城</li>
+                <li><span class="span2">5</span>美人鱼</li>
+            </ul>
+            <ul class="ul2">
+                <li><span class="span2">6</span>伦敦陷落</li>
+                <li><span class="span2">7</span>万万没想到</li>
+                <li class="li1"><span class="span2">8</span>三人行</li>
+                <li><span class="span2">9</span>刑警兄弟</li>
+                <li><span class="span2">10</span>快乐大本营</li>
+            </ul>
+            <button id="next">></button>
+            <button id="after"><</button>
+        </div>
+        <div class="content" style="display: none">
+            <img src="img/10.jpg" style="display: block" class="img1">
+            <img src="img/6.jpg" style="display: none" class="img1">
+            <img src="img/12.jpg" style="display: none" class="img1">
+            <ul class="ul1">
+                <li><span class="span1">1</span>致青春</li>
+                <li><span class="span1">2</span>仙剑云之凡</li>
+                <li><span class="span1">3</span>鱼嘴2</li>
+                <li class="li1"><span class="span2">4</span>终极一班4</li>
+                <li><span class="span2">5</span>是！尚先生</li>
+            </ul>
+            <ul class="ul2">
+                <li><span class="span2">6</span>遇见王立川</li>
+                <li><span class="span2">7</span>东方战场</li>
+                <li class="li1"><span class="span2">8</span>解密</li>
+                <li><span class="span2">9</span>她很漂亮</li>
+                <li><span class="span2">10</span>新娘子变成</li>
+            </ul>
+            <button id="next1">></button>
+            <button id="after1"><</button>
+        </div>
+        <div class="content" style="display: none">
+            <img src="img/4.jpg" style="display: block" class="img2">
+            <img src="img/8.jpg" style="display: none" class="img2">
+            <img src="img/5.jpg" style="display: none" class="img2">
+            <ul class="ul1">
+                <li><span class="span1">1</span>魔攻李颖</li>
+                <li><span class="span1">2</span>杜拉拉追魂</li>
+                <li class="li1"><span class="span1">3</span>九浅一深</li>
+                <li><span class="span2">4</span>少女时代</li>
+                <li><span class="span2">5</span>深宫遗梦</li>
+            </ul>
+            <ul class="ul2">
+                <li><span class="span2">6</span>扳手少女</li>
+                <li><span class="span2">7</span>爱上叶副团</li>
+                <li><span class="span2">8</span>坏蛋必须死</li>
+                <li class="li1"><span class="span2">9</span>刘亦菲裸奔</li>
+                <li><span class="span2">10</span>非正常女友</li>
+            </ul>
+            <button id="next2">></button>
+            <button id="after2"><</button>
+        </div>
+        <div class="content" style="display: none">
+            <img src="img/1.jpg" style="display: block" class="img3">
+            <img src="img/2.jpg" style="display: none" class="img3">
+            <img src="img/7.jpg" style="display: none" class="img3">
+            <ul class="ul1">
+                <li><span class="span1">1</span>十万冷笑话</li>
+                <li><span class="span1">2</span>迷你特工队</li>
+                <li><span class="span1">3</span>臭屁虫3</li>
+                <li class="li1"><span class="span2">4</span>萨达3</li>
+                <li><span class="span2">5</span>火影忍者</li>
+            </ul>
+            <ul class="ul2">
+                <li><span class="span2">6</span>哀叹选多啦</li>
+                <li><span class="span2">7</span>猪猪侠109</li>
+                <li class="li1"><span class="span2">8</span>开心喜洋洋</li>
+                <li><span class="span2">9</span>妖精的尾巴</li>
+                <li><span class="span2">10</span>天航九个</li>
+            </ul>
+            <button id="next3">></button>
+            <button id="after3"><</button>
+        </div>
+    </div>
+    <div class="box2"><marquee behavior="alternate">哇塞！这是谁做的？简直和原版一模一样！！！！</marquee></div>
+</body>
+</html>

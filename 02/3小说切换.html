@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button {
+            width: 80px;
+            height: 40px;
+            background-color: #0A7EC3;
+            color: #fff;
+            margin-right: 5px;
+        }
+
+        div {
+            width: 265px;
+            border: 1px solid #ccc;
+        }
+
+        .active {
+            background: #E800E8;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var arrbtn = document.getElementsByTagName("button");
+            var arrdiv = document.getElementsByTagName('div');
+            for (var i = 0; i <= arrbtn.length; i++) {
+                //绑定索引
+                arrbtn[i].index = i;
+                //设置事件
+                arrbtn[i].onclick = function () {
+                    //清空
+                    for (var j = 0; j < arrbtn.length; j++) {
+                        arrbtn[j].className = "";
+                    }
+                    this.className = "active";
+
+                    //清空
+                    for (var j = 0; j < arrdiv.length; j++) {
+                        arrdiv[j].style.display = "none";
+                    }
+                    arrdiv[this.index].style.display = "block";
+                }
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+<button>小说</button>
+<button>非小说</button>
+<button>少儿</button>
+<div style="display:block;">
+    <p>1，时间旅行者的妻子</p>
+    <p>2，盗墓笔记之七星鲁王宫</p>
+    <p>3，鬼吹灯之精绝鬼城</p>
+    <p>4，鬼吹灯之精绝鬼城</p>
+    <p>5，鬼吹灯之精绝鬼城</p>
+    <p>6，鬼吹灯之精绝鬼城</p>
+    <p>7，鬼吹灯之精绝鬼城</p>
+    <p>8，鬼吹灯之精绝鬼城</p>
+</div>
+<div style="display:none;">
+    <p>2,时间旅行者的妻子</p>
+    <p>2,时间旅行者的妻子</p>
+    <p>2,时间旅行者的妻子</p>
+    <p>2,时间旅行者的妻子</p>
+    <p>2,时间旅行者的妻子</p>
+    <p>2,时间旅行者的妻子</p>
+    <p>2,时间旅行者的妻子</p>
+    <p>2,时间旅行者的妻子</p>
+</div>
+<div style="display:none;">
+    <p>3,时阿抡的</p>
+    <p>3,撒的撒的妻子</p>
+    <p>3,时间阿掴子</p>
+    <p>3,时间撒的撒的妻子</p>
+    <p>3,时间旅台湾官方</p>
+    <p>3,时间旅行撒的</p>
+    <p>3,时间完全否认子</p>
+    <p>3,时间旅好看</p>
+</div>
+</body>
+</html>

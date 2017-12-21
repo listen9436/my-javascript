@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link id="link1" rel="stylesheet" href="css/背景切换.css">
+    <script>
+        window.onload = function(){
+            var oBtn1 = document.getElementById("btn1");
+            var oBtn2 = document.getElementById("btn2");
+            var oLink = document.getElementById("link1");
+            oBtn1.onclick = function(){
+                oLink.href = "css/背景切换.css";
+            }
+            oBtn2.onclick = function(){
+                oLink.href = "css/背景切换2.css";
+            }
+        }
+    </script>
+</head>
+<body>
+ <div class="content">
+     <div class="cont">
+         <div class="top">
+         <div> <p> <b>可以换肤的提交框：</b>
+             <button id="btn1">皮肤1</button>
+             <button id="btn2">皮肤2</button></p>
+         </div>
+         </div>
+        <div class="center">
+            <ul>
+                <li>输入姓名：<input type="text"></li>
+            </ul>
+        </div>
+         <div class="center">
+             <ul>
+                 <li>输入密码：<input type="password"></li>
+             </ul>
+         </div>
+      <div class="center1">
+         <label>请您留言：</label><textarea name="" id="" cols="34" rows="8">
+          </textarea>
+      </div>
+         <div class="bottom"><button class="bottom">提交</button></div>
+     </div>
+ </div>
+</body>
+</html>

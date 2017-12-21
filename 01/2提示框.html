@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 300px;
+            height: 200px;
+            background: #ccc;
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oh1 = document.getElementById("h1");
+            var odiv = document.getElementById("div1")
+            oh1.onmouseover = function(){
+                odiv.style.display="block"
+            }
+            oh1.onmouseout = function(){
+                odiv.style.display="none"
+            }
+        }
+    </script>
+</head>
+<body>
+<h1 id="h1"> 标题</h1>
+<div id="div1">内容</div>
+</body>
+</html>

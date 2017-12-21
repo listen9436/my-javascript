@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function(){
+//            var first = 1;
+//            var second = 1;
+//            var third;
+//            for(var i=3;i<=20;i++){
+//                third = first+second;
+//                first = second;
+//                second = third;
+//
+//            }
+//            document.write(third+"<br>")
+
+            // f 用来求第几个月的兔子数
+            function  f(m){
+                if(m == 1 || m ==2){
+                    return 1;
+                }
+                return f(m-1) + f(m-2);
+            }
+                alert(f(20));
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 1002px;
+            height: 602px;
+        }
+        .big{
+            width: 750px;
+            height: 500px;
+        }
+        .small{
+            width: 150px;
+            height: 100px;
+        }
+        img{
+            float: left;
+        }
+        .active{
+            border: 1px solid #fff;
+        }
+    </style>
+    <script>
+        window.onload = function() {
+            var oBig = document.getElementById('big1');
+            var oSmall = document.getElementsByClassName('small');
+                for(var i=0;i<oSmall.length;i++){
+                    oSmall[i].onmouseover = function () {
+                        for(var j=0;j<oSmall.length;j++){
+                            oSmall[j].className = "small";
+                        }
+                        oBig.src = this.src;
+                        this.className = "small active";
+                    }
+
+                }
+    }
+    </script>
+</head>
+<body>
+<div>
+    <img src="img3/1.jpg" class="big" id="big1">
+    <img src="img3/2.jpg" class="small">
+    <img src="img3/3.jpg" class="small">
+    <img src="img3/4.jpg" class="small">
+    <img src="img3/5.jpg" class="small">
+    <img src="img3/6.jpg" class="small">
+    <img src="img3/7.jpg" class="small">
+    <img src="img3/8.jpg" class="small">
+    <img src="img3/9.jpg" class="small">
+    <img src="img3/10.jpg" class="small">
+    <img src="img3/11.jpg" class="small">
+    <img src="img3/12.jpg" class="small">
+</div>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 665px;
+            height: 363px;
+            margin: 0 auto;
+            position: relative;
+        }
+        button{
+            width: 50px;
+            height: 50px;
+            font-size: 30px;
+            border-radius: 25px;
+            border: none;
+            outline: 0 none;
+            background: rgba(12,12,12,.3);
+            color: #fff;
+        }
+        #after{
+            position: absolute;
+            left: 0;
+            top:160px;
+        }
+        #after:hover{
+            background: #fff;
+            color: crimson;
+            font-weight: bold;
+        }
+        #next{
+            position: absolute;
+            right: 0;
+            top:160px;
+        }
+        #next:hover{
+            background: #fff;
+            color: crimson;
+            font-weight: bold;
+        }
+        ul{
+            position: absolute;
+            bottom: 0;
+            left: 160px;
+        }
+        li{
+            list-style: none;
+            float: left;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            text-align: center;
+            background: rgba(12,12,12,.7);
+            font-weight: bold;
+            color: #fff;
+            margin-right: 10px;
+        }
+        .active{
+            background-color: #fff;
+            color:crimson;
+        }
+        #div1{
+            width: 600px;
+            height: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+    </style>
+
+    <script>
+
+        window.onload = function(){
+            var arrimg = document.getElementsByTagName('img');
+            var oAfter = document.getElementById('after');
+            var oNext = document.getElementById('next');
+            var arrli = document.getElementsByTagName('li');
+            var oDiv = document.getElementById('div1');
+            var arr = ["大中华全球领跌 苹果的下一剂鸡血在印度？",
+                "沈阳遭遇1980年以来最大降水 居民家中水漫上床",
+                "王宝强援助家乡邢台救灾 哥哥帮运送15万元物资",
+                "消防员淡定吃光一盆面：为灭火48小时未休息",
+                "瓜农隧道内翻车 宝马女脱高跟鞋救助",
+                "75岁患老年痴呆症老人38秒翻出老人院 已失踪5天",
+                "“扫黄地图”老人重返东莞 称小姐几乎都没了",
+                "女孩素颜和化妆后找男生借钱 结果竟然大不相同"
+            ];
+            var indeximg = 0;
+                for(var i=0;i<arrimg.length;i++) {
+                    arrli[i].index = i;
+                    //左
+                    oAfter.onclick = function () {
+                        indeximg = indeximg - 1;
+                        if (indeximg == -1) {
+                            indeximg = 7;
+                        }
+                        for (var j = 0; j < arrimg.length; j++) {
+                            arrimg[j].style.display = "none";
+                        }
+                        arrimg[indeximg].style.display = "block";
+
+                        for (var j = 0; j < arrli.length; j++) {
+                            arrli[j].className = "";
+                        }
+                        arrli[indeximg].className = "active"
+                        oDiv.innerHTML = arr[indeximg];
+                    }
+                    //右
+                    oNext.onclick = function () {
+                        indeximg = indeximg + 1;
+                        if (indeximg == 8) {
+                            indeximg = 0;
+                        }
+                        for (var j = 0; j < arrimg.length; j++) {
+                            arrimg[j].style.display = "none";
+                        }
+                        arrimg[indeximg].style.display = "block";
+
+                        for (var j = 0; j < arrli.length; j++) {
+                            arrli[j].className = "";
+                        }
+                        arrli[indeximg].className = "active"
+                        oDiv.innerHTML = arr[indeximg];
+                    }
+                    //下
+                    arrli[i].onmouseover = function () {
+                        for (var j = 0; j < arrimg.length; j++) {
+                            arrli[j].className = "";
+                        }
+                        this.className = "active";
+
+                        for (var j = 0; j < arrimg.length; j++) {
+                            arrimg[j].style.display = "none";
+                        }
+                        arrimg[this.index].style.display = "block";
+
+                        indeximg = this.index;
+
+                        oDiv.innerHTML = arr[this.index];
+                    }
+                }
+        }
+
+    </script>
+</head>
+<body>
+    <div>
+        <img src=img2/1.jpg style="width: 665px;height:362px;display: block">
+        <img src=img2/2.jpg style="display: none">
+        <img src=img2/3.jpg style="display: none">
+        <img src=img2/4.jpg style="display: none">
+        <img src=img2/5.jpg style="display: none">
+        <img src=img2/6.jpg style="display: none">
+<img src=img2/7.jpg style="display: none">
+<img src=img2/8.jpg style="display: none">
+<button id="after"><</button>
+<button id="next">></button>
+<div id="div1">大中华全球领跌 苹果的下一剂鸡血在印度？</div>
+<ul>
+    <li>1</li><li>2</li><li>3</li><li>4</li>
+    <li>5</li><li>6</li><li>7</li><li>8</li>
+</ul>
+</div>
+</body>
+</html>

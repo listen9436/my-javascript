@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .active{
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oLi = document.getElementsByTagName('li');
+            var oDiv = document.getElementById('div1');
+            var arr = ["撒的撒的","研究研究一天","退换退换","归途如虹退换","个个都是非常","sadsadsadsad","trhtrhtrhtr","ytkytk","ytkytkytk","ukutktytk"];
+                for(var i=0;i<oLi.length;i++){
+                    oLi[i].index = i;
+                }
+                for(var i=0;i<=11;i++) {
+                    oLi[i].onmousemove = function () {
+                        for (var j = 0; j <= 11; j++) {
+                            oLi[j].className = "";
+                        }
+                        this.className = "active";
+                        oDiv.innerHTML = (this.index+1)+"月到了"+arr[this.index];
+                    }
+                }
+        }
+
+
+    </script>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+    </ul>
+    <div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/日历.css">
+    <script>
+        window.onload = function(){
+            var arr = [
+                "一月到了，大家快去商量去哪玩吧", "二月到了，大家快去商量去哪玩吧",
+                "三月到了，大家快去商量去哪玩吧", "四月到了，大家快去商量去哪玩吧",
+                "五月到了，大家快去商量去哪玩吧", "六月到了，大家快去商量去哪玩吧",
+                "七月到了，大家快去商量去哪玩吧", "八月到了，大家快去商量去哪玩吧",
+                "九月到了，大家快去商量去哪玩吧", "十月到了，大家快去商量去哪玩吧",
+                "十一月到了，大家快去商量去哪玩吧","十二月到了，大家快去商量去哪玩吧"];
+            var oDiv = document.getElementById('div1');
+            var oLi = document.getElementsByTagName('li');
+                for( var i=0;i<oLi.length;i++){
+                    //绑定索引
+                    oLi[i].index = i;
+                    //清空  将所有的Li的class变成""
+                    oLi[i].onmouseover = function(){
+                        for(var j = 0;j<oLi.length;j++){
+                            oLi[j].className = "";
+                        }
+                        this.className = "active";
+
+                        //修改DIV内部内容
+                        oDiv.innerHTML = "<h4>"+(this.index+1)+"月活动<h4>"+arr[this.index];
+                    }
+                }
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li>1<p>JAN</p></li>
+        <li>2<p>FER</p></li>
+        <li>3<p>MAR</p></li>
+        <li>4<p>APR</p></li>
+        <li>5<p>MAY</p></li>
+        <li>6<p>JUN</p></li>
+        <li>7<p>JUL</p></li>
+        <li>8<p>AUG</p></li>
+        <li>9<p>SEP</p></li>
+        <li>10<p>OCT</p></li>
+        <li>11<p>NOV</p></li>
+        <li>12<p>DEC</p></li>
+        <div id="div1"></div>
+    </ul>
+</body>
+</html>

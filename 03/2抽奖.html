@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            var oTxt = document.getElementById('txt');
+            var oBtn = document.getElementById('btn');
+            oBtn.onclick = function(){
+                var a = oTxt.value;
+                    var qian=parseInt(a/1000);
+                    var bai=parseInt((a-qian*1000)/100);
+                    var shi=parseInt((a-qian*1000-bai*100)/10);
+                    var ge=parseInt(a-qian*1000-bai*100-shi*10);
+                    var sum=qian+bai+shi+ge;
+                    if(sum==24){
+                        alert("恭喜您中奖了!")
+                    }else {
+                        alert("非常遗憾，您没中奖")
+                    }
+                }
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="txt" maxlength="4">
+<input type="button" value="抽奖" id="btn">
+</body>
+</html>

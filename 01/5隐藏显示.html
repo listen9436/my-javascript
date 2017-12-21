@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function(){
+            //1  拿到按钮和列表
+            var oBtn = document.getElementById("btn1");
+            var oUl = document.getElementById("ul1");
+            //2 当按钮点击时，操作ul
+            oBtn.onclick = function(){
+                if(oUl.style.display == "none"){
+                    oUl.style.display = "block";
+                }else{
+                    oUl.style.display = "none";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input id="btn1" type="button" value="标题">
+    <ul id="ul1">
+        <li>选项</li>
+        <li>选项</li>
+        <li>选项</li>
+    </ul>
+</body>
+</html>

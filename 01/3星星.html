@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 27px;
+            height: 27px;
+            background: url("img/QQ图片20160726102732.png") no-repeat;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var odiv =document.getElementById("div1");
+            odiv.onmouseover = function(){
+                odiv.style.backgroundPosition = "bottom"
+            }
+            odiv.onmouseout = function(){
+                odiv.style.backgroundPosition = "top"
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+
+</div>
+</body>
+</html>

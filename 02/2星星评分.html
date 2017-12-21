@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        li{
+            list-style: none;
+            float: left;
+            width: 27px;
+            height: 27px;
+            background: url("img/1.png");
+            background-position: top;
+        }
+        .active{
+            background-position: bottom;
+        }
+    </style>
+
+    <script>
+        window.onload = function(){
+
+            var arrli = document.getElementsByTagName('li');
+            for(var i=0;i<arrli.length;i++){
+                //绑定索引
+                arrli[i].index = i;
+                //设置事件
+                arrli[i].onmouseover = function(){
+                    //清空
+                    for(var j=0;j<arrli.length;j++){
+                        arrli[j].className = "";
+                    }
+                    //设置当前
+                    for(var j=0;j<=this.index;j++){
+                        arrli[j].className = "active";
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+<body>
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</body>
+</html>

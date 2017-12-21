@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+            for(i=100;i<=999;i++) {
+                var b = parseInt(i / 100);
+                var s = parseInt((i - b * 100) / 10);
+                var g = (i - b * 100 - s * 10);
+                var sum = (b*b*b+s*s*s+g*g*g)
+                if(sum==i){
+                    document.write(i+"<br>")
+                }
+            }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

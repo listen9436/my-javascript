@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+    <script>
+        window.onload= function() {
+            var oDiv = document.getElementById("div1");
+            oDiv.onmouseover = function () {
+                oDiv.style.width = '200px';
+                oDiv.style.height = '200px';
+                oDiv.style.backgroundColor = 'green';
+            }
+            oDiv.onmouseout = function () {
+                oDiv.style.width = '100px';
+                oDiv.style.height = '100px';
+                oDiv.style.backgroundColor = 'red';
+            }
+            oDiv.onclick = function () {
+                oDiv.style.width = '200px';
+                oDiv.style.height = '200px';
+                oDiv.style.backgroundColor = 'yellow';
+            }
+        }
+    </script>
+</head>
+<body>
+ <div id="div1">
+
+ </div>
+</body>
+</html>

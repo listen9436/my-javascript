@@ -1,0 +1,39 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+}
+ul{
+    width: 220px;
+    height: 400px;
+    background: #ccc;
+}
+li{
+    list-style: none;
+    float: left;
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    line-height: 25px;
+    background-color: #000;
+    color:#fff;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px;
+    border: 1px solid #000;
+}
+li p{
+    font-size: 15px;
+}
+.active{
+    border: 1px solid #fff;
+    border-bottom-left-radius:30px;
+    color: red;
+    background-color: #fff;
+}
+#div1{
+    width: 200px;
+    height: 100px;
+    float: left;
+    margin-left: 10px;
+    background-color: #00B0E7;
+}

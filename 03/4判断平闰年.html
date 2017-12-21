@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            var oTxt = document.getElementById('txt');
+            var oBtn = document.getElementById('btn');
+            oBtn.onclick = function() {
+                var a = oTxt.value;
+                if(isNaN(a)){
+                    alert("输入错误")
+
+                }else if(a%4==0 && a%100!=0 || a%400==0){
+                    alert("闰年")
+                }else {
+                    alert("平年")
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="txt">
+<input type="button" value="点我一下，你就知道" id="btn">
+</body>
+</html>

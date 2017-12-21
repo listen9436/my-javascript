@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        window.onload = function(){
+            var oBox = document.getElementById('box');
+            oBox.onclick = function(){
+                //拿到所有复选框
+            var arrBox = document.getElementsByTagName("input");
+
+                for(var i=0;i<arrBox.length;i++){
+                    arrBox[i].checked = oBox.checked;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="checkbox" id="box">全选<br>
+    <input type="checkbox"><br><input type="checkbox"><br>
+    <input type="checkbox"><br><input type="checkbox"><br>
+    <input type="checkbox"><br><input type="checkbox"><br>
+</body>
+</html>

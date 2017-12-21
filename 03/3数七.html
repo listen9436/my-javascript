@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function(){
+            var oInt=document.getElementById('txt');
+            var oBtn=document.getElementById('btn');
+            oBtn.onclick=function(){
+                var a=parseInt(oInt.value);
+                for(var i=1; i< a;i++){
+                    var qian=parseInt(i/1000);
+                    var bai=parseInt((i-qian*1000)/100);
+                    var shi=parseInt((i-qian*1000-bai*100)/10);
+                    var ge=parseInt(i-qian*1000-bai*100-shi*10);
+                    if(ge==7||shi==7||bai==7||qian==7||i%7==0){
+                            document.write(i+" ");
+                    }else {
+
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="txt" maxlength="4">
+<button id="btn">点我一下，你就知道</button>
+</body>
+</html>
