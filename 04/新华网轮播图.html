@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 655px;
+            height: 441px;
+            position: relative;
+            margin: 0 auto;
+            background: url("img/bg.png")no-repeat;
+        }
+        .header {
+            width: 99px;
+            height: 11px;
+            position: absolute;
+            left: 50%;
+            top: 4px;
+            margin-left: -49px;
+            background: url("img/logo.png") no-repeat -97px -260px;
+        }
+        .header:hover{
+            background: url("img/logo.png") no-repeat -97px -272px;
+        }
+        .imgbox{
+            width: 651px;
+            height: 365px;
+            position: relative;
+            top: 18px;
+            left: 2px;
+        }
+        .libox{
+            width: 280px;
+            height: 25px;
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            margin-left: -140px;
+            overflow: hidden;
+            text-align: center;
+        }
+        .libox ul li{
+            width: 25px;
+            height: 25px;
+            background: url("img/li.png")no-repeat 0 -50px;
+            float: left;
+            list-style: none;
+        }
+        .libox ul li:hover{
+            background: url("img/li.png")no-repeat -25px -50px;
+        }
+        .lr{
+            width: 60px;
+            height: 25px;
+            position: absolute;
+            bottom: 28px;
+            right: 70px;
+        }
+        #left{
+            width: 21px;
+            height: 24px;
+            background: url("img/li.png")no-repeat 0 0;
+            position: absolute;
+            left: 0;
+            cursor: pointer;
+        }
+        #left:hover{
+            background: url("img/li.png")no-repeat 0 -25px;
+        }
+        #right{
+            width: 21px;
+            height: 24px;
+            background: url("img/li.png")no-repeat -22px 0;
+            position: absolute;
+            left: 35px;
+            cursor: pointer;
+        }
+        #right:hover{
+            background: url("img/li.png")no-repeat -23px -25px;
+        }
+        #div1{
+            width: 500px;
+            margin: 0 auto;
+            margin-top: 45px;
+            padding: 0 10px;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            font-family: \5FAE\8F6F\96C5\9ED1;
+        }
+        #div1:hover{
+            color: #ff9724;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var arrimg = document.getElementsByTagName('img');
+            var arrli = document.getElementsByTagName('li');
+            var oLeft = document.getElementById('left');
+            var oRight = document.getElementById('right');
+            var oDiv = document.getElementById('div1');
+            var arr = ["习近平会见全国双拥模范代表",
+                "中央军委晋升上将军衔仪式在京举行",
+                "特殊的“八一”礼物，迟到8年的海上婚礼",
+                "彭丽媛出席“2016中非儿童北京夏令营”开营式并未夏令营开营",
+                "新华网航拍：湖北天门黄潭镇搜救现场",
+                "明知山有虎，偏向虎山行----东北虎保护的那些事",
+                "“口袋妖怪”走红，AR的春天来了？",
+                "重庆巫山快艇沉翻事故10人获救",
+                "美丽的印尼首翘等待您的到来",
+                "此刻，想未来",
+                "健康互联 全程关护----家庭护理"
+            ];
+            var indeximg = 0;
+                for(var i = 0;i<arrli.length;i++){
+                    arrli[i].index = i;
+
+                    arrli[i].onclick = function () {
+                        for(var j=0;j<arrimg.length;j++){
+                            arrimg[j].style.display = "none";
+                            arrli[j].style.background = "url('img/li.png')no-repeat 0 -50px";
+                        }
+                            arrimg[this.index].style.display = "block";
+                            this.style.background = "url('img/li.png')no-repeat -25px -50px";
+
+                            indeximg = this.index;
+                            oDiv.innerHTML = arr[this.index];
+                    }
+                    oLeft.onclick = function () {
+                        indeximg = indeximg - 1;
+                        if (indeximg == -1) {
+                            indeximg = 10;
+                        }
+                        for (var j = 0; j < arrimg.length; j++) {
+                            arrimg[j].style.display = "none";
+                            arrli[j].style.background = "url('img/li.png')no-repeat 0 -50px";
+                        }
+                        arrimg[indeximg].style.display = "block";
+                        arrli[indeximg].style.background = "url('img/li.png')no-repeat -25px -50px";
+                        oDiv.innerHTML = arr[indeximg];
+                    }
+                    oRight.onclick = function () {
+                        indeximg = indeximg + 1;
+                        if (indeximg == 11) {
+                            indeximg = 0;
+                        }
+                        for (var j = 0; j < arrimg.length; j++) {
+                            arrimg[j].style.display = "none";
+                            arrli[j].style.background = "url('img/li.png')no-repeat 0 -50px";
+                        }
+                        arrimg[indeximg].style.display = "block";
+                        arrli[indeximg].style.background = "url('img/li.png')no-repeat -25px -50px";
+                        oDiv.innerHTML = arr[indeximg];
+                    }
+                }
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="header"></div>
+        <div class="imgbox">
+            <img src="img/1.jpg"style="display: block">
+            <img src="img/2.jpg" style="display: none">
+            <img src="img/3.jpg" style="display: none">
+            <img src="img/4.jpg" style="display: none">
+            <img src="img/5.jpg" style="display: none">
+            <img src="img/6.jpg" style="display: none">
+            <img src="img/7.jpg" style="width:651px;height:365px;display: none">
+            <img src="img/8.jpg" style="display: none">
+            <img src="img/9.jpg" style="display: none">
+            <img src="img/10.jpg" style="display: none">
+            <img src="img/11.jpg" style="display: none">
+        </div>
+        <div class="libox">
+            <ul>
+                <li class="li1"></li>
+                <li class="li1"></li>
+                <li class="li1"></li>
+                <li class="li1"></li>
+                <li class="li1"></li>
+                <li class="li1"></li>
+                <li class="li1"></li>
+                <li class="li1"></li>
+                <li class="li1"></li>
+                <li class="li1"></li>
+                <li class="li1"></li>
+            </ul>
+        </div>
+        <div class="lr">
+            <span id="left"></span>
+            <span id="right"></span>
+        </div>
+        <div id="div1">习近平会见全国双拥模范代表</div>
+    </div>
+</body>
+</html>

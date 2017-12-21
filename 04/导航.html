@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .header{
+            width: 100%;
+            height: 45px;
+            background-color: #4c5a65;
+            font-size: 15px;
+        }
+        .content{
+            width: 100%;
+            height: 800px;
+            background: url("img2/3.jpg")no-repeat -80px  -100px;
+        }
+        .nav{
+            width:1210px;
+            height: 45px;
+            margin: 0 auto;
+        }
+        .ul{
+            color: #fff;
+            font-size: 20px;
+            height: 45px;
+        }
+        .li1{
+            list-style: none;
+            float: left;
+            width: 60px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            background-color: #50b400;
+        }
+        .li2{
+            list-style: none;
+            float: left;
+            min-width: 60px;
+            height: 45px;
+            line-height: 45px;
+            padding: 0px 10px;
+            text-align: center;
+        }
+        .li2:hover{
+            background-color: #fff;
+            color: #4c5a65;
+        }
+        .li3{
+            width: 1px;
+            height: 20px;
+            background-color: #5e6a74;
+            list-style: none;
+            float: left;
+            margin-top: 12px;
+        }
+        .div1{
+            width: 1200px;
+            height: 45px;
+            background-color: #4c5a65;
+            margin: 0 auto;
+            font-size: 20px;
+            color: #fff;
+        }
+        .div1 ul li{
+            width: 100px;
+            height: 45px;
+            line-height: 45px;
+            list-style: none;
+            float: left;
+            margin-right: 30px;
+        }
+        .div1 ul li:hover{
+            cursor: pointer;
+            color: #e85356;
+        }
+    </style>
+    <script>
+
+        window.onload = function(){
+            var arrdiv = document.getElementsByClassName('div1');
+            var arrli = document.getElementsByClassName('li2');
+            for(var i=0;i<arrli.length;i++) {
+
+                arrli[i].index = i;
+
+                arrli[i].onmousemove = function () {
+                    for (var j = 0; j < arrdiv.length; j++) {
+                        arrdiv[j].style.display = "none";
+                    }
+                    arrdiv[this.index].style.display = "block";
+                }
+
+            }
+
+        }
+
+
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="nav">
+            <ul class="ul">
+                <li class="li1">首页</li>
+                <li class="li2">景点</li>
+                <li class="li3"></li>
+                <li class="li2">酒店</li>
+                <li class="li3"></li>
+                <li class="li2">机票</li>
+                <li class="li3"></li>
+                <li class="li2">周边游</li>
+                <li class="li3"></li>
+                <li class="li2">国内游</li>
+                <li class="li3"></li>
+                <li class="li2">出境游</li>
+                <li class="li3"></li>
+                <li class="li2">游轮</li>
+                <li class="li3"></li>
+                <li class="li2">签证</li>
+                <li class="li3"></li>
+                <li class="li2">火车票</li>
+                <li class="li3"></li>
+                <li class="li2">汽车票</li>
+                <li class="li3"></li>
+                <li class="li2">同城专线</li>
+                <li class="li3"></li>
+                <li class="li2">金融</li>
+                <li class="li3"></li>
+                <li class="li2">攻略</li>
+            </ul>
+        </div>
+    </div>
+        <div class="content">
+            <div class="div1" style="display: none">
+                <ul>
+                    <li>国内景点</li><li>海外玩乐</li><li>海外门票</li>
+                    <li>周边跟团游</li><li>景点活动</li><li>包团定制</li>
+                    <li>迪士尼</li>
+                </ul>
+            </div>
+            <div class="div1" style="display: none">
+                <ul>
+                    <li>国内景点</li><li>海外玩乐</li><li>海外门票</li>
+                    <li>周边跟团游</li><li>景点活动</li><li>包团定制</li>
+                    <li>迪士尼</li>
+                </ul>
+            </div>
+            <div class="div1" style="display: none">阿萨德撒的撒的撒的撒的</div>
+            <div class="div1" style="display: none">
+                <ul>
+                    <li>国内景点</li><li>海外玩乐</li><li>海外门票</li>
+                    <li>周边跟团游</li><li>景点活动</li><li>包团定制</li>
+                    <li>迪士尼</li>
+                </ul>
+            </div>
+            <div class="div1" style="display: none">撒的撒的撒的撒的</div>
+            <div class="div1" style="display: none">去玩任务请让我确认前往</div>
+            <div class="div1" style="display: none">很饥饿退金额后发的是广东省</div>
+            <div class="div1" style="display: none">坤介绍的vewqfqwvfsac</div>
+            <div class="div1" style="display: none">切特奇怪法第三步vdsvsafc</div>
+            <div class="div1" style="display: none">气温日欧安不上飞醋三分凑撒</div>
+            <div class="div1" style="display: none">人哟一US按摩床年度vudahoisa</div>
+            <div class="div1" style="display: none">突然就突然你非得被vdsvdf</div>
+            <div class="div1" style="display: none">请问它却无法撒查询时VC</div>
+            <div class="div1" style="display: none">奇特我的vfxscwqrw </div>
+        </div>
+</body>
+</html>

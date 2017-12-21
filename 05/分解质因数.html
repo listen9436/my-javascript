@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+//
+        var num = 90;
+
+        //            100
+
+        while (num > 1) {    //100  50   25    5    1
+            //  找一个能把num整除的数   2 - num
+            //  2   2   5     5
+            for (var i = 2; i <= num; i++) {
+                if (num % i == 0) {
+                    if (i == num) {
+                        document.write(i);
+                    }
+                    else {
+                        document.write(i + "*");
+                    }
+                    num /= i;
+                    break;
+                }
+            }
+        }
+
+
+//        var num = prompt('输入你想要分解质因数的数字:','90');
+//        var regex = new RegExp(/^[0-9]*[1-9][0-9]*$/);
+//        var i = 2;
+//        var handle = num;
+//        var arr = new Array();
+//        while(i<handle){     //i小于num则一直循环下去，直到i=num为止
+//            var result = handle/i;
+//            if(regex.test(result)){ //除2结果为整数
+//                arr.push(i);
+//                i=2;
+//                handle=result;
+//            }else{
+//                i++;
+//            }
+//            if(i == handle-1){  //判断是否要结尾
+//                arr.push(handle)
+//                break;
+//            }
+//        }
+//        //打印结果
+//        var str = String();
+//        for(i=0;i<arr.length;i++){
+//            str += arr[i];
+//            if(i != arr.length-1)
+//                str += '*';
+//        }
+//        alert('结果等于 :'+str);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

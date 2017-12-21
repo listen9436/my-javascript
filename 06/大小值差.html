@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+        var a = parseInt(prompt("输入一个数:"));
+        var b = parseInt(prompt("输入一个数:"));
+        var c = parseInt(prompt("输入一个数:"));
+        var tmp  = 0;
+
+        if(a>b){tmp = a;a = b;b = tmp;}
+        if(a>c){tmp  = a;a = c;c = tmp;}
+        if(b>c){tmp = b;b = c;c = tmp;}
+
+        alert(c-a)
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

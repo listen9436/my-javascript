@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+
+        //随机产生一个随机数  0-10
+
+        //  [0,1)   [0,10)
+        //不加parsrInt 会产生小数
+//        alert(parseInt(Math.random()*10));
+
+//        //0-100
+//        alert(parseInt(Math.random()*100));
+
+
+    //    猜奖
+
+        var suiji = parseInt(Math.random()*11);
+        var times = 3;// 3次机会
+
+        var num = prompt('有奖竞猜（随便猜一个0-10之内的数）');
+        while(true) {  //设置一个无线循环，true为永真。
+
+            var a = prompt("剩余机会" + times);
+            times--;
+
+            if (a > suiji) {
+                alert("猜大了")
+            }if(a < suiji){
+                alert("猜小了")
+            }if(a == suiji){
+                alert("恭喜你，猜对了！")
+                break;
+            }if(times <= 0){
+                alert("很遗憾，机会用尽了。")
+                break;
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

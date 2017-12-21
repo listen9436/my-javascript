@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //break是停止整个循环。
+        //continue是结束当次循环，对后面不影响，大的循环仍执行。
+
+
+//         1-100   跳过带7  或者7的倍数  当数字等于60的时候循环停止。
+        for(var i=0;i<=100;i++){
+            if(i%10==7){
+                continue;
+            }
+            if(parseInt(i/7==7)){
+                continue;
+            }
+            if(i%7==0){
+                continue;
+            }
+            if(i==60){
+                break;
+            }
+            document.write(i+"&nbsp;")
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

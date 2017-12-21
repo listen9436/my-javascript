@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //循环把非Microsoft和IBM的公司成员找出来删除掉，
+        // 已给数组    [Adobe','Apple','Google','Intel','Microsoft','Oracle','IBM','SUN]
+        arr = ["Adobe","Apple","Google","Intel","Microsoft","Oracle","IBM","SUN"];
+
+            for(var i = 1;i<=7;i++){
+                arr[i].index = i;
+
+                if(i==4||i==6){
+                    document.write(arr[i]+"&nbsp;");
+                }
+            }
+
+
+//           for(var i = 0;i<arr.length;i++){
+//                if(arr[i] !='Microsoft' && arr[i] !='IBM'){
+//                   arr[i] = undefined;
+//             }
+//         }
+//          document.write(arr);
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

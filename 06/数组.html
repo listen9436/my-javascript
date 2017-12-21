@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+//         var arr = [1,2,3,4,5];
+//
+//         arr[6] = 7; //长度为7
+//
+//         alert(arr.length)
+
+//            arr.length   表示 数组中最大下标加1
+//            arr.length  用来设置数组长度
+//                      当length  增大时，后面元素自动补上undifind
+//                      当length 缩小时，数组会自动截取
+
+
+//           变量    一个变量
+//           数组，  只存放一种类型的元素
+
+
+
+       //输出100个随机数
+
+//        var arr = [];
+//
+//        for(var i = 0;i<100;i++){
+//            arr[i] = parseInt(Math.random(arr[i])*100)
+//            document.write(arr[i]+"<br>");
+//        }
+
+
+
+        //二位数组
+
+//        var arr = [[1,2,3],[4,5,6],[7,8,9]]
+//        alert(arr[0][2])     //弹出第一个数组中第3个元素    结果为3
+
+
+
+        //数组排序
+
+//        冒泡排序
+//        选择排序
+//        插入
+//        快速排序
+
+        var arr = [23,45,78,56,43,99,6,22]
+
+//            for(var i = arr.length-1;i>0;i--){
+//                for(var j=0;j<i;j++){
+//                if(arr[j]>arr[j+1]) {
+//                    var tmp = arr[j];
+//                    arr[j] = arr[j + 1];
+//                    arr[j + 1] = tmp;
+//                }
+//                }
+//            }
+//            document.write(arr)
+
+        //牛逼排序
+
+//        arr.sort(function(num1,num2){
+//            return num1 - num2 ;   //前面的数字大于后面的数字，，则为升序
+//            //return num2 - num1 ;  ------后大于前，，为降序
+//        })
+//            alert(arr)
+
+
+            var  arr2 =  [[1,2,3,4,6],[2,3],[3,4,5,7],[5,6,7,8,8,9],[1,2,3]];
+
+            arr2.sort(function(num1,num2){
+                return num1.length - num2.length;
+            });
+            for(var i = 0;i<arr2.length;i++){
+                document.write(arr2[i]+"<br>")
+            }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

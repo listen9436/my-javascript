@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        /*输入三个整数x,y,z，请把这三个数由小到大输出*/
+
+
+        .box{
+            width: 300px;
+            height:40px;
+            margin: 50px auto;
+        }
+        button{
+            border: 1px solid #e85356;
+            width: 100px;
+            background: #e4393c;
+            height: 23px;
+            color: #fff;
+            font-size: 14px;
+            font-family: 'Microsoft YaHei';
+            outline: 0 none;
+        }
+        input{
+            width: 70px;
+            height: 30px;
+            font-size: 15px;
+            color: #0066cc;
+            border: 1px solid #e85356;
+        }
+    </style>
+
+    <script>
+        window.onload = function(){
+            var oA = document.getElementById('a');
+            var oB = document.getElementById('b');
+            var oC = document.getElementById('c');
+            var oBtn1 = document.getElementById('btn1');
+
+                var a = parseInt(oA.value);
+                var b = parseInt(oB.value);
+                var c = parseInt(oC.value);
+                var num;
+
+                oBtn1.onclick = function(){
+                    if(a>b){
+                        num = a;
+                        a = b;
+                        b = num;
+                    }else if(a>c){
+                        num = a;
+                        a = c;
+                        c = num;
+                    }else if(b>c){
+                        num = b;
+                        b = c;
+                        c = num;
+                    }else {
+                        alert(a+" "+b+" "+c)
+                    }
+
+                }
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+    <input type="text" id="a" maxlength="5">
+    <input type="text" id="b" maxlength="5">
+    <input type="text" id="c" maxlength="5"><br><br>
+    <button id="btn1">由小到大排列</button>
+    </div>
+</body>
+</html>
