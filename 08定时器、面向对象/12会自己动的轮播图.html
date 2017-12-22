@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        .box {
+            width: 730px;
+            height: 455px;
+            margin: 30px auto;
+            position: relative;
+        }
+        .box img {
+            display: none;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var arrimg = document.getElementsByTagName('img');
+            var times = 0;
+
+            setInterval(function () {
+                if (times == 6) {
+                    times = 0;
+                }
+                for (var j = 0; j < arrimg.length; j++) {
+                    arrimg[j].style.display = "none";
+                }
+                arrimg[times].style.display = "block";
+                times++;
+            }, 500)
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <img src="img/1.jpg" style="display: block">
+    <img src="img/2.jpg">
+    <img src="img/3.jpg">
+    <img src="img/4.jpg">
+    <img src="img/5.jpg">
+    <img src="img/6.jpg">
+</div>
+</body>
+</html>

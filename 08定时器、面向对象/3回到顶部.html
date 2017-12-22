@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            background: url("../img/2.jpg");
+        }
+        #div1{
+            width: 100px;
+            height: 10000px;
+            background-color: #00B0E7;
+        }
+        #btn1{
+            position: fixed;
+            bottom: 10px;
+            right: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #0A7EC3;
+
+        }
+    </style>
+    <script>
+
+        window.onload = function () {
+
+            var oTop = document.getElementById('btn1');
+            oTop.onclick = function () {
+
+//                alert(document.documentElement.scrollTop);
+
+                var id = setInterval(function () {//设置定时器，否则显得过生硬
+
+                    var scrollTop;
+                    if(document.documentElement.scrollTop){//设置兼容性，如果他存在
+                        //获取 火狐，，IE 滚动条高度
+                        scrollTop = document.documentElement.scrollTop;
+                    }else {
+                        //获取 Google  滚动条高度
+                        scrollTop = document.body.scrollTop;
+                    }
+                    document.documentElement.scrollTop -= scrollTop/10;
+                    //3种浏览器都 每次减少 当前滚动条高度的10%
+                    document.body.scrollTop -= scrollTop/10;
+
+                    if (scrollTop <= 0){//因为除不尽，可以设大点
+                        //如果滚动条高度为0时，清空定时器
+                        clearInterval(id)
+                    }
+                },15);  //15毫秒
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div1"></div>
+    <button id="btn1">回到顶部</button>
+</body>
+</html>

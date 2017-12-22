@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 200px;
+            background-color: red;
+        }
+    </style>
+    <script>
+
+        window.onload = function () {
+
+            var oBtn = document.getElementById('btn1');
+            var oDiv = document.getElementById('div1');
+            oBtn.onclick = function(){
+//                alert(oDiv.style.display);//获取不了
+//                alert(oDiv.currentStyle.display)// current 现在的，当前的，， (只能在IE中使用)
+//                alert(getComputedStyle(oDiv).display)//谷歌中使用
+                if(oDiv.currentStyle) {//如果currentStyle 存在的话
+                    alert(oDiv.currentStyle.display)
+                }else {
+                    alert(getComputedStyle(oDiv).display)
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+<input type="button" id="btn1">
+<div id="div1"></div>
+</body>
+</html>

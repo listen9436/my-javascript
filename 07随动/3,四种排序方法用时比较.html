@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var arr1 = [];
+        var arr2 = [];
+        var arr3 = [];
+        var arr4 = [];
+
+        for (var i = 0; i < 10000; i++) {
+            var num = parseInt(Math.random() * 10000);
+            arr1.push(num);
+            arr2.push(num);
+            arr3.push(num);
+            arr4.push(num);
+        }
+        //选择排序
+        var oDate1 = new Date();
+        for (var i = arr1.length - 1; i > 0; i--) {
+            for (var j = 0; j < i; j++) {
+                if (arr1[j] > arr1[i]) {
+                    var tmp = arr1[j];
+                    arr1[j] = arr1[i];
+                    arr1[i] = tmp;
+                }
+            }
+        }
+        //插入排序
+        var oDate2 = new Date();
+        for (var i = 1; i < arr2.length; i++) {
+            for (var j = i; j > 0; j--) {
+                if (arr2[j] < arr2[j - 1]) {
+                    var tmp = arr2[j];
+                    arr2[j] = arr2[j - 1];
+                    arr2[j - 1] = tmp;
+                } else {
+                    break;
+                }
+            }
+        }
+        //冒泡排序
+        var oDate3 = new Date();
+        for (var i = arr3.length - 1; i > 0; i--) {
+            for (var j = 0; j < i; j++) {
+                if (arr3[j] > arr3[j + 1]) {
+                    var tmp = arr3[j];
+                    arr3[j] = arr3[j + 1];
+                    arr3[j + 1] = tmp;
+                }
+            }
+        }
+        //系统排序
+        var oDate4 = new Date();
+        arr4.sort(function (num1, num2) {
+            return num1 - num2;
+        })
+        var oDate5 = new Date();
+
+        document.write(oDate2.getTime()-oDate1.getTime()+"<br>")
+        document.write(oDate3.getTime()-oDate2.getTime()+"<br>")
+        document.write(oDate4.getTime()-oDate3.getTime()+"<br>")
+        document.write(oDate5.getTime()-oDate4.getTime()+"<br>")
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+
+
+
+    <script>
+
+        //setTimeout()  延时，只弹一次
+        //setInterval()    弹多次
+
+        //clearTimeout()  清除定时  停止
+        //clearInterval()
+
+//        setTimeout(function(){alert(1)},3000) //毫秒  ===3秒
+//        setInterval(function(){alert(1)},1000)  //1秒弹一次
+
+
+        window.onload = function () {
+
+            var oBtn = document.getElementById('btn1');
+            var oDiv = document.getElementById('div1');
+            var id = 0;
+            oBtn.onclick = function () {
+                id = setInterval(function(){
+                    if(oDiv.offsetLeft >= 400){
+                        clearInterval(id);
+                    }
+                        oDiv.style.left = (oDiv.offsetLeft+1)+"px";
+                },5);
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <input type="button" value="点击" id="btn1">
+    <div id="div1"></div>
+</body>
+</html>

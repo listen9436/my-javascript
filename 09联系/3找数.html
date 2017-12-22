@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        for(i =100;i<=999;i++){
+            var bai = parseInt(i/100);
+            var shi = parseInt((i-bai*100)/10);
+            var ge = parseInt(i-bai*100-shi*10);
+            if(bai*bai*bai+shi*shi*shi+ge*ge*ge == 1099){
+                document.write(i+"<br>")
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

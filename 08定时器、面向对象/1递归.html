@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!--在函数内部调用函数本身    就叫递归 -->
+
+    <script>
+
+        //5的阶乘
+//        function f(n) {
+//            if (n == 1) {
+//                return 1;
+//            }
+//            return n * f(n - 1)  //5不等于1，返回 5乘以4的阶乘。
+//                             // 然后再循环，5*4*3的阶乘，直到 n = 1。
+//        }
+//        alert(f(5));
+
+
+
+        //算兔子数量
+//        function f(n){
+//
+//            if(n==1||n==2){
+//                return 1;  //第一月和第二月不生，还是1对
+//            }
+        //规律，每个第一个月加第二个月的数量正好等于每个第三个月的
+//            return f(n-1)+f(n-2);   //每个第三月的兔子对数
+//        }
+//        alert(f(6));
+
+
+
+        //从  1/10  +  1/9+。。。。加到1
+
+//        function f(n){
+//
+//            if(n==1){
+//
+//                return 1;
+//            }
+//            return 1/n+f(n-1);
+//        }
+//        alert(f(10));
+
+
+
+        //复制数组，（不是单纯的指向）
+
+        function copy(arr){
+            var newArr = [];
+            for(var i=0;i<arr.length;i++){
+                //arr[i]
+                //如果是数组
+                //如果不是数组
+                if (Array.isArray(arr[i])){
+                    newArr[i] = copy(arr[i]);
+                }else {
+                    newArr[i] = arr[i];
+                }
+            }
+            return newArr;
+        }
+        //var arr = [1,2,3]
+        var arr = [[1,2,3],[1,2,3],[1,2,3]];
+        var newArr = copy(arr);
+        arr[1][1] = 6;  //把之前数组随便改变一个元素，如果新数组中没有6.
+                    // 说明则为复制，，有6，那就是单纯的指向了，并没有实现真正的复制。
+        alert(arr)
+        alert(newArr)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

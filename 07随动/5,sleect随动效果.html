@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        window.onload = function () {
+            var oS1 = document.getElementById('s1');
+            var oS2 = document.getElementById('s2');
+
+            var arr2 = [["斗地主","炸金花","跑得快"],["打僵尸","打鬼子","打杨建"],
+                ["逃离迷宫","找到杨建","杨建快跑"]]
+
+            oS1.onchange = function () {
+
+                var arr = arr2[oS1.value];
+
+                oS2.options.length = 1;
+
+                for (var i = 0; i < arr.length; i++) {
+                    oS2.add(new Option(arr[i]))
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<select id="s1">
+    <optgroup label="请选择"></optgroup>
+    <option value="0">棋牌类</option>
+    <option value="1">射击类</option>
+    <option value="2">策略类</option>
+</select>
+<select id="s2">
+    <option>请选择</option>
+</select>
+</body>
+</html>

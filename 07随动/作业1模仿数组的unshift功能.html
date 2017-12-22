@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //         1  创建函数模仿数组的unshift功能
+        //           参数  arr   num
+        //           返回值
+
+        function myUnshift(arr, num) {
+//             arr.splice(0,0,num);
+
+            // 1  将数组元素向后移动一位
+            //   l-1     0
+            for (var i = arr.length - 1; i >= 0; i--) {
+                arr[i + 1] = arr[i]
+            }
+            //  2  将新元素插入到第一个位置
+            arr[0] = num;
+        }
+        function myUnshift1(arr, num) {
+//             arr.splice(0,0,num);
+
+            // 1  将数组元素向后移动一位
+            //   l-1     0
+            var newArr = [];
+            for (var i = arr.length - 1; i >= 0; i--) {
+                newArr[i + 1] = arr[i]
+            }
+            //  2  将新元素插入到第一个位置
+            newArr[0] = num;
+
+            return newArr
+        }
+        var arr = [1, 2, 3, 4, 5];
+        var newa = myUnshift1(arr, 0);
+        myUnshift1(arr, 1);
+        alert(newa);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

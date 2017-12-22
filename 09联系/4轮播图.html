@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 800px;
+            height: 480px;
+            margin: 50px auto;
+            position: relative;
+        }
+
+        img {
+            width: 800px;
+            height: 480px;
+            display: none;
+        }
+
+        button {
+            width: 30px;
+            height: 45px;
+            text-align: center;
+            font-size: 30px;
+            color: #fff;
+            background-color: #4c5a65;
+            outline: 0 none;
+        }
+
+        #pre {
+            border-bottom-right-radius: 10px;
+            border-top-right-radius: 10px;
+            opacity: 0.9;
+            position: absolute;
+            left: 5px;
+            top: 220px;
+        }
+
+        #next {
+            border-bottom-left-radius: 10px;
+            border-top-left-radius: 10px;
+            opacity: 0.9;
+            position: absolute;
+            right: 5px;
+            top: 220px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var arrimg = document.getElementsByTagName('img');
+            var oPre = document.getElementById('pre');
+            var oNext = document.getElementById('next');
+            var oBox = document.getElementById('box');
+            var indeximg = 0;
+            oPre.onclick = function () {
+                indeximg = indeximg-1;
+                if (indeximg == -1) {
+                    indeximg = 4;
+                }
+                for (var j = 0; j < arrimg.length; j++) {
+                    arrimg[j].style.display = "none";
+                }
+                arrimg[indeximg].style.display = "block";
+            }
+            var id = setInterval(next,3000);
+            oNext.onclick = next;
+            oBox.onmouseover = function () {
+                clearInterval(id);
+                id = 0;
+            }
+            oBox.onmouseout = function () {
+                if(!id) {
+                    id = setInterval(next, 3000);
+                }
+            }
+            function next() {
+                indeximg += 1;
+                if (indeximg == 5) {
+                    indeximg = 0;
+                }
+                for (var j = 0; j < arrimg.length; j++) {
+                    arrimg[j].style.display = "none";
+                }
+                arrimg[indeximg].style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <img src="img/1.jpg" style="display: block">
+    <img src="img/2.jpg">
+    <img src="img/3.jpg">
+    <img src="img/4.jpg">
+    <img src="img/5.jpg">
+    <button id="pre"><</button>
+    <button id="next">></button>
+</div>
+</body>
+</html>

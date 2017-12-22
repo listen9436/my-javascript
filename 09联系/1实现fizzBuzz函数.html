@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        function fizzBuzz(num){
+            if (num%3==0 && num%5==0){
+                return("fizzBuzz");
+            }else if(num%3==0){
+                return("fizz")
+            }else if(num%5==0){
+                return("buzz")
+            }else if(isNaN(num) || num==null){
+                return("flase")
+            }else {
+                return(num)
+            }
+        }
+        var a = prompt();
+        alert(fizzBuzz(a));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            width: 450px;
+            height: 260px;
+            margin: 50px auto;
+            background-color: #00B0E7;
+            border: 1px solid #0A7EC3;
+            position: relative;
+        }
+        .banner{
+            width: 450px;
+            height: 135px;
+            float: left;
+            background: url("img/banner.jpg")no-repeat center;
+        }
+        .txt{
+            width: 300px;
+            height: 120px;
+            position: absolute;
+            top: 140px;
+            left: 50%;
+            margin-left: -150px;
+            text-align: center;
+        }
+        .txt p{
+            height: 25px;
+            line-height: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+        }
+        .txt select{
+            width: 130px;
+            height: 22px;
+        }
+        .p{
+            margin-top: 20px;
+        }
+        .p button{
+            width: 85px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #0A7EC3;
+            color: #fff;
+            font-size: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+
+        window.onload = function () {
+
+            var oS1 = document.getElementById('s1');
+            var oS2 = document.getElementById('s2');
+            var arr2 = [["斗地主","炸金花","跑得快"],["打僵尸","打鬼子","打杨建"],
+                ["逃离迷宫","找到杨建","杨建快跑"]];
+
+            oS1.onchange = function () {
+                var arr = arr2[oS1.value];
+                oS2.options.length = 0;
+                for(var i = 0;i<arr.length;i++){
+
+                    oS2.add(new Option(arr[i]));
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="box">
+        <div class="banner"></div>
+        <div class="txt">
+            <p>
+            <a>请选择游戏类别：</a>
+            <select id="s1">
+                <option>--游戏分类--</option>
+                <option value="0">棋牌类</option>
+                <option value="1">射击类</option>
+                <option value="2">策略类</option>
+            </select>
+            </p>
+            <p>
+            <a>请选择游戏名称：</a>
+            <select id="s2">
+                <option>--游戏名称--</option>
+            </select>
+            </p>
+            <p class="p">
+                <button>进入游戏</button>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

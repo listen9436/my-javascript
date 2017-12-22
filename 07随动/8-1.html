@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        div{
+            width: 100px;
+            height: 200px;
+            background-color: red;
+        }
+
+    </style>
+    <script>
+        /*  */
+        function css(element,attr,value) {
+            if(arguments.length == 3){
+//                 oBtn["width"] = "200px"
+                element.style[attr] = value;
+            }else if(arguments.length == 2){
+                if(element.currentStyle){
+                    alert(element.currentStyle[attr]);
+                }else{
+                    alert(getComputedStyle(element)[attr])
+                }
+//                arguments[0]  arguments[1]
+            }
+        }
+        window.onload = function(){
+            var oBtn = document.getElementById("btn1")
+            var oDiv = document.getElementById("div1")
+            oBtn.onclick = function(){
+                css(oDiv,"width")
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" id="btn1">
+<div id="div1"></div>
+</body>
+</html>

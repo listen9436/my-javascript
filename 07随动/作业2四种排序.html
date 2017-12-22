@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var arr = [2,3,51,2,62,3,5];
+
+        //冒泡
+        for (var i=arr.length-1;i>0;i--){
+            for(var j = 0;j<i;j++){
+                if(arr[j]>arr[j+1]){
+                    var tmp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = tmp;
+                }
+            }
+        }
+        document.write("冒泡排序："+arr+"<br>")
+
+
+        //选择
+        for(var i = arr.length-1;i>0;i--){
+            for(var j = 0;j<i;j++){
+                if(arr[j]>arr[i]){
+                    var tmp = arr[j];
+                    arr[j] = arr[i]
+                    arr[i] = tmp;
+                }
+            }
+        }
+        document.write("选择排序："+arr+"<br>")
+
+
+        //插入
+        for(var i = 1;i<arr.length;i++){
+            for(var j = i;j>0;j--) {
+                if (arr[j] < arr[j - 1]) {
+                    var tmp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = tmp;
+                }
+            }
+        }
+        document.write("插入排序："+arr+"<br>")
+
+
+        //系统
+        arr.sort(function (num1,num2) {
+            return num1 > num2 ;
+        })
+        document.write("系统排序："+arr+"<br>")
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+    <script>
+
+
+//        有1、2、3、4个数字，能组成多少个互不相同且无重复数字的三位数？
+//        都是多少？
+
+        var num = 0;
+        for(var x = 1;x <= 4;x++){
+            for(var y = 1;y <= 4;y++){
+                for(var z = 1;z <= 4;z++){
+                    if(x!=y&&y!=z&&x!=z){
+                        document.write(x,y,z+"<br>")
+                        num ++;
+                    }
+                }
+            }
+        }
+            alert(num)
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+        //        setInterval()
+        //        调整间隔
+        var time = 300;
+        function show(n) {
+            document.write("hello~<br>")
+            time *= 1.2;
+            if (n <= 0) {
+                return;
+            }
+            setTimeout(function () {
+                show(n - 1)
+            }, time);
+        }
+        show(10);
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
