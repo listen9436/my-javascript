@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            color: #0A7EC3;
+            font-size: 25px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('div');
+
+            function show() {
+                var d = new Date();
+                var year = d.getFullYear();
+                var month = d.getMonth() + 1;
+                var day = d.getDate();
+                var h = d.getHours();
+                if (h > 12) {
+                    h = "PM " + (h - 12);
+                } else {
+                    h = "AM " + h;
+                }
+                var m = d.getMinutes();
+                var s = d.getSeconds();
+                var arr2 = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+                var xingqi = arr2[d.getDay()];
+                oDiv.innerHTML = year + "年" + month + "月" + day + "日 " + h + ":" + m + ":" + s +" "+xingqi;
+            }
+
+            show();
+            setInterval(show, 500)
+        }
+    </script>
+</head>
+<body>
+<p>你好，欢迎访问翡翠！</p>
+<div id="div"></div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('div');
+            var arrimg = document.getElementsByTagName('img');
+            function show() {
+                var d = new Date();
+                var h = d.getHours();
+                if(h<10){
+                    h = "0"+h
+                }
+                var m = d.getMinutes();
+                if(m<10){
+                    m = "0"+m
+                }
+                var s = d.getSeconds();
+                if(s<10){
+                    s = "0"+s
+                }
+                var str = h+""+m+""+s;
+                oDiv.innerHTML = str;
+                for(var i=0;i<arrimg.length;i++){
+                    arrimg[i].src = 'img/'+str.charAt(i)+'.jpg';
+                }
+
+            }
+            show();
+            setInterval(show, 500)
+        }
+    </script>
+</head>
+<body>
+<h1>现在时间是：</h1>
+<p id="div"></p>
+<img src="img/0.JPG">
+<img src="img/0.JPG">
+<img src="img/0.JPG">
+<img src="img/0.JPG">
+<img src="img/0.JPG">
+<img src="img/0.JPG">
+</body>
+</html>

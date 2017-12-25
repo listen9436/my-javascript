@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('div');
+            function showTime(){
+                var d = new Date();
+                var year = d.getFullYear();
+                var month = d.getMonth()+1;
+                var day = d.getDate()
+                var h = d.getHours();
+                var m = d.getMinutes();
+                var s = d.getSeconds();
+                oDiv.innerHTML = year+"年"+month+"月"+day+"日"+h + ":" + m + ":" + s;
+            }
+            showTime();
+            setInterval(showTime,500);
+        }
+    </script>
+</head>
+<body>
+<div id="div"></div>
+</body>
+</html>

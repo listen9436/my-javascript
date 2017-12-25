@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        var myDate = new Date();
+
+//        方法	     描述
+//        Date()	返回当日的日期和时间。
+            document.write(Date() + '</br>');
+//        getDate()	从 Date 对象返回一个月中的某一天 (1 ~ 31)。
+            document.write(myDate.getDate() + '</br>');
+//        getDay()	从 Date 对象返回一周中的某一天 (0 ~ 6)。
+            var arr = ["星期日","星期1","星期2","星期3","星期4","星期5","星期6"];
+            document.write(arr[myDate.getDay()] + '</br>');
+//        getMonth()从 Date 对象返回月份 (0 ~ 11)。
+            document.write(myDate.getMonth()+1 + '</br>');
+//        getFullYear()	从 Date 对象以四位数字返回年份。
+            document.write(myDate.getFullYear() + '</br>');
+//        getHours()返回 Date 对象的小时 (0 ~ 23)。
+            document.write(myDate.getHours() + '</br>');
+//        getMinutes()	返回 Date 对象的分钟 (0 ~ 59)。
+            document.write(myDate.getMinutes() + '</br>');
+//        getSeconds()	返回 Date 对象的秒数 (0 ~ 59)。
+            document.write(myDate.getSeconds() + '</br>');
+//        getMilliseconds()	返回 Date 对象的毫秒(0 ~ 999)。
+            document.write(myDate.getMilliseconds() + '</br>');
+//        getTime()	返回 1970 年 1 月 1 日至今的毫秒数。
+            document.write(myDate.getTime() + '</br>');
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        //现在的时间点（一直在变）
+        //未来设置的时间（不变）
+        window.onload = function () {
+            var oDiv = document.getElementById('div');
+
+            function showLeftTime(){
+                var oNow = new Date();
+                var oWei = new Date(2016,12,9,15,20);
+                if(oNow>=oWei){
+                    clearInterval(id);
+                    alert("开抢啦！")
+                    return;
+                }
+                var ms = oWei.getTime()-oNow.getTime(); //获取到的时间差为毫秒
+                var ss = Math.floor(ms/1000); //把毫秒转成秒
+                //秒
+                var s = ss%60;
+                if(s<10){
+                    s = "0"+s;
+                }
+                //分
+                var m = Math.floor(ss/60)%60;
+                if(m<10){
+                    m = "0"+m;
+                }
+                //小时
+                var h = Math.floor(ss/3600);
+                oDiv.innerHTML = h+":"+m+":"+s;
+
+            }
+             var id = setInterval(showLeftTime,500);
+        }
+    </script>
+</head>
+<body>
+<div id="div"></div>
+</body>
+</html>

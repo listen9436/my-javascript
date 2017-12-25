@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            color: red;
+            font-size: 25px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('div');
+
+            function show() {
+                var d = new Date();
+                var year = d.getFullYear();
+                var month = d.getMonth() + 1;
+                var day = d.getDate();
+                var h = d.getHours();
+                if (h < 10) {
+                    h = "0" + h;
+                }
+                var m = d.getMinutes();
+                if (m < 10) {
+                    m = "0" + m;
+                }
+                var arr = ["上午好","下午好","晚上好"];
+                if(h>=5 && h<=12){
+                    arr = arr[0];
+                }else if(h>12 && h<19){
+                    arr = arr[1];
+                }else if(h>=19 && h<=24){
+                    arr = arr[2];
+                }
+                oDiv.innerHTML = arr+"！欢迎来到翡翠<br>" + "今天日期：" + year + "年" + month + "月" + day + "日"
+                        + "<br>现在时间：" + h + "点" + m + "分"
+            }
+
+            show();
+            setInterval(show, 500)
+        }
+    </script>
+</head>
+<body>
+<div id="div"></div>
+</body>
+</html>
