@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //寻找一组数组里符合条件的QQ号，并提出
+
+        var str = "123213@qq.com    123123   5251213@qq.com   421322   245464522@qq.com   866231";
+        var reg = /((\d+)@qq)\.com/g;
+
+//        alert(str.match(reg));
+
+        //macth    找到第一个匹配正则表达式的子串
+        //   ()----将匹配到的子串中的子项(括号内的东西)放在数组的第1个位置
+        //     第n组放到数组中第n个位置(0,1,2...下标从0开始)
+        //     组的标号按照左括号的顺序  //则var reg = /((\d+)@qq)\.com/;的
+        //                  输出结果则为123213@qq.com,123213@qq,123213
+
+        // g 全局匹配    会将所有符合正则表达式的子串全部放到数组中
+        //             当使用了全局匹配   match  分组无效
+
+
+
+        //exec
+        //当没有  g     exec 和 match  等价
+        //有   g   exec 每执行一次，会将下一组结果找出来
+        //如果没有找到内容则会返回null
+        //下面执行3次，找出3组
+//       alert(reg.exec(str)); //123213@qq.com,123213@qq,123213
+//       alert(reg.exec(str));//5251213@qq.com,5251213@qq,5251213
+//       alert(reg.exec(str));//245464522@qq.com,245464522@qq,24546522
+
+        //那么可以设置一个循环，把它全找出来(while用于不知个数，if用于知道次数)
+        while(arr = reg.exec(str)){
+            document.write(arr[2]+"<br>")
+            //  2----是输出找出来的3个子项中的第3项(要提出的QQ号)
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
