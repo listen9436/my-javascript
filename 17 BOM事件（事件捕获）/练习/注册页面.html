@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人注册</title>
+    <link rel="stylesheet" type="text/css" href="css/zhuce.css">
+    <script src="cookie.js"></script>
+    <script>
+
+        window.onload = function () {
+            var oUsername = document.getElementById("username")
+            var oPassword = document.getElementById("password")
+            var oReg = document.getElementById("registor")
+            oReg.onclick = function(){
+                setCookie("username",oUsername.value,10);
+                setCookie("password",oPassword.value,10);
+                location = "登录页面.html"
+
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="bigbox">
+    <div class="header">
+        <a href="http://www.jd.com"><img src="img2/1.png" class="headpng"></a>
+        <div class="header-zc">欢 迎 注 册</div>
+        <div class="header-dl">已有账号 <a>请登录</a></div>
+    </div>
+    <div class="content">
+        <div class="contentbox">
+            <div class="content-left">
+                <div class="zhuce">
+                    <label class="yonghu" for="username">用户名</label>
+                    <input type="text" placeholder="您的账户名和登录名" class="labeltext"  id="username">
+                </div>
+                <div class="zhuce">
+                    <label class="mima" for="password">设置密码</label>
+                    <input type="password" placeholder="建议至少使用两种字符组合" class="labeltext" id="password">
+                </div>
+                <div class="zhuce">
+                    <label class="begin" for="zaicimima">确认密码</label>
+                    <input type="password" placeholder="请再次输入密码" class="labeltext" id="zaicimima">
+                </div>
+                <div class="zhuce">
+                    <label class="tell" for="dianhua">中国+86 ∨</label>
+                    <input type="text" placeholder="建议使用常用手机" class="labeltext" id="dianhua">
+                </div>
+                <div class="zhuce">
+                    <label class="yanzheng" for="yanzhengma">验证码</label>
+                    <input type="text" placeholder="请输入验证码" class="labeltext" id="yanzhengma">
+                </div>
+                <div class="zhuce">
+                    <label class="tellyanzheng" for="shoujiyanzheng">手机验证码</label>
+                    <input type="text" placeholder="请输入手机验证码" class="labeltext" id="shoujiyanzheng">
+                </div>
+                <div class="zhucefoot">
+                   <p class="zhucep"><input type="checkbox" checked="flase"> 我已阅读并同意<span class="zhucespan">《京东用户注册协议》</span></p>
+                </div>
+                <div>
+                    <input type="button" value="立即注册" class="zhuzebtn" id="registor">
+                </div>
+            </div>
+            <div class="content-right">
+                <div class="right-img">
+                    <img src="img2/phone.jpg">
+                </div>
+                <div class="right-top">
+                    <a>
+                        <i></i>
+                        <span>企业用户注册</span>
+                    </a>
+                </div>
+                <div class="right-bottom">
+                    <a>
+                        <i></i>
+                        <span>INTERNATIONAL<br>CUSTOMERS</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="foot">
+        <div class="footul">
+            <ul>
+                <li class="footli">关于我们<span class="line2">|</span></li>
+                <li class="footli">联系我们<span class="line2">|</span></li>
+                <li class="footli">人才招聘<span class="line2">|</span></li>
+                <li class="footli">商家入驻<span class="line2">|</span></li>
+                <li class="footli">广告服务<span class="line2">|</span></li>
+                <li class="footli">手机京东<span class="line2">|</span></li>
+                <li class="footli">友情链接<span class="line2">|</span></li>
+                <li class="footli">销售联盟<span class="line2">|</span></li>
+                <li class="footli">京东社区<span class="line2">|</span></li>
+                <li class="footli">京东公益<span class="line2">|</span></li>
+                <li class="footli">English Site</li>
+            </ul>
+        </div>
+        <div class="footp">
+            <p>Copyright©2004-2016 京东JD.com 版权所有</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

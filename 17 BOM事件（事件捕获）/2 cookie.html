@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //不同的浏览器存放的 cookie 位置不一样，也是不能通用的
+        //我们通过document.cookie来获取当前网站下的cookie的时候，得到的是字符串形式的值，他包含了当前网站下所有的cookie
+        //document.cookie = '名字 = 值';
+        //      cookie  //   key = value
+
+        //  cookie 默认是临时存储的，当浏览器关闭时自动销毁
+//        document.cookie = "a=1";
+//        document.cookie = "b=2";//没设过期时间，关闭时就过期
+
+        //设置过期时间
+//        var oDate = new Date(2015,8,17);
+//        document.cookie = "a = 1";
+//        document.cookie = "b = 2;expires=" + oDate;
+//        alert(document.cookie);
+
+        function getCookieByKey(key){
+            var arr = document.cookie.split("; ");//把获取到的cookie用 ;+空格 拆开
+            for(var i=0;i<arr.length;i++){
+                var arrItem = arr[i].split("=")//把拆分后的每个cookie按“=”拆为key 和 value
+                if(arrItem[0] == key){
+                    return arrItem[1]
+                }
+            }
+        }
+        function setCookie(key,value,days){
+            var oDate = new Date();
+            oDate.setDate(oDate.getDate() + days);
+            document.cookie = key+"="+value+";expires="+oDate;
+        }
+        function delCookie(key){
+            setCookie(key,"",-1);// 时间为-1(前一天过期)
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

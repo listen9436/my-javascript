@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            background:#3498db;
+            color:#fff;
+            font-size:14px;
+            text-align:center;
+            width:200px;
+            line-height:48px;
+            border:none 0;
+            cursor:pointer;
+            margin:20px 20px 0 0;
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+            var oBtn = document.getElementsByTagName('input');
+            var oDiv = document.getElementById('showdiv');
+
+            var json = {};
+            oBtn[0].onclick = function () {
+                oDiv.innerHTML = randomArray(35,7);
+                location.hash = Math.random();
+                var random = Math.random();
+                var arr = randomArray(35,7);
+                json[random+""] = arr;
+                location.hash = random;
+                oDiv.innerHTML = arr;
+            }
+            
+            oBtn[1].onclick = function () {
+//                history.back()
+                history.go(-1)
+            }
+            oBtn[2].onclick = function () {
+//                history.forward()
+                history.go(1)
+            }
+
+            window.onhashchange = function () {
+                var key = location.hash.substring(1)
+                var value = json[key];
+
+                if (value){
+                    oDiv.innerHTML = value;
+                }else {
+                    oDiv.innerHTML = "";
+                }
+            }
+            function randomArray(num1,num2){
+                var resultArray = [];
+                //1生成一个num1个元素的数组
+                var arr = [];
+
+                for(var i=0;i<num1;i++){
+                    arr.push(i+1)
+                }
+                for(var i=0;i<num2;i++){
+                    var index = Math.floor(Math.random()*arr.length);
+                    resultArray.push(arr[index]);
+                    //push()	向数组的末尾添加一个或更多元素，并返回新的长度。
+                    //splice()	删除元素，并向数组添加新元素。
+                    arr.splice(index,1);
+                }
+                return resultArray;
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="随机选择">
+<input type="button" value="后退一页">
+<input type="button" value="前进一页">
+<div id="showdiv"></div>
+</body>
+</html>

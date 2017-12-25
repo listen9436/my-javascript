@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="cookie.js"></script>
+    <script>
+        window.onload = function () {
+            var oUsername = document.getElementById("username")
+            var oPassword = document.getElementById("password")
+            var oReg = document.getElementById("registor")
+            oReg.onclick = function(){
+                setCookie("username",oUsername.value,10);
+                setCookie("password",oPassword.value,10);
+                location = "3 登录.html"
+
+            }
+        }
+    </script>
+</head>
+<body>
+<input id="username" type="text">
+<input id="password" type="password">
+<input id="registor" type="button" value="注册">
+</body>
+</html>

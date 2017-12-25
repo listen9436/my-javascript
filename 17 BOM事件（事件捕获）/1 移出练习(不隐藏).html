@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 1200px;
+            height: 510px;
+            margin: 20px;
+            font-family: "Microsoft YaHei", tahoma, arial, "Hiragino Sans GB", "\5b8b\4f53", sans-serif;
+        }
+        p {
+            width: 210px;
+            height: 45px;
+            line-height: 45px;
+            background: #B1191A;
+            color: #fff;
+            font-size: 16px;
+            text-indent: 1em;
+        }
+        ul {
+            width: 1200px;
+            height: 465px;
+            position: relative;
+            border-left: 1px solid #B1191A;
+        }
+        li {
+            list-style: none;
+            width: 209px;
+            height: 31px;
+            line-height: 30px;
+            text-indent: 1em;
+            font-size: 13px;
+            color: #fff;
+            background-color: #c81623;
+        }
+        .active{
+            background: #f7f7f7;
+            color: #c81623;
+        }
+        .box2 {
+            width: 990px;
+            height: 463px;
+            border-left:none;
+            position: absolute;
+            left: 209px;
+            top: 0;
+        }
+        img{
+            width: 990px;
+            height: 463px;
+            border: 1px solid #B1191A;
+            border-left: none;
+            display: none;
+        }
+    </style>
+    <script>
+
+        window.onload = function () {
+
+            var arrli = document.getElementsByTagName('li');
+            var arrimg = document.getElementsByTagName('img');
+            for(var i=0;i<arrli.length;i++){
+                arrli[i].index = i;
+                arrli[i].onmouseover = function () {
+                    for(var j=0;j<arrli.length;j++){
+                        arrli[j].className = "";
+                        arrimg[j].style.display = "none";
+                    }
+                    this.className = "active";
+                    arrimg[this.index].style.display = "block";
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div class="box">
+    <p>全部商品分类</p>
+    <ul>
+        <li>家用电器</li>
+        <li>手机、数码、京东通信</li>
+        <li>电脑、办公</li>
+        <li>家具、家居、家装、厨具</li>
+        <li>男装、女装、童装、内衣</li>
+        <li>个护化妆、清洁用品、宠物</li>
+        <li>鞋靴、箱包、珠宝、奢饰品</li>
+        <li>运动户外、钟表</li>
+        <li>汽车、汽车用品</li>
+        <li>母婴、玩具乐器</li>
+        <li>食品、酒类、生鲜、特产</li>
+        <li>医疗保健</li>
+        <li>图书、音像、电子书</li>
+        <li>彩票、旅行、充值、票务</li>
+        <li>理财、众筹、白条、保险</li>
+        <div class="box2">
+            <img src="img/1.png">
+            <img src="img/2.png">
+            <img src="img/3.png">
+            <img src="img/1.png">
+            <img src="img/2.png">
+            <img src="img/3.png">
+            <img src="img/1.png">
+            <img src="img/2.png">
+            <img src="img/3.png">
+            <img src="img/1.png">
+            <img src="img/2.png">
+            <img src="img/3.png">
+            <img src="img/1.png">
+            <img src="img/2.png">
+            <img src="img/3.png">
+        </div>
+    </ul>
+</div>
+</body>
+</html>

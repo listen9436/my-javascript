@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 210px;
+            height: 515px;
+            float: left;
+            background: #b61d1d;
+        }
+        h4{
+            width: 210px;
+            height: 50px;
+            background: #B1191A;
+            color: white;
+            line-height: 50px;
+        }
+        .cont{
+            width: 1210px;
+            height: 466px;
+            float: left;
+            border: 1px solid red;
+            position: relative;
+        }
+        li{
+            width: 210px;
+            height: 30px;
+            font-size: 14px;
+            line-height: 30px;
+            color: white;
+            list-style: none;
+        }
+        li:hover{
+            color:#b61d1d;
+            background: #fff;
+        }
+        .cont-2{
+            width: 1005px;
+            height: 466px;
+            background: #fff;
+            position: absolute;
+            left: 208px;
+            top:0px;
+            background-color: #00B0E7;
+            z-index: 999;
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var arrLi1 = document.getElementsByClassName("li1");
+            for(var i=0;i<arrLi1.length;i++){
+                arrLi1[i].onmouseover = function(){
+                    var oDiv = this.getElementsByClassName("cont-2")[0];
+                    oDiv.style.display = "block"
+                }
+                arrLi1[i].onmouseout = function(){
+                    var oDiv = this.getElementsByClassName("cont-2")[0];
+                    oDiv.style.display = "none"
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <h4>全部商品分类</h4>
+    <ul class="cont">
+        <li class="li1">家用电器
+            <div class="cont-2">
+               阿萨德萨达撒大多数的萨达
+            </div></li>
+        <li class="li1">手机、数码
+            <div class="cont-2">
+               王企鹅我去额为去翻盖奋斗奋斗
+            </div></li>
+        <li class="li1">电脑、办公
+            <div class="cont-2">
+               图酷虎vfvdhgkjyukyufd
+            </div></li>
+        <li class="li1">家具、家居
+            <div class="cont-2">
+               青蛙vcxxzcbvgfhfdsgfjjfdg
+            </div></li>
+    </ul>
+</div>
+</body>
+</html>

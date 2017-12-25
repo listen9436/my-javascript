@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 1920px;
+        }
+    </style>
+
+    <script>
+        window.onload = function () {
+            var oImg = document.getElementsByTagName('img')[0];
+            resize();
+            //   onresize 事件会在窗口或框架被调整大小时发生。
+            window.onresize = resize;
+
+            function resize (){
+                var w = document.documentElement.clientWidth;
+//                alert("页面大小发生变化")
+                oImg.style.width = w+"px";
+
+            }
+        }
+    </script>
+</head>
+<body>
+<img src="img/8.jpg">
+</body>
+</html>

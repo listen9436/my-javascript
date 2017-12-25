@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+    </style>
+    <script>
+
+        window.onload = function () {
+
+            window.onmousewheel = mouseScroll;
+            //  ie/chrome: onmousewheel
+            //  firefox: DOMMouseScroll 必须用 addEventListener绑定
+            window.addEventListener("DOMMouseScroll",mouseScroll);
+            function mouseScroll(ev){
+                var oEvent = window.event || ev;
+                //  wheelDelta  -1  向下滚     1  向上滚    (ie chrome0
+                //  detail   -1  向上滚    1 向下滚      ff
+                if (oEvent.wheelDelta){
+                    if (oEvent.wheelDelta<0){
+                        alert("ie chrome 向下滚动")
+                    }else {
+                        alert("ie chrome 向上滚动")
+                    }
+                }else {
+                    if(oEvent.detail>0){
+                        alert("firefox 向下滚动")
+                    }else {
+                        alert("firefox 向上滚动")
+                    }
+                }
+            }
+
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

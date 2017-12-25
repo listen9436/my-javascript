@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>京东-欢迎登录</title>
+	<link rel="stylesheet" type="text/css" href="css/denglu.css">
+	<script src="cookie.js"></script>
+	<script>
+		window.onload = function () {
+			var oUsername = document.getElementById("username");
+			var oPassword = document.getElementById("password");
+			var oLogin = document.getElementById("login");
+			oLogin.onclick = function () {
+
+				if (oUsername.value == getCookieByKey("username")
+						&& oPassword.value == getCookieByKey("password")) {
+					window.open("欢迎页面.html","_self")
+
+				} else {
+					alert("账号或密码输入错误")
+				}
+
+
+			}
+
+
+		}
+	</script>
+</head>
+<body>
+<div class="bigbox">
+	<div class="head">
+		<a href="http://www.jd.com"><img src="img/1.png" class="headpng"></a>
+		<img src="img/2.png" class="headpng2">
+    </div>
+	<div class="body">
+		<div class="box">
+			<div class="boxhead">
+				<p class="p1">京东会员</p>
+                <img src="img/4.png" class="p2">
+				<p class="p3"><a href="注册页面.html">立即注册</a></p>
+
+			</div>
+			<div class="yincang">
+				<img src="img/5.png" class="headpng3">
+				<p class="p4">公共场所不建议自动登录，以防账号丢失</p>
+			</div>
+			<div class="yonghu">
+                <div class="yonghu-bg"></div>
+                <input type="text" placeholder="邮箱/用户名/已验证手机" class="yonghu-txt" id="username">
+			</div>
+            <div class="mima">
+                <div class="mima-bg"></div>
+                <input type="password" placeholder="密码" class="yonghu-txt" id="password">
+            </div>
+            <div class="safe">
+                <div class="safe-chec"><input type="checkbox" checked="false"></div>
+                <span>自动登录</span>
+                <a>忘记密码？</a>
+            </div>
+            <div class="login-btn">
+                <input type="button" value="登录" class="bigbtn" id="login">
+            </div>
+            <div class="boxfoot1">
+                <p class="boxfoot1-p">使用合作网站账号登录京东：</p>
+                <ul>
+                    <li><a>京东钱包</a><span class="line">|</span></li>
+                    <li><a>QQ</a><span class="line">|</span></li>
+                    <li><a>微信</a></li>
+                </ul>
+            </div>
+            <div class="boxfoot2">
+                <img src="img/8.png">
+            </div>
+            <div>
+
+            </div>
+		</div>
+	</div>
+	<div class="foot">
+		<div class="footpng">
+			<div class="footpng-1">
+				<img src="img/6.png">
+			</div>
+			<span class="footpng-span">登录页面，调查问卷</span>
+		</div>
+		<div class="footul">
+			<ul>
+			<li class="footli">关于我们<span class="line2">|</span></li>
+			<li class="footli">联系我们<span class="line2">|</span></li>
+			<li class="footli">人才招聘<span class="line2">|</span></li>
+			<li class="footli">商家入驻<span class="line2">|</span></li>
+			<li class="footli">广告服务<span class="line2">|</span></li>
+			<li class="footli">手机京东<span class="line2">|</span></li>
+			<li class="footli">友情链接<span class="line2">|</span></li>
+			<li class="footli">销售联盟<span class="line2">|</span></li>
+			<li class="footli">京东社区<span class="line2">|</span></li>
+			<li class="footli">京东公益<span class="line2">|</span></li>
+			<li class="footli">English Site</li>
+		</ul>
+		</div>
+		<div class="footp">
+			<p>Copyright©2004-2016 京东JD.com 版权所有</p>
+		</div>
+	</div>
+</div>
+</body>
+</html>

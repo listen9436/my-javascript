@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="cookie.js"></script>
+    <script>
+
+        window.onload = function(){
+
+            var oWel = document.getElementById("welcome")
+
+            oWel.innerHTML = getCookieByKey("username") +"您好！欢迎访问京东~"
+        }
+
+    </script>
+</head>
+<body>
+<h1 style="text-align: center" id="welcome"></h1>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="cookie.js"></script>
+    <script>
+
+        window.onload = function(){
+
+            var oWel = document.getElementById("welcome")
+
+            oWel.innerHTML = getCookieByKey("username") +"欢迎你"
+        }
+
+
+    </script>
+</head>
+<body>
+<h1 id="welcome"></h1>
+</body>
+</html>

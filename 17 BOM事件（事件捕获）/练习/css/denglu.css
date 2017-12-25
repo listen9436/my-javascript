@@ -1,0 +1,244 @@
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	.bigbox{
+		padding: 0;
+		margin: 0;
+		min-width: 990px;
+		max-width: 1280px;
+		margin: 0 auto;
+		font: 12px arial;
+	}
+	.head{
+		width: 100%;
+	}
+	.headpng{
+		margin-left: 100px;
+		padding: 8px;
+	}
+	.headpng2{
+		margin-bottom: 18px;
+	}
+	.body{
+		height: 475px;
+		background: url("../img/3.jpg") 0px 0px no-repeat;
+		background-position: 150px 0;
+		background-color: #575994;
+	}
+	.box{
+		width: 350px;
+		height: 350px;
+		float: right;
+		position: relative;
+		margin-top:40px;
+		margin-right: 130px;
+		background-color: #fff;
+	}
+	.boxhead{
+		width: 350px;
+		height: 50px;
+		line-height: 50px;
+		position: relative;
+	}
+	.p1{
+		width: 100px;
+		height: 20px;
+		font-size: 20px;
+		color: #666;
+		margin-left: 20px;
+		float: left;
+	}
+	.p2{
+		position: absolute;
+		top: 13px;
+		right: 80px;
+	}
+	.p3{
+		margin-right: 20px;
+		font-size: 14px;
+		color: red;
+		float: right;
+	}
+	.p3:hover{
+		cursor:pointer;
+		text-decoration:underline;
+	}
+	.yincang{
+		width: 308px;
+		height: 25px;
+		position: absolute;
+		top: 50px;
+		left: 20px;
+		background-color: #fff6d2;
+		border: 1px solid #ffe57d;
+	}
+	.headpng3{
+		padding-top: 2px;
+		padding-left: 5px;
+		float: left;
+	}
+	.p4{
+		float: left;
+		margin-left: 15px;
+		margin-top: 5px;
+		color: #666;
+	}
+	.yonghu{
+		width: 310px;
+		height: 38px;
+		margin: 0 auto;
+		margin-top: 35px;
+	}
+	.yonghu-bg{
+		background: url("../img/7.png") no-repeat 0 0;
+		width: 38px;
+		height: 38px;
+		float: left;
+		border: 1px solid #bdbdbd;
+	}
+	.yonghu-txt{
+		float: left;
+		width: 266px;
+		height: 36px;
+		font-size: 15px;
+		text-align:left;
+		text-indent:1em;
+	}
+	.mima{
+		width: 312px;
+		height: 38px;
+		margin: 0 auto;
+		margin-top: 20px;
+	}
+	.mima-bg{
+		background: url("../img/7.png") no-repeat -48px 0;
+		width: 38px;
+		height: 38px;
+		float: left;
+		border: 1px solid #bdbdbd;
+	}
+	.safe{
+		width: 310px;
+		height: 30px;
+		line-height: 30px;
+		margin: 0 auto;
+		margin-top: 20px;
+	}
+	.safe-chec{
+		margin: 3px 3px 0 0;
+		float: left;
+	}
+	.safe span{
+		color: #666;
+		float: left;
+	}
+	.safe a{
+		color: #666;
+		float: right;
+	}
+	.safe a:hover{
+		text-decoration: underline;
+		cursor: pointer;
+		color: red;
+	}
+	.login-btn{
+		width: 310px;
+		height: 35px;
+		margin: 0 auto;
+	}
+	.bigbtn{
+		border: 1px solid #e85356;
+		width: 310px;
+		background: #e4393c;
+		height: 33px;
+		line-height: 33px;
+		color: #fff;
+		font-size: 20px;
+		font-family: 'Microsoft YaHei';
+		letter-spacing: 1.2em;
+		text-indent:1.2em;
+	}
+	.boxfoot1{
+		width: 230px;
+		height: 65px;
+		line-height: 20px;
+		margin-top: 20px;
+		margin-left: 20px;
+		float: left;
+	}
+	.boxfoot1-p{
+		font-weight: 400;
+		color: #999;
+	}
+	.boxfoot1 ul li{
+		list-style: none;
+		float: left;
+		color: #666;
+	}
+	.boxfoot1 ul li a:hover{
+		cursor: pointer;
+		color: red;
+	}
+	.line{
+		padding: 0 10px;
+		color: #ccc;
+	}
+	.boxfoot2{
+		width: 80px;
+		height: 60px;
+		margin-top: 23px;
+		float: right;
+		cursor: pointer;
+	}
+	.foot{
+		width: 100%;
+		height: 130px;
+		text-align: center;
+		overflow: hidden;
+	}
+	.footpng{
+		width: 100%;
+		height: 40px;
+		line-height: 40px;
+		position: relative;
+		color: #999;
+	}
+	.footpng-1{
+		position: absolute;
+		top: 6px;
+		right: 262px;
+	}
+	.footpng-span{
+		width: 110px;
+		float: right;
+		margin-right: 150px;
+	}
+	.footpng-span:hover{
+		color: red;
+		cursor: pointer;
+		text-decoration: underline;
+	}
+	.footul{
+		width: 900px;
+		margin: 0 auto;
+		height: 30px;
+	}
+	.footli{
+		float: left;
+		color: #666;
+		min-width: 60px;
+		height: 15px;
+		list-style: none;
+	}
+	.line2{
+		color: #ccc;
+		padding: 0 15px;
+	}
+	.footli:hover{
+		cursor: pointer;
+		color: red;
+	}
+	.footp{
+		color: #666;
+	}

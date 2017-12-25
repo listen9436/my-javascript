@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 100%;
+            position: relative;
+        }
+
+        .div1 {
+            width: 100%;
+            height:100%;
+        }
+
+        ul {
+            position: absolute;
+            left: 50%;
+            margin-left: -50px;
+            bottom: 20px;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+            width: 10px;
+            height: 10px;
+            background-color: #F5F5F5;
+            margin-right: 10px;
+        }
+
+        .active {
+            background-color: #0A7EC3;
+        }
+    </style>
+    <script>
+
+        window.onload = function () {
+
+            var arrDiv = document.getElementsByClassName('div1');
+            var arrli = document.getElementsByTagName('li');
+            var indexDiv = 0;
+            resize();
+            window.onresize = resize;
+            function resize (){
+                for(var a=0;a<arrDiv.length;a++){
+                    var h = document.documentElement.clientHeight;
+//                alert("页面大小发生变化")
+                    arrDiv[a].style.height = h+"px";
+                }
+            }
+
+            for (var i = 0; i < arrli.length; i++) {
+                arrli[i].index = i;
+                arrli[i].onmouseover = function () {
+                    for (var j = 0; j < arrli.length; j++) {
+                        arrli[j].className = "";
+                        arrDiv[j].style.display = "none";
+                    }
+                    this.className = "active";
+                    arrDiv[this.index].style.display = "block";
+
+                    indexDiv = this.index;
+                }
+
+                window.onmousewheel = onmouseScroll;
+                window.addEventListener("DOMMouseScroll", onmouseScroll);
+
+                var id = 0;
+
+                function onmouseScroll(ev) {
+                    if (!id) {
+                        id = setTimeout(function () {
+                            var oEvent = window.event || ev;
+
+                            if (oEvent.wheelDelta) {
+                                if (oEvent.wheelDelta < 0) {
+                                    indexDiv++;
+                                    if (indexDiv == 4) {
+                                        indexDiv = 0;
+                                    }
+                                    for (var j = 0; j < arrDiv.length; j++) {
+                                        arrDiv[j].style.display = "none";
+                                    }
+                                    arrDiv[indexDiv].style.display = "block";
+                                    for (var j = 0; j < arrli.length; j++) {
+                                        arrli[j].className = "";
+                                    }
+                                    arrli[indexDiv].className = "active"
+
+                                } else {
+                                    indexDiv--;
+                                    if (indexDiv == -1) {
+                                        indexDiv = 3;
+                                    }
+                                    for (var j = 0; j < arrDiv.length; j++) {
+                                        arrDiv[j].style.display = "none";
+                                    }
+                                    arrDiv[indexDiv].style.display = "block";
+                                    for (var j = 0; j < arrli.length; j++) {
+                                        arrli[j].className = "";
+                                    }
+                                    arrli[indexDiv].className = "active"
+                                }
+                            } else {
+                                if (oEvent.detail == 1) {
+                                    indexDiv++;
+                                    if (indexDiv == 4) {
+                                        indexDiv = 0;
+                                    }
+                                    for (var j = 0; j < arrDiv.length; j++) {
+                                        arrDiv[j].style.display = "none";
+                                    }
+                                    arrDiv[indexDiv].style.display = "block";
+                                    for (var j = 0; j < arrli.length; j++) {
+                                        arrli[j].className = "";
+                                    }
+                                    arrli[indexDiv].className = "active"
+                                } else {
+                                    indexDiv--;
+                                    if (indexDiv == -1) {
+                                        indexDiv = 3;
+                                    }
+                                    for (var j = 0; j < arrDiv.length; j++) {
+                                        arrDiv[j].style.display = "none";
+                                    }
+                                    arrDiv[indexDiv].style.display = "block";
+                                    for (var j = 0; j < arrli.length; j++) {
+                                        arrli[j].className = "";
+                                    }
+                                    arrli[indexDiv].className = "active"
+                                }
+                            }
+
+                            id = 0;
+                        }, 500)
+                    }
+
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="div1" style="background-color: #00B0E7">第一屏</div>
+    <div class="div1" style="background-color: #19C8A9;display: none">第二屏</div>
+    <div class="div1" style="background-color: #EA5F8D;display: none">第三屏</div>
+    <div class="div1" style="background-color: #e78f23;display: none">第四屏</div>
+    <ul>
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>

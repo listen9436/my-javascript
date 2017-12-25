@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="cookie.js"></script>
+    <script>
+        window.onload = function () {
+            var oUsername = document.getElementById("username");
+            var oPassword = document.getElementById("password");
+            var oLogin = document.getElementById("login");
+            oLogin.onclick = function () {
+
+                if (oUsername.value == getCookieByKey("username")
+                        && oPassword.value == getCookieByKey("password")) {
+                    window.open("3 欢迎.html","_self")
+
+                } else {
+                    alert("账号或密码输入错误")
+                }
+
+
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<input id="username" type="text">
+<input id="password" type="password">
+
+<input id="login" type="button" value="登陆">
+<a href="3 注册.html">没有账号</a>
+</body>
+</html>
