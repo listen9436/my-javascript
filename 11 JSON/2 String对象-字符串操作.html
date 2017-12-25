@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+//        String查找类函数
+//        length – 返回字符串的长度，所谓字符串的长度是指其包含的字符的个数。
+//        charAt() 函数 -- 返回指定位置(n)的字符
+            document.write(str01.charAt(2) + '</br>');
+//        charCodeAt() 函数 -- 返回指定位置(n)字符的Unicode编码
+//        indexOf() 函数 -- 返回字符串中一个子串第一处出现的索引。如果没有匹配项，返回 -1
+            document.write(str01.indexOf("z") + '</br>');
+//        lastIndexOf() 函数 -- 返回字符串中一个子串最后一处出现的索引，如果没有匹配项，返回 -1
+
+
+//        String操作类函数
+//        concat() 函数 -- 将两个或多个字符的文本组合起来，返回一个新的字符串
+document.write(str01.concat(str02) + '</br>');
+//        replace() 函数 -- 将字符串string中的oldStr1替换为newStr2（只替换第一个）
+document.write(str01.replace('b', 'm') + '</br>');
+//        slice(start,end) 函数 -- 提取字符串的一部分，并返回一个新字符串。两个参数，第一个为起始位置，第二个为终止位置（留头不留尾），如果没有end，就取到末尾
+document.write(str01.slice(1, 3) + '</br>');
+//        split() 函数 -- 将字符串分割为字符串数组，并返回此数组
+//        substr() 函数 -- 返回从string的startPos位置，长度为length的字符串
+//        substring() 函数 -- 返回字符串的一个子串。传入参数是起始位置和结束位置。（留头不留尾），如果没有end，就取到末尾
+
+
+//        String转换类函数
+//        fromCharCode() 函数 -- 返回多个Unicode代码组成的字符串
+
+
+//        String比较类函数
+//        localeCompare() 函数 -- 使用本地规则比较字符串string与string2，并返回比较结果
+
+
+//        String大小写转换函数
+//        toLocaleLowerCase() 函数 -- 返回本地小写字符串
+//        toLocaleUpperCase() 函数 -- 返回本地大写字符串
+//        toLowerCase() 函数 -- 返回小写字符串
+//        toUpperCase() 函数 -- 返回大写字符串
+
+
+//        HTML标签类函数
+//        anchor() 函数 -- 返回HTML a 标签中name属性为str的锚
+//        big() 函数 -- 返回HTML big 标签定义的大字体
+//        blink() 函数 -- 返回使用HTML blink 标签定义的闪烁字符串
+//        bold() 函数 -- 返回使用HTML b 标签定义的粗体字符串
+//        fixed() 函数 -- 返回使用HTML tt 标签定义的单间距字符串
+//        fontcolor() 函数 -- 返回使用HTML font 标签中color属性定义的带有颜色的字符串
+//        fontsize() 函数 -- 返回使用HTML font 标签中size属性定义的指定尺寸的字符串
+//        italics() 函数 -- 返回使用HTML i 标签定义的斜体字符串
+//        link() 函数 -- 返回使用HTML a 标签定义的链接
+//        small() 函数 -- 返回使用HTML small 标签定义的小字体的字符串
+//        strike() 函数 -- 返回使用HTML strike 标签定义删除线样式的字符串
+//        sub() 函数 -- 返回使用HTML sub 标签定义的下标字符串
+//        sup() 函数 -- 返回使用HTML sup 标签定义的上标字符串
+
+
+
+//        var a = "asdfdsgretyt";
+//        var isStr = true;
+//        for(var i = 0;i< a.length;i++){
+//            if(!(a.charCodeAt(i)>=65 && a.charCodeAt(i)<=122)){
+//                isStr = false;
+//            }
+//        }
+//        if (isStr){
+//            alert('a全由字母组成')
+//        }else {
+//            alert('a不全由字母组成')
+//        }
+
+
+
+        //简单邮箱判断
+        var a = "asd.ssdd@@qq.com"
+        if (a.indexOf(".") <= 0 || a.indexOf("@") <= 0) {
+            alert("a不是邮箱")
+}       else if (a.indexOf("@") > a.lastIndexOf(".")) {
+            alert('a不是邮箱')
+        } else {
+            alert("a是邮箱")
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

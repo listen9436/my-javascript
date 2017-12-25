@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            var oTxt = document.getElementById('txt');
+            var oBtn = document.getElementById('btn');
+            var a = oTxt.value;
+            var arr = [];
+
+            oBtn.onclick = function () {
+//                for (var i = 0; i < a.length; i++) {
+//                    arr[i] = a.charAt(i);
+//                }
+//                var z = arr.reverse();
+//                alert(z.join(""));
+
+                var str1 = "";
+                for (var i = a.length - 1; i >= 0; i--) {
+                    str1+=a.slice(i,i+1);
+                }
+                oTxt.value= str1;
+            }
+        }
+
+    </script>
+</head>
+<body>
+<input type="text" id="txt" value="zhaoqiang">
+<input type="button" id="btn" value="点击倒序">
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        input {
+            border: 1px solid #a9a9a9;
+            height: 34px;
+            line-height: 34px;
+            width: 550px;
+            margin: 20px 20px 0 0;
+            padding-left: 5px;
+            float: left;
+        }
+
+        #myDiv {
+            background: #3498db;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            width: 100px;
+            line-height: 34px;
+            border: none 0;
+            cursor: pointer;
+            margin: 20px 20px 0 40px;
+            float: left;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oStr = document.getElementById("jsonContent")
+            var oDiv = document.getElementById("myDiv");
+            oDiv.onclick = function () {
+                var jsonStr = oStr.innerHTML
+                var json = JSON.parse(jsonStr)
+                var arr = json.place;
+                var typeJson = {};
+                for (var x in arr) {
+                    var pic = arr[x].imageSrc;
+                    //  从点后面一个位置开始截取
+                    var type = pic.slice(pic.lastIndexOf(".") + 1)
+                    if (typeJson[type]) {
+                        typeJson[type]++;
+                    } else {
+                        typeJson[type] = 1;
+                    }
+                }
+                alert(JSON.stringify(typeJson));
+
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="jsonContent">
+    {
+    "country":"china",
+    "place":[
+    {"name":"beijing","imageSrc":"beijing.jpg"},
+    {"name":"helan","imageSrc":"helan.jpg"},
+    {"name":"sicuan","imageSrc":"sicuan.png"},
+    {"name":"hebei","imageSrc":"hebei.gif"},
+    {"name":"chengdu","imageSrc":"chengdu.jpg"},
+    {"name":"xiamen","imageSrc":"beijing.jpg"},
+    {"name":"jilin","imageSrc":"jilin.png"},
+    {"name":"taiwan","imageSrc":"taiwan.JPEG"},
+    {"name":"qinhai","imageSrc":"qinhai.jpg"},
+    {"name":"gansu","imageSrc":"gansu.png"},
+    {"name":"xian","imageSrc":"xian.jpg"},
+    {"name":"emei","imageSrc":"emei.png"},
+    {"name":"fujian","imageSrc":"fujian.gif"},
+    {"name":"lijiang","imageSrc":"lijiang.jpg"},
+    {"name":"dali","imageSrc":"dali.tif"},
+    {"name":"xiamen","imageSrc":"beijing.jpg"},
+    {"name":"jilin","imageSrc":"jilin.png"},
+    {"name":"taiwan","imageSrc":"taiwan.JPEG"},
+    {"name":"qinhai","imageSrc":"qinhai.jpg"},
+    {"name":"gansu","imageSrc":"gansu.png"},
+    {"name":"xian","imageSrc":"xian.jpg"},
+    {"name":"emei","imageSrc":"emei.png"},
+    {"name":"fujian","imageSrc":"fujian.gif"},
+    {"name":"lijiang","imageSrc":"lijiang.jpg"},
+    {"name":"dali","imageSrc":"dali.tif"},
+    {"name":"helan","imageSrc":"helan.jpg"},
+    {"name":"sicuan","imageSrc":"sicuan.png"},
+    {"name":"hebei","imageSrc":"hebei.gif"},
+    {"name":"chengdu","imageSrc":"chengdu.jpg"},
+    {"name":"xiamen","imageSrc":"beijing.jpg"},
+    {"name":"jilin","imageSrc":"jilin.png"},
+    {"name":"taiwan","imageSrc":"taiwan.JPEG"},
+    {"name":"qinhai","imageSrc":"qinhai.jpg"},
+    {"name":"gansu","imageSrc":"gansu.png"},
+    {"name":"xian","imageSrc":"xian.jpg"},
+    {"name":"emei","imageSrc":"emei.png"},
+    {"name":"fujian","imageSrc":"fujian.gif"},
+    {"name":"lijiang","imageSrc":"lijiang.jpg"},
+    {"name":"dali","imageSrc":"dali.tif"},
+    {"name":"xiamen","imageSrc":"beijing.jpg"},
+    {"name":"jilin","imageSrc":"jilin.png"},
+    {"name":"taiwan","imageSrc":"taiwan.JPEG"},
+    {"name":"qinhai","imageSrc":"qinhai.jpg"},
+    {"name":"gansu","imageSrc":"gansu.png"},
+    {"name":"xian","imageSrc":"xian.jpg"},
+    {"name":"emei","imageSrc":"emei.png"},
+    {"name":"fujian","imageSrc":"fujian.gif"},
+    {"name":"lijiang","imageSrc":"lijiang.jpg"},
+    {"name":"dali","imageSrc":"dali.tif"},
+    {"name":"dali","imageSrc":"dali.tif"},
+    {"name":"dali","imageSrc":"dali.tifasda"}
+    ]
+    }
+</div>
+<div id="myDiv">统计一下</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script>
+
+//        var str = '{"name":"liming","age":18,"friend":{"name":"konglong","age":18}}';
+//
+//        var json = JSON.parse(str);      //把字符串解析成JSON
+//        var json = eval("(" + str + ")");  //把括号内字符当代码运行
+//        var str1 = JSON.stringify(json);  //将JSON转换成字符串
+//
+//        alert(json.name)
+//        alert(json.friend.name)      //两种调用方法
+//        alert(json["friend"]["age"])
+
+        var json1 = {
+            "name":"liming","age":18,"friend":{"name":"konglong","age":18}
+        }
+        var json2 = copyJson(json1);
+        json2.friend.aa[1] = 10;
+        alert(JSON.stringify(json1))
+        function copyJson(json){  //浅复制
+            var newJson = {};
+            for(var x in json){
+                if(Array.isArray(json[x])){
+                    newJson[x] = copyArr(json[x]);
+                }else if(json[x] instanceof Object){
+                    newJson[x] = copyJson(json[x]);
+                }else {
+                    newJson[x] = json[x];
+                }
+            }
+            return newJson;
+        }
+        function copyArr(arr){
+
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>
