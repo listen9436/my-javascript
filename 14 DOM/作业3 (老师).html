@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        td {
+            text-align: center;
+            width: 200px;
+        }
+
+        th {
+            height: 25px;
+            background: #0066CC;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oBtn1 = document.getElementById("btn1");
+            var oBtn2 = document.getElementById("btn2");
+            var oBtn3 = document.getElementById("btn3");
+            var oTb = document.getElementById("tbody");
+            oBtn1.onclick = function () {
+                var otr = document.createElement("tr");
+                otr.innerHTML = '<td><input type="text"/></td> <td><input type="text"/></td> <td><input type="text"/></td> <td><input class="btn2" type="button"value="删除" onclick="delRow(this)"/> <input class="btn3" type="button"value="确定" onclick="okRow(this)"/></td>'
+                oTb.insertBefore(otr, oTb.childNodes[4]);
+            }
+            oBtn2.onclick = function () {
+                var otr1 = document.createElement("a")
+                oTb.removeChild(otr1, oTb.parentNode.tagName)
+            }
+
+        }
+
+        function delRow(ele) {
+            var oTb = document.getElementById("tbody");
+            oTb.removeChild(ele.parentNode.parentNode);
+        }
+
+        function okRow(ele) {
+            var arr = ele.parentNode.parentNode.children;
+            arr[0].innerHTML = arr[0].firstElementChild.value;
+            arr[1].innerHTML = arr[1].firstElementChild.value;
+            arr[2].innerHTML = arr[2].firstElementChild.value;
+            ele.value = "修改"
+            ele.onclick = function () {
+                updateRow(this);
+            }
+        }
+
+        function updateRow(ele) {
+            var arr = ele.parentNode.parentNode.children;
+            //  aaaa
+            arr[0].innerHTML = "<input type='text' value='" + arr[0].innerHTML + "'>"
+            arr[1].innerHTML = "<input type='text' value='" + arr[1].innerHTML + "'>"
+            arr[2].innerHTML = "<input type='text' value='" + arr[2].innerHTML + "'>"
+            ele.value = "确认"
+            ele.onclick = function () {
+                okRow(this)
+            };
+        }
+    </script>
+</head>
+<body>
+<table border="1" style="border-collapse: collapse;width: 800px;">
+    <tbody id="tbody">
+    <tr style="height: 30px;background: blue">
+        <td>商品名称</td>
+        <td>数量</td>
+        <td>单价</td>
+        <td>操作</td>
+    </tr>
+    <tr>
+        <td class="a">玫瑰保湿睡眠面膜</td>
+        <td>5</td>
+        <td>&yen48</td>
+        <td><input class="btn2" type="button" onclick="delRow(this)" value="删除"/> <input class="btn3" type="button"
+                                                                                         onclick="updateRow(this)"
+                                                                                         value="修改"/></td>
+    </tr>
+    <tr>
+        <td colspan="4"><input id="btn1" type="button" value="增加订单"/></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

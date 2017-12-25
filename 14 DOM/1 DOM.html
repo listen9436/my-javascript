@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+
+        //DOM  能够让程序（js）去操作页面中的元素
+
+
+        window.onload = function () {
+            var oUl = document.getElementById("ul1");
+            //3  文本节点   1 元素节点  10文档节点  8注释节点
+            var arrli = oUl.childNodes;
+            for(var i = 0;i<arrli.length;i++){
+                if(arrli[i].nodeType == 1){
+                    arrli[i].style.backgroundColor = "red";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+<ul id="ul1">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+
+
+        <!--DOM节点-->
+<!--节点树中的节点彼此拥有层级关系。-->
+<!--父（parent）、子（child）和同胞（sibling）等术语用于描述这些关系。父节点拥有子节点。同级的子节点被称为同胞（兄弟或姐妹）。-->
+<!--在节点树中，顶端节点被称为根（root）-->
+<!--每个节点都有父节点、除了根（它没有父节点）-->
+<!--一个节点可拥有任意数量的子-->
+<!--同胞是拥有相同父节点的节点-->
+
+                <!--DOM方法-->
+        <!--getElementById()	返回带有指定 ID 的元素。-->
+        <!--getElementsByTagName()	返回包含带有指定标签名称的所有元素的节点列表（集合/节点数组）。-->
+        <!--getElementsByClassName()	返回包含带有指定类名的所有元素的节点列表。-->
+        <!--appendChild()	追加节点。-->
+        <!--removeChild()	删除子节点。-->
+        <!--replaceChild()	替换子节点。-->
+        <!--insertBefore()	在指定的子节点前面插入新的子节点。-->
+        <!--createAttribute()	创建属性节点。-->
+        <!--createElement()	    创建元素节点。-->
+        <!--createTextNode()	创建文本节点。-->
+        <!--getAttribute()	返回指定的属性值。-->
+        <!--setAttribute()	把指定属性设置或修改为指定的值。-->
+
+             <!--DOM属性-->
+
+            <!--nodeName 属性-->
+    <!--元素节点的 nodeName 与标签名相同-->
+    <!--属性节点的 nodeName 与属性名相同-->
+    <!--文本节点的 nodeName 始终是 #text-->
+    <!--文档节点的 nodeName 始终是 #document-->
+
+            <!--nodeValue 属性-->
+    <!--元素节点的 nodeValue 是 undefined 或 null-->
+    <!--文本节点的 nodeValue 是文本本身-->
+    <!--属性节点的 nodeValue 是属性值-->
+
+            <!--nodeType 属性-->
+        <!--元素类型	NodeType-->
+        <!--元素	        1     -->
+        <!--属性	        2     -->
+        <!--文本	        3     -->
+        <!--注释	        8     -->
+        <!--文档	        9     -->
+</body>
+</html>

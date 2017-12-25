@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            //3  文本节点   1 元素节点  10文档节点  8注释节点
+            var oDiv = document.getElementById('div2');
+//            alert(oDiv.children.length);
+//            alert(oDiv.parentNode.tagName);
+//            alert(oDiv.offsetParent.tagName);    //离当前元素最近的一个有定位属性的父节点（如果没有定位，默认为body）
+//            alert(oDiv.firstChild.nodeType); //  a   3文本节点
+//            alert(oDiv.firstElementChild.tagName); //第一个元素孩子  a
+//            oDiv.firstElementChild.style.background = "green";
+//            oDiv.lastChild    //最后一个孩子   没有第二第三。。。
+//            oDiv.lastElementChild.style.background = "green";  // h1
+//            oDiv.children[1].style.background = "red"
+//            oDiv.nextSibling.style.background = "green";  //他没下一个兄弟
+//            oDiv.nextElementSibling.style.background = "green";
+//            oDiv.previousElementSibling.style.background = "green"; //没上一个兄弟
+        }
+    </script>
+</head>
+<body>
+<div id="div1" style="position: relative;width: 200px;height: 200px;border: 1px solid red">
+    <div id="div2" style="position: absolute;width: 100px;height: 100px;border: 1px solid red;">
+        <a>asadsadsada</a>
+        <h1>阿萨德萨达撒</h1>
+    </div>
+</div>
+</body>
+</html>

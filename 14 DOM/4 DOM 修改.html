@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+         window.onload = function () {
+             var oUl = document.getElementById('ul1');
+             var oBtn = document.getElementById('btn');
+             var oIn = document.getElementById('in');
+             var oBtn2 = document.getElementById('btn2');
+             var oBtn3 = document.getElementById('btn3');
+
+             oBtn.onclick = function () {
+                 var oLi = document.createElement("li")  //创建元素节点
+                 oLi.innerHTML ='<input type="checkbox">'+oIn.value;
+                 if(oUl.firstChild){
+                     oUl.insertBefore(oLi,oUl.firstChild);
+                     //insertBefore()	在指定的子节点前面插入新的子节点。(在第一个孩子前插入新oLi)
+                 }else {
+                     oUl.appendChild(oLi)  //如果不存在子节点，那么直接追加子节点
+                 }
+             }
+             oBtn2.onclick = function () {
+                 var arrBox = oUl.getElementsByTagName('input');
+                 var i = 0;
+                 while (i < arrBox.length){
+                     if(arrBox[i].checked){
+                         oUl.removeChild(arrBox[i].parentNode);
+                     }else {
+                         i++;
+                     }
+                 }
+             }
+             oBtn3.onclick = function () {
+                 var ol = document.createElement('li');
+                 ol.innerHTML = '<input type="checkbox">'+ oIn.value;
+                 oUl.replaceChild(ol,oUl.firstElementChild)
+             }
+         }
+    </script>
+</head>
+<body>
+<input type="text" id="in">
+<button id="btn">添加</button>
+<button id="btn2">删除</button>
+<button id="btn3">替换</button>
+<ul id="ul1">
+    <li><input type="checkbox">哈哈</li>
+    <li><input type="checkbox">哈哈哈</li>
+    <li><input type="checkbox">哈哈哈哈</li>
+    <li><input type="checkbox">哈哈哈哈哈</li>
+</ul>
+</body>
+</html>

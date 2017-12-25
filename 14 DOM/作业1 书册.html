@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 400px;
+            height: 250px;
+            margin: 50px auto;
+            text-align: left;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            text-align: center;
+            width: 350px;
+            height: 200px;
+            background: rgba(12, 12, 12, .6);
+        }
+        .tr {
+            background: rgba(0, 0, 255, .3);
+        }
+        .tr td {
+            color: #fff;
+        }
+        td {
+            min-width: 90px;
+            height: 50px;
+            border: 1px solid #F5F5F5;
+            color: #00B0E7;
+            font-size: 16px;
+            font-family: "Microsoft YaHei", "Hiragino Sans GB";
+        }
+        button {
+            width: 90px;
+            height: 40px;
+            color: #fff;
+            background: #84C1FF;
+            font-size: 16px;
+            font-family: "Microsoft YaHei", "Hiragino Sans GB";
+            border: none;
+            margin-bottom: 10px;
+            margin-left: 20px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oBtn1 = document.getElementById('btn1');
+            var oBtn2 = document.getElementById('btn2');
+            var oTab = document.getElementById('tab');
+
+            oBtn1.onclick = function () {
+                var oTr = document.createElement('tr');
+                oTr.innerHTML = '<td>钢铁是怎样炼成的</td><td>￥31.25</td>';
+                oTab.insertBefore(oTr, oTab.children[2])//从第2本前插入
+            }
+            oBtn2.onclick = function () {
+                oTab.removeChild(oTab.children[2]);//从第2本删除
+            }
+        }
+    </script>
+</head>
+<body>
+<div>
+    <button id="btn1">增加一本</button>
+    <button id="btn2">删除第2本</button>
+    <table>
+        <tbody id="tab">
+        <tr class="tr">
+            <td>书名</td>
+            <td>价格</td>
+        </tr>
+        <tr>
+            <td>看得见风景的房间</td>
+            <td>￥30.00</td>
+        </tr>
+        <tr>
+            <td>幸福从天而降</td>
+            <td>￥18.5</td>
+        </tr>
+        <tr>
+            <td>60个瞬间</td>
+            <td>￥32.00</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

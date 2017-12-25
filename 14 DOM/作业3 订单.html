@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            text-align: center;
+            background: rgba(12, 12, 12, .6);
+            margin: 50px auto;
+        }
+
+        td {
+            width: 180px;
+            height: 50px;
+            border: 1px solid #F5F5F5;
+            color: #00B0E7;
+            font-size: 16px;
+            font-family: "Microsoft YaHei", "Hiragino Sans GB";
+        }
+
+        .txt{
+            width: 160px;
+            height: 25px;
+            border: 1px solid #00B0E7;
+            background-color: #84C1FF;
+        }
+
+        .btn {
+            width: 50px;
+            height: 25px;
+            color: #fff;
+            background: #84C1FF;
+            font-size: 16px;
+            font-family: "Microsoft YaHei", "Hiragino Sans GB";
+            border: none;
+            margin-right: 2px;
+        }
+        #btn1 {
+            width: 90px;
+            height: 40px;
+            color: #fff;
+            background: #ee2222;
+            font-size: 16px;
+            font-family: "Microsoft YaHei", "Hiragino Sans GB";
+            border: none;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oBtn1 = document.getElementById('btn1');
+            var oBtn2 = document.getElementById('btn2');
+            var oBtn3 = document.getElementById('btn3');
+            var oTb = document.getElementById('tb');
+
+            oBtn1.onclick = function () {  // 增加订单 按钮点击时
+                var otr = document.createElement('tr');//创建一个tr标签
+                //tr里创建4个td，第四个td中放2个按钮
+                otr.innerHTML = '<td><input type="text" class="txt"/></td> <td><input type="text" class="txt"/></td> <td><input type="text" class="txt"/></td> ' +
+                        '<td><input type="button" value="删除" class="btn"/> <input type="button"value="确定" class="btn"/></td>';
+                oTb.insertBefore(otr, oTb.childNodes[4]);//tbody---[0]
+
+                var arr = otr.getElementsByTagName('input'); //获取到上面的5个input;
+                arr[3].onclick = function () {  //第4个input(删除按钮)点击时
+                    oTb.removeChild(this.parentNode.parentNode)//删除tr行
+                }
+                arr[4].onclick = okRow;//确定按钮点击时
+
+                function okRow() {
+                    var arr = this.parentNode.parentNode.getElementsByTagName('td');//获取到当前tr行里的所有td
+                    arr[0].innerHTML = arr[0].firstElementChild.value;//第一个td内容改为value值
+                    arr[1].innerHTML = arr[1].firstElementChild.value;
+                    arr[2].innerHTML = arr[2].firstElementChild.value;
+                    this.value = "修改";  //按钮名字改为“修改”
+                    this.onclick = upDateRow; //当“修改”再点击时
+                }
+
+                function upDateRow() {
+                    var arr = this.parentNode.parentNode.children;//获取当前行中所有td
+                    arr[0].innerHTML = '<input type="text" value="' + arr[0].innerHTML + '">';
+                    arr[1].innerHTML = '<input type="text" value="' + arr[1].innerHTML + '">';
+                    arr[2].innerHTML = '<input type="text" value="' + arr[2].innerHTML + '">';
+                    this.value = "确认"
+                    this.onclick = okRow;
+                }
+            }
+            //原有行的删除
+            oBtn2.onclick = function () {
+                oTb.removeChild(this.parentNode.parentNode);
+            }
+            //原有行的修改
+            oBtn3.onclick =  upDateRow;
+
+            function upDateRow() {
+                var arr = this.parentNode.parentNode.children;//获取当前行中所有td
+                arr[0].innerHTML = '<input type="text" class="txt" value="' + arr[0].innerHTML + '">';
+                arr[1].innerHTML = '<input type="text" class="txt" value="' + arr[1].innerHTML + '">';
+                arr[2].innerHTML = '<input type="text" class="txt" value="' + arr[2].innerHTML + '">';
+                oBtn3.value = "确认"
+                oBtn3.onclick = okRow;
+            }
+                function okRow() {
+                    var arr = this.parentNode.parentNode.getElementsByTagName('td');//获取到当前tr行里的所有td
+                    arr[0].innerHTML = arr[0].firstElementChild.value;//第一个td内容改为value值
+                    arr[1].innerHTML = arr[1].firstElementChild.value;
+                    arr[2].innerHTML = arr[2].firstElementChild.value;
+                    oBtn3.value = "修改";  //按钮名字改为“修改”
+                    oBtn3.onclick = upDateRow; //当“修改”再点击时
+                }
+        }
+    </script>
+</head>
+<body>
+<table>
+    <tbody id="tb">
+    <tr>
+        <td>商品名称</td>
+        <td>数量</td>
+        <td>单价</td>
+        <td>操作</td>
+    </tr>
+    <tr>
+        <td>玫瑰保湿睡眠面膜</td>
+        <td>5</td>
+        <td>¥48</td>
+        <td>
+            <input type="button" id="btn2" value="删除" class="btn">
+            <input type="button" id="btn3" value="修改" class="btn">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <button id="btn1">增加订单</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
