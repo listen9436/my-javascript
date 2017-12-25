@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            width: 5000px;
+            height: 5000px;
+        }
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50px;
+            position: absolute;
+        }
+    </style>
+    <script>
+
+        window.onload = function () {
+            var oDiv = document.getElementsByTagName('div')[0];
+            document.onmousemove = function (ev) {
+                //必须给document设鼠标移动事件，给DIV设会出现漏洞。
+                var oEvent = window.event || ev;
+//                oEvent.clientX
+//                oEvent.clientY
+
+                //clientX、Y  为可视区域坐标,当高度很高出现滚动条时，则鼠标会和DIV分家
+//                oDiv.style.left = oEvent.clientX+'px'
+//                oDiv.style.top = oEvent.clientY+'px'
+
+                var scrollT = document.documentElement.scrollTop || document.body.scrollTop;
+                //获取Google和火狐IE的滚动条高度
+                var scrollL = document.documentElement.scrollLeft || document.body.scrollLeft;
+
+                oDiv.style.left = oEvent.clientX + scrollL -50+ "px"//减50是把鼠标放到div中间
+                oDiv.style.top = oEvent.clientY + scrollT -50+ "px"
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

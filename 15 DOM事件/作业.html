@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        div {
+            width: 400px;
+            height: 250px;
+            border: 1px solid #0A7EC3;
+            display: none;
+            position: absolute;
+        }
+
+        h3 {
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-size: 15px;
+            background-color: #00B0E7;
+        }
+
+        a {
+            font-size: 20px;
+            float: right;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        button {
+            width: 50px;
+            height: 30px;
+            color: #fff;
+            background-color: #575994;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oBtn = document.getElementsByTagName('button')[0];
+            var oDiv = document.getElementsByTagName('div')[0];
+            var oCha = document.getElementById('cha');
+
+            oCha.onclick = function () {
+                oDiv.style.display = "none"
+            }
+            oBtn.onclick = function () {
+                if (oDiv.style.display == "block") {
+                    oDiv.style.display = "none"
+                } else {
+                    oDiv.style.display = "block"
+                }
+
+                oDiv.style.left = document.documentElement.clientWidth / 2 - oDiv.offsetWidth / 2 + "px";
+                oDiv.style.top = document.documentElement.clientHeight / 2 - oDiv.offsetHeight / 2 + "px";
+            }
+
+            oDiv.onmousedown = function (ev) {
+                var oEvent = window.event || ev;
+                var x = oEvent.clientX - oDiv.offsetLeft;
+                var y = oEvent.clientY - oDiv.offsetTop;
+
+                document.onmousemove = function (ev) {
+                    var oEvent = window.event || ev;
+                    var l = oEvent.clientX - x;
+                    var t = oEvent.clientY - y;
+                    if (l < 0) {
+                        l = 0;
+                    }
+                    if (t < 0) {
+                        t = 0;
+                    }
+                    if (l > document.documentElement.clientWidth - oDiv.offsetWidth) {
+                        l = document.documentElement.clientWidth - oDiv.offsetWidth
+                    }
+                    if (t > document.documentElement.clientHeight - oDiv.offsetHeight) {
+                        t = document.documentElement.clientHeight - oDiv.offsetHeight
+                    }
+                    oDiv.style.left = l + "px";
+                    oDiv.style.top = t + "px";
+                }
+
+                document.onmouseup = function () {
+                    document.onmousemove = undefined;
+                }
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+<button>弹窗</button>
+<div>
+    <h3>弹窗<a id="cha">&times;</a></h3>
+    这是一个弹窗
+</div>
+</body>
+</html>

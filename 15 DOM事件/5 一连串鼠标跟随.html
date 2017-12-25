@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            width: 5000px;
+            height: 5000px;
+        }
+        div {
+            width: 30px;
+            height: 30px;
+            border-radius: 15px;
+            background-color: #00B0E7;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var arrDiv = document.getElementsByTagName('div');
+            document.onmousemove = function (ev) {
+                var oEvent = window.event || ev;
+
+                var scrollT = document.documentElement.scrollTop || document.body.scrollTop;
+                var scrollL = document.documentElement.scrollLeft || document.body.scrollLeft;
+                //0的位置等于鼠标的位置
+                arrDiv[0].style.left = oEvent.clientX + scrollL + "px";
+                arrDiv[0].style.top = oEvent.clientY + scrollT + "px"
+
+            };
+            setInterval(function () {
+                for (var i = arrDiv.length - 1; i > 0; i--) {
+                    //让后面的都回到前一个的位置，(最后都回到0)
+                    arrDiv[i].style.left = arrDiv[i - 1].style.left;
+                    arrDiv[i].style.top = arrDiv[i - 1].style.top;
+                }
+            }, 10)
+
+        }
+    </script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

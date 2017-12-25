@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementsByTagName('div')[0];
+            oDiv.onmousedown = function (ev) {
+                var oEvent = window.event || ev;
+                var x = oEvent.clientX - oDiv.offsetLeft;
+                var y = oEvent.clientY - oDiv.offsetTop;
+                document.onmousemove = function (ev) {
+                    var oEvent = window.event || ev;
+//                    oDiv.style.left = oEvent.clientX - x +"px"
+//                    oDiv.style.top = oEvent.clientY -y +"px"
+                    var l = oEvent.clientX - x;
+                    var t = oEvent.clientY - y;
+                    if (l < 0) {
+                        l = 0;
+                    }
+                    if (t < 0) {
+                        t = 0;
+                    }
+                    if (l > document.documentElement.clientWidth - oDiv.offsetWidth) {
+                        l = document.documentElement.clientWidth - oDiv.offsetWidth
+                    }
+                    if (t > document.documentElement.clientHeight - oDiv.offsetHeight) {
+                        t = document.documentElement.clientHeight - oDiv.offsetHeight
+                    }
+                    oDiv.style.left = l + "px";
+                    oDiv.style.top = t + "px";
+                }
+                //当鼠标松开时清除跟随事件
+                document.onmouseup = function () {
+                    document.onmousemove = undefined;
+                }
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

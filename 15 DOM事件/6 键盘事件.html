@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementsByTagName('div')[0];
+            var leftId = 0;
+            var rightId = 0;
+            var topId = 0;
+            var bottomId = 0;
+            document.onkeydown = function (ev) {
+//                alert(event.keyCode)//判断按键
+                var oEvent = window.event || ev;
+                //37左  39右
+                switch (oEvent.keyCode) {
+                    case 37:
+                        if (!leftId){
+                            /*让盒子无停顿挪动*/
+                            leftId = setInterval(function () {
+                                oDiv.style.left = oDiv.offsetLeft - 1 +"px"
+                            },1)
+                        }
+                        break;
+                    case 38:
+                        if (!topId){
+                            topId = setInterval(function () {
+                               oDiv.style.top = oDiv.offsetTop -1 +"px"
+                            },1)
+                        }
+                        break;
+                    case 39:
+                        if (!rightId) {
+                            rightId = setInterval(function () {
+                                oDiv.style.left = oDiv.offsetLeft + 1 + "px"
+                            }, 1)
+                        }
+                        break;
+                    case 40:
+                        if (!bottomId){
+                            bottomId = setInterval(function () {
+                                oDiv.style.top = oDiv.offsetTop +1 +"px"
+                            },1)
+                        }
+                        break;
+                }
+            }
+            //当按键弹起时清除定时器
+            document.onkeyup = function (ev) {
+                var oEvent = window.event || ev;
+                switch (oEvent.keyCode){
+                    case 37:
+                        clearInterval(leftId);
+                        leftId = 0;
+                        break;
+                    case 38:
+                        clearInterval(topId);
+                        topId = 0;
+                        break;
+                    case 39:
+                        clearInterval(rightId);
+                        rightId = 0;
+                        break;
+                    case 40:
+                        clearInterval(bottomId);
+                        bottomId = 0;
+                        break;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div div{
+            width: 200px;
+            height: 300px;
+            background-color: red;
+            display: none;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oBtn = document.getElementById('btn');
+            var oDiv = document.getElementsByTagName('div')[1];
+
+            oBtn.onclick = function (ev) {
+                oDiv.style.display = "block";
+                var oEvent = window.event || ev;
+                oEvent.cancelBubble = true;    //阻止事件冒泡
+            };
+            document.onclick = function () {
+                oDiv.style.display = "none"
+            }
+        }
+    </script>
+</head>
+<body>
+<div>
+    <input type="button" id="btn" value="按钮">
+    <div></div>
+</div>
+</body>
+</html>

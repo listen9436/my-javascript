@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 200px;
+            height: 300px;
+            display: none;
+            position: absolute;
+            background-color: #84C1FF;
+        }
+    </style>
+    <script>
+
+        window.onload = function () {
+
+            var oDiv = document.getElementsByTagName('div')[0];
+            //oncontextmenu右键点击时菜单出在鼠标处
+            document.oncontextmenu = function (ev) {
+                var oEvent = window.event || ev;
+                oDiv.style.display = "block";
+
+                oDiv.style.left = oEvent.clientX +"px";
+                oDiv.style.top = oEvent.clientY +"px";
+
+                return false;  //清除默认
+            }
+            //onclick左键点击时菜单消失
+            document.onclick = function () {
+                oDiv.style.display = "none";
+            }
+            //在菜单里面点击时不让菜单消失
+            oDiv.onclick = function (ev) {
+                var oEvent = window.event || ev;
+                oEvent.cancelBubble = true;    //阻止事件冒泡
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div>菜单栏</div>
+</body>
+</html>

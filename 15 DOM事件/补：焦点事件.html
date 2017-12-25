@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            var oTxt = document.getElementById('txt');
+
+            // onfocus : 当元素获取到焦点时触发
+            oTxt.onfocus = function () {
+                if (this.value == "请输入内容"){
+                    this.value = "";
+                }
+
+            }
+            // onblur : 当元素失去焦点时
+            oTxt.onblur = function () {
+                if (this.value == ""){
+                    this.value = "请输入内容";
+                }
+            }
+
+
+            //让页面一加载就出现焦点
+
+            //obj.focus();  给指定的元素设置焦点
+            //obj.blur();   取消指定元素的焦点
+            //obj.select(); 选择指定元素里面的文本内容
+            oTxt.focus();
+
+
+            var oBtn = document.getElementById('btn');
+            oBtn.onclick = function () {
+
+                oTxt.select();
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="text" value="请输入内容" id="txt">
+<input type="button" value="全选" id="btn">
+</body>
+</html>

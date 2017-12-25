@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 300px;
+            height: 350px;
+            overflow: auto;
+            border: 1px solid #000;
+        }
+
+        input {
+            width: 260px;
+            height: 30px;
+            border: 1px solid #1A66B3;
+            float: left;
+        }
+
+        button {
+            width: 40px;
+            height: 32px;
+            float: left;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementsByTagName('div')[0];//[0]必须加
+            var oInp = document.getElementsByTagName('input')[0];
+            var oBtn = document.getElementsByTagName('button')[0];
+
+            oBtn.onclick = function () {
+                oDiv.innerHTML += oInp.value + "<br>"
+                oInp.value = "";
+            }
+
+            oInp.onkeydown = function (ev) {
+                var oEvent = window.event || ev;
+                if (oEvent.keyCode == 13 && oEvent.ctrlKey) {//13为空格
+                    //当它为true时则为  空格+Ctrl  一起按
+                    oDiv.innerHTML += oInp.value + "<br>"
+
+//                    oDiv.scrollTop=oDiv.scrollHeight;
+                    oInp.value = "";
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div></div>
+<input type="text">
+<button>发送</button>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+
+//            document.body.onclick = function () {
+//                alert(1);
+//                //直接在body里设不行，body就像DIV，里面放东西才会被撑开
+//            }
+
+            document.onclick = function (ev) {
+                //document相当于html的子节点
+//                alert(1);
+//                alert(window.event.clientX);//弹出点击时 window的 X坐标
+//                                 //event  事件   clientY   Y坐标
+
+//                if(window.event){
+//                    alert(window.event.clientX)  //Google
+//                }else {
+//                    alert(ev.clientX)  //火狐
+//                }
+                //那么可以这样写
+                var oEvent = window.event||ev;
+                alert(oEvent.clientX);
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

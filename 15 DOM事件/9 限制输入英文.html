@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        window.onload = function () {
+            var oIn = document.getElementsByTagName('input')[0];
+
+            oIn.onkeydown = function (ev) {
+                var oEvent = window.event || ev;
+                // 数字0 键值48    数字9 键值57    删除键 键值8
+                if ((oEvent.keyCode > 57 || oEvent.keyCode < 48) && oEvent.keyCode != 8) {
+                //  &&  的优先级 大于 || 的优先级 ,所以加括号
+                    return false;
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<input type="text">
+</body>
+</html>
