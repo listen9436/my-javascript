@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            width: 800px;
+            height: 240px;
+            margin: 20px auto;
+            position: relative;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 18px;
+            background-color: #F5F5F5;
+        }
+
+        div {
+            width: 200px;
+            height: 200px;
+            float: left;
+            background-color: #F5F5F5;
+            display: none;
+        }
+        .div1{
+            position: absolute;
+            left: 0;
+            bottom: 0;
+        }
+        .div2{
+            position: absolute;
+            left: 200px;
+            bottom: 0;
+        }
+        .div3{
+            position: absolute;
+            left: 400px;
+            bottom: 0;
+        }
+        .div4{
+            position: absolute;
+            left: 600px;
+            bottom: 0;
+        }
+        p{
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .p1:hover{
+            background-color: #19C8A9;
+        }
+        .p2:hover{
+            background-color: #EA5F8D;
+        }
+        .p3:hover{
+            background-color: #FFBB77;
+        }
+        .p4:hover{
+            background-color: #0AA6E8;
+        }
+        .active {
+            background-color: #84C1FF;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var arrli = document.getElementsByTagName('li');
+            var arrdiv = document.getElementsByTagName('div');
+            var oP1 = document.getElementsByClassName('p1');
+            var oP2 = document.getElementsByClassName('p2');
+            var oP3 = document.getElementsByClassName('p3');
+            var oP4 = document.getElementsByClassName('p4');
+            for (var i = 0; i < arrli.length; i++) {
+                arrli[i].index = i;
+                arrli[i].onmouseover = function () {
+                    for (var j = 0; j < arrli.length; j++) {
+                        arrli[j].className = "";
+                        arrdiv[j].style.display = "none";
+                    }
+                    this.className = "active";
+                    arrdiv[this.index].style.display = "block";
+                }
+            }
+            oP1[0].onclick = function () {
+                window.open("img.html#index1");
+            }
+            oP1[1].onclick = function () {
+                window.open("img.html#index2");
+            }
+            oP1[2].onclick = function () {
+                window.open("img.html#index3");
+            }
+            oP1[3].onclick = function () {
+                window.open("img.html#index4");
+            }
+            oP2[0].onclick = function () {
+                window.open("img.html#index1");
+            }
+            oP2[1].onclick = function () {
+                window.open("img.html#index2");
+            }
+            oP2[2].onclick = function () {
+                window.open("img.html#index3");
+            }
+            oP2[3].onclick = function () {
+                window.open("img.html#index4");
+            }
+            oP3[0].onclick = function () {
+                window.open("img.html#index1");
+            }
+            oP3[1].onclick = function () {
+                window.open("img.html#index2");
+            }
+            oP3[2].onclick = function () {
+                window.open("img.html#index3");
+            }
+            oP3[3].onclick = function () {
+                window.open("img.html#index4");
+            }
+            oP4[0].onclick = function () {
+                window.open("img.html#index1");
+            }
+            oP4[1].onclick = function () {
+                window.open("img.html#index2");
+            }
+            oP4[2].onclick = function () {
+                window.open("img.html#index3");
+            }
+            oP4[3].onclick = function () {
+                window.open("img.html#index4");
+            }
+
+        }
+    </script>
+</head>
+<body>
+<ul>
+    <li>美食</li>
+    <li>美景</li>
+    <li>美物</li>
+    <li>美人</li>
+    <div class="div1">
+        <p class="p1">美食</p>
+        <p class="p1">冰激凌</p>
+        <p class="p1">水果</p>
+        <p class="p1">菜品</p>
+    </div>
+    <div class="div2">
+        <p class="p2">美食</p>
+        <p class="p2">冰激凌</p>
+        <p class="p2">水果</p>
+        <p class="p2">菜品</p>
+    </div>
+    <div class="div3">
+        <p class="p3">美食</p>
+        <p class="p3">冰激凌</p>
+        <p class="p3">水果</p>
+        <p class="p3">菜品</p>
+    </div>
+    <div class="div4">
+        <p class="p4">美食</p>
+        <p class="p4">冰激凌</p>
+        <p class="p4">水果</p>
+        <p class="p4">菜品</p>
+    </div>
+</ul>
+</body>
+</html>

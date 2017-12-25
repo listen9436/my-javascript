@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body {
+            height: 5000px;
+        }
+
+        #div1 {
+            width: 150px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -100px;
+        }
+        #div2 {
+            width: 150px;
+            height: 200px;
+            background-color: blue;
+            position: absolute;
+            left:0;
+            top: 50%;
+            margin-top: -100px;
+        }
+
+        a {
+            float: right;
+            margin-right: 5px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oAD = document.getElementById('div1');
+            var oCha = document.getElementById('cha');
+            var oAD2 = document.getElementById('div2');
+            var oCha2 = document.getElementById('cha2');
+            var id = 0;
+            //当window流动条滚动的时候
+            window.onscroll = function () {
+                if (!id) {
+                    id = setInterval(function () {
+                        // 1,确认目标位置
+                        var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                        var clientHeight = document.documentElement.clientHeight;
+                        var target = Math.floor(scrollTop + clientHeight / 2);
+                        // 2，速度化整
+                        var speed = (target - oAD.offsetTop - 100) / 10;
+                        speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+                        // 3,移动目标
+                        oAD.style.top = oAD.offsetTop + 100 + speed + "px";
+                        oAD2.style.top = oAD2.offsetTop + 100 + speed + "px";
+                        // 4 判断结束(定时器归0)
+                        if (oAD.offsetTop + 100 == target)   {
+                            clearInterval(id);
+                            id = 0;
+                        }
+                    }, 30)
+                }
+            };
+            oCha.onclick = function () {
+                oAD.style.display = "none"
+            };
+            oCha2.onclick = function () {
+                oAD2.style.display = "none"
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="div1"><a id="cha">&times;</a></div>
+<div id="div2"><a id="cha2">&times;</a></div>
+</body>
+</html>

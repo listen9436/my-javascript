@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        button{
+            width: 100px;
+            height: 50px;
+            background-color: #00B0E7;
+            color: #fff;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            //重载页面(刷新)
+            document.getElementById('btn1').onclick = function () {
+                window.location.reload();
+            };
+            //下面三种方法都是替换新的页面
+            // 1  assign(跳转到一个新的页面，可返回)
+            document.getElementById('btn2').onclick = function () {
+                window.location.assign("http://www.baidu.com");
+            };
+            // 2  replace  替换，不产生历记录（无法返回）
+            document.getElementById('btn3').onclick = function () {
+                window.location.replace("http://www.baidu.com");
+            };
+            // 3  直接更改 loaction
+            document.getElementById('btn4').onclick = function () {
+                window.location = "http://www.baidu.com";
+            };
+        }
+    </script>
+</head>
+<body>
+<button id="btn1">重新加载页面</button>
+<button id="btn2">跳转到新页面</button>
+<button id="btn3">替换到新页面</button>
+<button id="btn4">更改location</button>
+</body>
+</html>

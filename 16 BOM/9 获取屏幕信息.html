@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+
+        window.onload = function () {
+
+            console.log(window.document);
+            console.log(window.document.cookie);//存密码的
+            console.log(window.document.title);//获取或设置<title>标签里的值
+            console.log(window.document.URL);//获取网址
+            document.write("屏幕分辨率:")
+            document.write(screen.width+"*"+screen.height);
+            document.write("<br>");
+            document.write("可视区域:")
+            document.write(screen.availWidth+"*"+screen.availHeight);
+            document.write("<br>")
+            document.write("颜色质量：")
+            document.write(screen.colorDepth)
+            document.write("<br>")
+            document.write("像素：")
+            document.write(screen.pixelDepth)
+            document.write("<br>")
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

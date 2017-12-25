@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            var arr = document.getElementsByTagName('input');
+
+            arr[0].onclick = function () {
+                window.resizeBy(100,100) //resizeBy改变。。
+            }
+            arr[1].onclick = function () {
+                window.resizeBy(-100,-100)
+            }
+            arr[2].onclick = function () {
+                window.resizeTo(300,300)//resizeTo 调整到多少多少
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="变大">
+<input type="button" value="变小">
+<input type="button" value="复原">
+</body>
+</html>

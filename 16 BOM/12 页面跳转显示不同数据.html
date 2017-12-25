@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+
+            var arrInput = document.getElementsByTagName("input")
+            arrInput[0].onclick = function () {
+
+                window.open("13 js.html?i=1&b=2#1")
+
+            }
+            arrInput[1].onclick = function () {
+
+                window.open("13 js.html#2")
+
+            }
+            arrInput[2].onclick = function () {
+
+                window.open("13 js.html#3")
+
+            }
+        }
+
+    </script>
+</head>
+<body>
+<input type="button" value="按钮1">
+<input type="button" value="按钮2">
+<input type="button" value="按钮3">
+</body>
+</html>

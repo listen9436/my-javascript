@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .btn1{
+            position: fixed;
+            top:10px;
+            left: 10px;
+        }
+        .btn2{
+            position: fixed;
+            top:10px;
+            left: 100px;
+        }
+        .btn3{
+            position: fixed;
+            top:10px;
+            left: 200px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+
+            var arr = document.getElementsByTagName('input');
+            //向下滚动
+            arr[0].onclick = function () {
+                window.scrollBy(100,200);
+            }
+            //向上滚动
+            arr[1].onclick = function () {
+                window.scrollBy(0,-200);
+            }
+            //滚动到固定位置
+            arr[2].onclick = function () {
+                window.scrollTo(0,0);
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="向下滚动" class="btn1">
+<input type="button" value="向上滚动" class="btn2">
+<input type="button" value="回到顶部" class="btn3">
+<div style="width: 100%;height: 400px;background-color: red"></div>
+<div style="width: 100%;height: 400px;background-color: green"></div>
+<div style="width: 100%;height: 400px;background-color: yellow"></div>
+<div style="width: 100%;height: 400px;background-color: purple"></div>
+<div style="width: 100%;height: 400px;background-color: pink"></div>
+<div style="width: 100%;height: 400px;background-color: blue"></div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementsByTagName('div')[0];
+            //window.innerWidth 浏览器内部宽度
+            //window.innerHeight浏览器内部高度
+            oDiv.innerHTML += "iw" + window.innerWidth + "<br>";
+            oDiv.innerHTML += "ih" + window.innerHeight + "<br>";
+            //window.outerWidth 浏览器外部宽度（内部宽度+滚动条）
+            //window.outerHeight 浏览器外部高度(内部高度+上部菜单栏+网址栏...)
+            oDiv.innerHTML += "ow" + window.outerWidth + "<br>";
+            oDiv.innerHTML += "oh" + window.outerHeight;
+        }
+    </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

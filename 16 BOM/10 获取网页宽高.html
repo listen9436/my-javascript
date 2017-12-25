@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width: 5000px;
+            height: 5000px;
+            background-color: #00B0E7;
+        }
+        input{
+            position: fixed;
+            top: 20px;
+            left: 20px;
+        }
+        #div1{
+            position: fixed;
+            top: 70px;
+            left: 150px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oBtn = document.getElementById('btn').onclick = function () {
+                document.getElementById('div1').innerHTML =
+                        "可视区宽高：" + document.documentElement.clientWidth
+                        + "*" + document.documentElement.clientHeight
+                        + "<br>网页正文宽高：" + document.body.scrollWidth
+                        + "*" + document.body.scrollHeight
+                        + "<br>网页竖向滚动距离：" + document.documentElement.scrollTop//IE ff   Google为body
+                        + "<br>网页横向滚动距离：" + document.documentElement.scrollLeft
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" id="btn" value="获取">
+<div id="div1"></div>
+<div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>screen</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        button{
+            background:#3498db;
+            color:#fff;
+            font-size:14px;
+            text-align:center;
+            width:100px;
+            line-height:34px;
+            border:none 0;
+            cursor:pointer;
+            margin:20px 20px 0 0;
+            margin-left:120px;
+        }
+        #textsContent{
+            margin:30px 0 0 0;
+            position:fixed;
+            top:70px;
+            left:150px;
+        }
+        .big_box{
+            height:4000px;
+            width:3000px;
+        }
+        #mtBtn01{
+            position:fixed;
+            top:20px;
+            left:40px;
+        }
+    </style>
+
+    <script>
+
+//        location.hostname 返回 web 主机的域名
+//        location.pathname 返回当前页面的路径和文件名
+//        location.port 返回 web 主机的端口 （80 或 443）
+//        location.protocol 返回所使用的 web 协议（http:// 或 https://）
+
+
+        window.onload = function(){
+
+            //弹出输入框
+            document.getElementById("mtBtn01").onclick = function(){
+                                                                                //window.location  浏览器地址信息
+                document.getElementById('textsContent').innerHTML = "地址是：" + window.location  //由于路径使用的中文，所以路径此处显示是乱码
+                        + "</br>hash值是：" + window.location.hash   // url#  后面的内容
+                        + "</br>主机名和当前 URL 的端口号是：" + window.location.host  //非服务器请求，没有此项
+                        + "</br>当前 URL 的主机名是：" + window.location.hostname  //非服务器请求，没有此项
+                        + "</br>完整的 URL是：" + window.location.href // 就是地址栏的地址，和window.location 一模一样
+                        + "</br>URL 的路径是：" + window.location.pathname
+                        + "</br>前 URL 的端口号是：" + window.location.port  //非服务器请求，没有此项
+                        + "</br>URL 的协议是：" + window.location.protocol  //非服务器请求，没有此项
+                        + "</br>查询部分是：" + window.location.search  //url? 后面的内容
+            }
+
+        }
+
+
+    </script>
+
+</head>
+
+<body>
+<div><button id="mtBtn01">获取url参数</button></div>
+
+<div id="textsContent"></div>
+<div class="big_box"></div>
+</body>
+
+
+</html>

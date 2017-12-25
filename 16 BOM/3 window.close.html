@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            var ow;
+            document.getElementsByTagName('input')[0].onclick = function () {
+                ow = window.open();
+            }
+            document.getElementsByTagName('input')[1].onclick = function () {
+                ow.close();
+                //window.close();
+                // chrome   close   直接关闭页面
+                // ie               弹窗是否关闭页面
+                // ff               禁止关闭非脚本文件打开的页面
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" value="打开">
+<input type="button" value="关闭">
+</body>
+</html>
