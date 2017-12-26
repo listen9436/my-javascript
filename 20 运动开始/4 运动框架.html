@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            left: 0;
+        }
+    </style>
+
+    <script>
+        //运动中的BUG
+        //不会停止   （定时器）
+        //速度去某些值会无法停止  ( <= )
+        //到达位置后点击还会运动   (if  else 把到达前和到达后的事分开做)
+        //重复点击速度加快  (清空定时器，保证只有一个定时器开着)
+        window.onload = function () {
+            var oBtn = document.getElementById('btn');
+            var oDiv = document.getElementById('div1');
+            var id;
+            oBtn.onclick = function () {
+                //先将上次开启的定时器清空(解决点击多次加快运动问题)
+                clearInterval(id);
+                //重新开启定时器，保证只有一个定时器在运行
+                 id = setInterval(function () {
+                     var iSpeed = 7;
+                    if (oDiv.offsetLeft >= 300) {
+                        clearInterval(id);  //到达终点后
+                    } else {
+                        oDiv.style.left = oDiv.offsetLeft + iSpeed + "px"; // 到达终点前
+                    }
+                }, 30)
+            }
+        }
+
+    </script>
+</head>
+<body>
+<input type="button" id="btn" value="按钮">
+<div id="div1"></div>
+</body>
+</html>

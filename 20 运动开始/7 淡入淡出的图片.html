@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img {
+            width: 850px;
+            height: 500px;
+            opacity: 0.5;
+        }
+    </style>
+    <script>
+
+        var id;
+        var opacity = 50;
+        function opacityMovr(target) {
+            var oImg = document.getElementById('img');
+
+            clearInterval(id);
+
+            id = setInterval(function () {
+                var iSpeed = 0;
+                if (opacity < target) {
+                    iSpeed = 1;
+                } else {
+                    iSpeed = -1;
+                }
+
+                if (opacity == target) {
+                    clearInterval(id);
+                } else {
+                    opacity += iSpeed;
+                    oImg.style.opacity = opacity / 100;
+                }
+            }, 20);
+        }
+        window.onload = function () {
+            var oImg = document.getElementById('img');
+            oImg.onmouseover = function () {
+                opacityMovr(100)
+            }
+            oImg.onmouseout = function () {
+                opacityMovr(50)
+            }
+        }
+    </script>
+</head>
+<body>
+<img src="5.jpg" id="img">
+</body>
+</html>

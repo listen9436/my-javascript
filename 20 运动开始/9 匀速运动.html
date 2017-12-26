@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: #0A7EC3;
+            position: absolute;
+            top: 50px;
+            left: 0;
+        }
+        span{
+            width: 1px;
+            height: 200px;
+            background-color: #000;
+            position: absolute;
+            left: 1000px;
+            display: block;
+        }
+    </style>
+    <script>
+
+        var id;
+        function move(target){
+            var oDiv = document.getElementById('div1');
+
+            clearInterval(id);
+            id = setInterval(function () {
+                var iSpeed = 0;
+                if (oDiv.offsetLeft <= target){
+                    iSpeed = 11;
+                }else {
+                    iSpeed = -11;
+                }
+                if(Math.abs(target - oDiv.offsetLeft) <= Math.abs(iSpeed)){
+                    clearInterval(id);
+                    oDiv.style.left = oDiv.offsetLeft +(target - oDiv.offsetLeft)+"px";
+                }else {
+                    oDiv.style.left = oDiv.offsetLeft + iSpeed +"px";
+                }
+            },30);
+        }
+
+        window.onload = function () {
+            var oBtn = document.getElementById('btn');
+            oBtn.onclick = function () {
+                move(1000)
+            }
+        }
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<button id="btn">按钮</button>
+<span></span>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #fenxiang{
+            position: fixed;
+            left: -100px;
+        }
+        .div1{
+            width: 100px;
+            height: 200px;
+            background-color: #ccc;
+            float: left;
+        }
+        .div2{
+            width: 20px;
+            height: 60px;
+            line-height: 20px;
+            float: left;
+            margin-top: 70px;
+            font-size: 20px;
+            background-color: yellow;
+        }
+    </style>
+
+    <script>
+
+        var id;
+
+        function moveshow(target){
+            var oWarp = document.getElementById("fenxiang");
+            var iSpeed;
+            if(oWarp.offsetLeft < target){
+                iSpeed = 10;
+            }else {
+                iSpeed = -10;
+            }
+
+            clearInterval(id);
+            id = setInterval(function () {
+                if(oWarp.offsetLeft == target){
+                    clearInterval(id);
+                }else {
+                    oWarp.style.left = oWarp.offsetLeft + iSpeed + "px";
+                }
+            },30);
+        }
+
+        window.onload = function () {
+            var oWarp = document.getElementById('fenxiang');
+
+            oWarp.onmouseover = function () {
+                moveshow(0)
+            }
+            oWarp.onmouseout = function () {
+                moveshow(-100)
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="fenxiang">
+    <div class="div1"></div>
+    <div class="div2">分享到</div>
+</div>
+</body>
+</html>

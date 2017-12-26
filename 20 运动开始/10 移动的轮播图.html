@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 200px;
+            margin: 50px auto;
+        }
+
+        .ulbox {
+            width: 200px;
+            height: 150px;
+            border: 1px solid #ccc;
+            position: relative;
+            overflow: hidden;
+        }
+
+        ul {
+            width: 1200px;
+            position: absolute;
+            float: left;
+        }
+
+        li {
+            list-style: none;
+            width: 200px;
+            height: 150px;
+            float: left;
+        }
+    </style>
+    <script>
+        var id;
+        function move(target) {
+            var oUl = document.getElementById('ul1');
+            clearInterval(id);
+            id = setInterval(function () {
+                var iSpeed = 0;
+                if (oUl.offsetLeft <= target) {
+                    iSpeed = 20;
+                } else {
+                    iSpeed = -20;
+                }
+                if (Math.abs(target - oUl.offsetLeft) <= Math.abs(iSpeed)) {
+                    clearInterval(id);
+                    oUl.style.left = oUl.offsetLeft + (target - oUl.offsetLeft) + "px";
+                } else {
+                    oUl.style.left = oUl.offsetLeft + iSpeed + "px";
+                }
+            }, 30)
+        }
+
+        window.onload = function () {
+            var arrBtn = document.getElementsByTagName('button');
+            for (var i = 0; i < arrBtn.length; i++) {
+                arrBtn[i].index = i;
+                arrBtn[i].onclick = function () {
+                    move(-200 * this.index)
+                }
+
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="ulbox">
+        <ul id="ul1">
+            <li style="background-color: deepskyblue"></li>
+            <li style="background-color: red"></li>
+            <li style="background-color: palegreen"></li>
+            <li style="background-color: pink"></li>
+            <li style="background-color: mediumpurple"></li>
+            <li style="background-color: lightskyblue"></li>
+        </ul>
+    </div>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+</div>
+</body>
+</html>
