@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        #div1 {
+            width: 100px;
+            height: 50px;
+            background-color: red;
+        }
+    </style>
+    <script>
+
+        //弹性运动不是所有都适用，当样式运动会过界时最好不好用。
+
+        window.onload = function () {
+
+            var oDiv = document.getElementById('div1');
+
+            oDiv.onmouseover = function () {
+
+                startMove(oDiv, 200);
+            }
+            oDiv.onmouseout = function () {
+
+                startMove(oDiv, 50);
+            }
+
+        }
+        var iSpeed = 0;
+        var height = 50;
+        function startMove(obj, target) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+
+                iSpeed += (target - height) / 5;
+                iSpeed *= 0.7;
+
+                if (Math.abs(iSpeed) < 1 && Math.abs(target - height) < 1) {//当距离足够近，，速度足够小时
+                    clearInterval(obj.timer);
+                    obj.style.height = target + "px";
+
+                } else {
+                    height += iSpeed;
+                    if (height < 0) {
+                        height = 0;
+                    }
+                    obj.style.height = height + "px";
+                }
+
+            }, 30)
+
+        }
+
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

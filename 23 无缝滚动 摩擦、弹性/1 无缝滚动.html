@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #div1 {
+            width: 640px;
+            height: 102px;
+            margin: 50px auto;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid black;
+        }
+
+        #div1 ul {
+            position: absolute;
+            left: 0;
+        }
+
+        #div1 ul li {
+            list-style: none;
+            float: left;
+            width: 150px;
+            height: 102px;
+            padding: 5px;
+        }
+
+        #div1 ul li img {
+            width: 150px;
+        }
+    </style>
+
+    <script>
+
+        window.onload = function () {
+
+            var oDiv = document.getElementById('div1');
+            var oUl = oDiv.getElementsByTagName('ul')[0];
+            var aLi = oUl.getElementsByTagName('li');
+            var timer = null;
+
+//            oUl.innerHTML+=oUl.innerHTML;
+            oUl.style.width = aLi.length * aLi[0].offsetWidth + "px";
+
+            timer = setInterval(startMove,30);
+            function startMove() {
+                if (oUl.offsetLeft < -oUl.offsetWidth / 2) {
+                    oUl.style.left = 0;
+                }
+                oUl.style.left = oUl.offsetLeft - 5 + "px";
+            }
+
+            oDiv.onmouseover = function () {
+                clearInterval(timer);
+            }
+            oDiv.onmouseout = function () {
+                timer = setInterval(startMove,30);
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="div1">
+    <ul>
+        <li><img src="img/1.jpg"></li>
+        <li><img src="img/2.jpg"></li>
+        <li><img src="img/3.jpg"></li>
+        <li><img src="img/4.jpg"></li>
+        <li><img src="img/1.jpg"></li>
+        <li><img src="img/2.jpg"></li>
+        <li><img src="img/3.jpg"></li>
+        <li><img src="img/4.jpg"></li>
+    </ul>
+</div>
+</body>
+</html>

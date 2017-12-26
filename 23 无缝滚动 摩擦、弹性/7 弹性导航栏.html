@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            background-color: #01204f;
+            color: #fff;
+            font-weight: bold;
+            height: 40px;
+            font-size: 14px;
+        }
+
+        li {
+            float: left;
+            line-height: 20px;
+            padding: 10px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .move-block {
+            height: 40px;
+            width: 50px;
+            background-color: red;
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: 0;
+        }
+    </style>
+
+    <script>
+
+        window.onload = function () {
+
+            var oUl = document.getElementById('ul1');
+            var aLi = oUl.getElementsByTagName('li');
+            var oDiv = document.getElementsByClassName('move-block')[0];
+
+            for (var i = 0; i < aLi.length; i++) {
+                aLi[i].onmouseover = function () {
+                    oDiv.style.width = this.offsetWidth + "px";
+                    startMove(oDiv, this.offsetLeft);
+                }
+                aLi[i].onmouseout = function () {
+                    oDiv.style.width = aLi[0].offsetWidth + "px";
+                    startMove(oDiv, aLi[0].offsetLeft);
+                }
+            }
+            ;
+        }
+
+        var iSpeed = 0;
+        var left = 0;
+        function startMove(obj, target) {
+
+            clearInterval(obj.timer);
+
+            obj.timer = setInterval(function () {
+
+                iSpeed += (target - obj.offsetLeft) / 5;
+                iSpeed *= 0.7;
+
+                left += iSpeed; //定义一个变量存小数，以解决误差问题
+
+                if(Math.abs(iSpeed)<1 && Math.abs(left-target)<1){//当距离足够近，，速度足够小时
+                    clearInterval(obj.timer);
+                    obj.style.left = target+"px"; //让它与目标值相等,此时用户已经看不出来了
+                }else {
+                    obj.style.left = left + "px";
+                }
+
+            }, 30)
+
+        }
+    </script>
+</head>
+<body>
+<div>
+    <ul id="ul1">
+        <li>首页</li>
+        <li>百家</li>
+        <li>财经</li>
+        <li>娱乐</li>
+        <li>运动会</li>
+        <li>互联网</li>
+        <li>时尚</li>
+        <li>汽车</li>
+        <li>国内</li>
+        <li>国际</li>
+        <li>军事</li>
+        <li>视频</li>
+        <li>传媒</li>
+        <li>个性推荐</li>
+        <li>房产</li>
+        <li>名站</li>
+        <li>更多</li>
+    </ul>
+    <div class="move-block"></div>
+</div>
+</body>
+</html>
