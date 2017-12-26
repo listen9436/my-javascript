@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="ajax.js"></script>
+    <script>
+//        window.onload = function () {
+            ajax("aaa.txt", function (str) {
+                alert(str);
+            })
+//        }
+        //IE中多次请求时会有缓存，解决方法给他加个时时变化的值
+//        window.onload = function () {
+//            ajax("aaa.txt"+Math.random(), function (str) {
+                //或者加个时间+new Date().gettime(),
+//                alert(str);
+//            })
+//        }
+
+
+        //若出现乱码，只有一个原因，网页和文件的编码不一致。
+    </script>
+</head>
+<body>
+
+</body>
+</html>

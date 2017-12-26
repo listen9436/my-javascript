@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+
+            // 1 创建http请求对象
+            var oAjax;
+            // XMLHttpRequest 对象用于和服务器交换数据。
+            //如需将请求发送到服务器，我们使用 XMLHttpRequest 对象的 open() 和 send() 方法：
+            if (window.XMLHttpRequest) {
+                oAjax = new XMLHttpRequest();//IE7+, Firefox, Chrome, Opera, Safari
+            } else {
+                oAjax = new ActiveXObject("Microsoft.XMLHTTP");// IE6, IE5
+            }
+
+            //  get  post  async 同步异步
+                //安全性   get 不安全     post 相对安全
+                //数据量   get  2k       post 基本无数据限制
+                //
+            //  2 连接服务器
+            oAjax.open("get", "t2.txt?i=1&b=2", true);
+            // true  异步   两件事情一起做
+            // false 同步   两件事情一件一件做
+            //XMLHttpRequest 对象如果要用于 AJAX 的话，其 open() 方法的 async 参数必须设置为 true：
+            //  3 发送请求
+            oAjax.send();
+            //  4处理响应结果
+            oAjax.onreadystatechange = function () {
+                if (oAjax.readyState == 4) {
+                    if (oAjax.status == 200) {
+                        alert(oAjax.responseText);
+                    } else {
+                        alert("请求失败")
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

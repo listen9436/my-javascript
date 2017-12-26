@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload = function () {
+            // 1 创建http请求
+            var oAjax;
+            if (window.XMLHttpRequest) {
+                oAjax = new XMLHttpRequest;
+            } else {
+                oAjax = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            // 2 连接服务器
+            oAjax.open("get", "books.xml", true);
+            // 3 发送
+            oAjax.send();
+            // 4 处理响应结果
+            oAjax.onreadystatechange = function () {
+                if (oAjax.readyState == 4) {
+                    if (oAjax.status == 200) {
+                        var doc = oAjax.responseXML;
+                        var arr = doc.getElementsByTagName('book');
+                        for (var i = 0; i < arr.length; i++) {
+                        	//getAttribute() 方法返回指定属性名的属性值。
+                            document.write(arr[i].getAttribute("name") + "&nbsp;")
+                            document.write(arr[i].getAttribute("auther") + "&nbsp;")
+                            document.write(arr[i].getAttribute("price") + "&nbsp;")
+                            document.write("<br>");
+                        }
+                    } else {
+                        alert("请求失败")
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

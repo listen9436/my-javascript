@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #ul1 {
+            width: 1100px;
+            margin: 100px auto;
+        }
+
+        li {
+            width: 247px;
+            list-style: none;
+            float: left;
+            margin-right: 20px;
+        }
+
+        li div{
+            border: 1px solid #000;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        li div img {
+            width: 225px;
+            display: block;
+        }
+    </style>
+    <script src="ajax.js"></script>
+    <script>
+        window.onload = function () {
+
+            var oUl = document.getElementById('ul1');
+            var arrLi = oUl.getElementsByTagName('li');
+            var iLen = arrLi.length;
+            ajax("shuju.txt", function (str) {
+//                alert(str);
+                var str = JSON.parse(str);
+
+                for (var i = 0; i < str.length; i++) {
+
+                    //获取高度最短的一个li
+                    var shortLi = getShort();
+
+                    //创建图片和文字
+                    var oDiv = document.createElement('div');
+                    var oImg = document.createElement('img');
+                    var oP = document.createElement('p');
+                    oImg.src = str[i].src;
+                    oP.innerHTML = str[i].wenzi;
+                    oDiv.appendChild(oImg);
+                    oDiv.appendChild(oP);
+
+//                    (解决BUG---(因为请求数据的缓存过程中会有延迟，可能图片的高度还没显示
+//                  就for循环就过去了，导致图片堆在同一列，而没有加载到最短的一列中)
+//                     解决方法：1，，不用for循环，for循环不等人，使用递归
+//                             2,,在加载前给他一个预定的高度，先占个位置。)
+
+                    //像后台请求当前图片的宽高
+                    oImg.style.width = str[i].width + "px";
+                    oImg.style.height = str[i].height + "px";
+
+                    //如果数据中图片有大有小，我们必须给定死的值的话，就这么写
+//                    oImg.style.width = "225px";
+//                    oImg.style.height = str[i].height * (255/str[i].height) +"px"; //让高度随给定的宽度等比例缩放。
+
+                    //添加
+                    arrLi[shortLi].appendChild(oDiv);
+                }
+            })
+
+            function getShort() {
+                var index = 0;
+                var ih = arrLi[index].offsetHeight;//设置个变量让其等于第一个图片的高度,
+                // 依次和后面的比较，以此找到最小的一个值
+                for (var i = 1; i < iLen; i++) {
+                    if (arrLi[i].offsetHeight < ih) {
+                        index = i;
+                        ih = arrLi[i].offsetHeight;
+                    }
+                }
+                return index;
+                //向外部返回最小的那个值的index
+            }
+        }
+    </script>
+</head>
+<body>
+<ul id="ul1">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ul>
+</body>
+</html>

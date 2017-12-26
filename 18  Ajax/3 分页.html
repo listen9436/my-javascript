@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="ajax.js"></script>
+    <script>
+        window.onload = function () {
+            var oul = document.getElementById('ul1');
+            var arrA = document.getElementsByTagName('a');
+            var arrfile = ["file1.txt", "file2.txt", "file3.txt", "file4.txt"]
+
+            for (var i = 0; i < arrA.length; i++) {
+                arrA[i].index = i;
+                arrA[i].onclick = function () {
+                    ajax(arrfile[this.index], function (str) {
+                        oul.innerHTML = "";//清空
+                        var arr = JSON.parse(str);
+                        for (var j = 0; j < arr.length; j++) {
+                            var oli = document.createElement("li");
+                            oli.innerHTML = arr[j].name + ":" + arr[j].sex;
+                            oul.appendChild(oli);
+                        }
+                    })
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<ul id="ul1"></ul>
+<a href="javascript:">1</a>
+<a href="javascript:">2</a>
+<a href="javascript:">3</a>
+<a href="javascript:">4</a>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="ajax.js"></script>
+    <script>
+        window.onload = function () {
+            var oUl = document.getElementsByTagName('ul')[0];
+            ajax("t2.txt?i=" + Math.random(), function (str) {
+//                alert(typeof str);   //string字符串
+                //解析字符串（把字符串转换成json对象）两种方法
+                //1 eval
+                //2 json.paese
+
+                var arr = eval(str);
+
+                for(var i = 0;i<arr.length;i++){
+                    var oli = document.createElement("li");
+
+                    oli.innerHTML = arr[i];
+                    oUl.appendChild(oli)
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<ul></ul>
+</body>
+</html>

@@ -1,0 +1,5 @@
+<books>
+    <book name="安徒生童话" auther="安徒生" price="19.8"></book>
+    <book name="西游记" auther="吴承恩" price="32.5"></book>
+    <book name="红楼梦" auther="曹雪芹" price="28.6"></book>
+</books>
