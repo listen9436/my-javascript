@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 880px;
+            height: 660px;
+            margin: 0 auto;
+            list-style: none;
+            background-color: #ccc;
+            position: relative;
+        }
+        li{
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            float: left;
+        }
+        img{
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+
+    <script src="move3.js"></script>
+    <script>
+
+        window.onload = function () {
+            //将浮动布局转换成定位布局
+
+            var arrLi = document.getElementsByTagName('img');
+
+            for(var i=0;i<arrLi.length;i++){
+                arrLi[i].innerHTML = "left"+arrLi[i].offsetLeft+",top"+arrLi[i].offsetTop;
+//                arrLi[i].style.position = "absolute";
+//                position和offset 不能放在一块
+                arrLi[i].style.left = arrLi[i].offsetLeft+"px";
+                arrLi[i].style.top = arrLi[i].offsetTop+"px";
+            }
+
+            for(var i=0;i<arrLi.length;i++){
+                arrLi[i].style.position = "absolute";
+                arrLi[i].style.margin = "0";
+            }
+
+            for(var i=0;i<arrLi.length;i++){
+                arrLi[i].onmouseover = function () {
+                        this.style.zIndex = 5;
+                    move(this,{"width":300,"height":300,"marginTop":-50,"marginLeft":-50});
+                }
+                arrLi[i].onmouseout = function () {
+                    this.style.zIndex = 0;
+                    move(this,{"width":200,"height":200,"marginTop":0,"marginLeft":0});
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<ul>
+    <li><img src="img2/1.jpg"></li>
+    <li><img src="img2/2.jpg"></li>
+    <li><img src="img2/3.jpg"></li>
+    <li><img src="img2/4.jpg"></li>
+    <li><img src="img2/5.jpg"></li>
+    <li><img src="img2/6.jpg"></li>
+    <li><img src="img2/7.jpg"></li>
+    <li><img src="img2/8.jpg"></li>
+    <li><img src="img2/9.jpg"></li>
+    <li><img src="img2/10.jpg"></li>
+    <li><img src="img2/11.jpg"></li>
+    <li><img src="img2/12.jpg"></li>
+</ul>
+</body>
+</html>

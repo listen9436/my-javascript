@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box {
+            width: 840px;
+            height: 400px;
+            position: relative;
+            margin: 50px auto;
+            overflow: hidden;
+        }
+
+        img {
+            width: 600px;
+            height: 400px;
+            position: absolute;
+            border: 1px solid #fff;
+        }
+    </style>
+    <script src="move3.js"></script>
+    <script>
+
+        window.onload = function () {
+
+            // 自适应  left
+
+            var oBox = document.getElementById('box');
+            var arrimg = document.getElementsByTagName('img');
+
+            var iWidth = oBox.offsetWidth / arrimg.length;
+            for (var i = 0; i < arrimg.length; i++) {
+
+                arrimg[i].style.left = i * iWidth + "px";
+            }
+
+            for(var i=0;i<arrimg.length;i++){
+                arrimg[i].index = i;
+                var nowWidth = iWidth/3; //保证盒子总宽度能除尽，否则会抖擞
+
+                arrimg[i].onmouseover = function () {
+                    //其他的缩窄
+                    for(var j=0;j<=this.index;j++){
+                        move(arrimg[j],{"left":nowWidth*j})
+                    }
+                    //当前的变宽
+                    for(var j=arrimg.length-1;j>this.index;j--){
+//                        移动的距离 =  盒子的总宽度 -   其他缩窄的图片的宽度之和  (保证其不超出盒子)
+                        var left = oBox.offsetWidth - (arrimg.length-j)*nowWidth;
+                        move(arrimg[j],{"left":left})
+                    }
+                }
+
+                arrimg[i].onmouseout = function () {
+                    for(var j = 0;j<=arrimg.length-1;j++){
+                        move(arrimg[j],{"left":j*iWidth});//每个都移动到原来的位置
+                    }
+                }
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+<div id="box">
+    <img src="img3/1.jpg">
+    <img src="img3/2.jpg">
+    <img src="img3/3.jpg">
+    <img src="img3/4.jpg">
+    <img src="img3/5.jpg">
+    <img src="img3/6.jpg">
+    <img src="img3/7.jpg">
+    <img src="img3/8.jpg">
+</div>
+</body>
+</html>

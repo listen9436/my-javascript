@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            background-color: #01204f;
+            color: #fff;
+            font-weight: bold;
+            height: 40px;
+            font-size: 14px;
+        }
+
+        li {
+            float: left;
+            line-height: 20px;
+            padding: 10px;
+            position: relative;
+            z-index: 5;
+        }
+
+        .move-block {
+            height: 40px;
+            width: 50px;
+            background-color: red;
+            position: absolute;
+            z-index: 2;
+            top: 0;
+            left: 0;
+        }
+    </style>
+
+    <script src="move3.js"></script>
+
+    <script>
+        window.onload = function () {
+            var arrLi = document.getElementsByTagName("li");
+            var oDiv = document.getElementsByClassName("move-block")[0];
+            for (var i = 0; i < arrLi.length; i++) {
+                arrLi[i].onmouseover = function () {
+                    var left = this.offsetLeft;
+                    var width = this.offsetWidth;
+                    move(oDiv,{"left":left,"width":width});
+
+                }
+                arrLi[i].onmouseout = function () {
+
+                    move(oDiv,{"left":0,"width":50});
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div>
+    <ul>
+        <li>首页</li>
+        <li>百家</li>
+        <li>财经</li>
+        <li>娱乐</li>
+        <li>运动会</li>
+        <li>互联网</li>
+        <li>时尚</li>
+        <li>汽车</li>
+        <li>国内</li>
+        <li>国际</li>
+        <li>军事</li>
+        <li>视频</li>
+        <li>传媒</li>
+        <li>个性推荐</li>
+        <li>房产</li>
+        <li>名站</li>
+        <li>更多</li>
+    </ul>
+    <div  class="move-block"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 400px;
+            height: 430px;
+            margin: 50px auto;
+            background-color: #ccc;
+            border: 1px solid #1A66B3;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #box-ul {
+            width: 400px;
+            height: 320px;
+            float: left;
+        }
+
+        #box-ul a{
+            width: 200px;
+            height: 320px;
+            float: left;
+            position: relative;
+            z-index: 999;
+        }
+        #left{
+            width: 45px;
+            height: 60px;
+            background: url("img/btn.gif") top;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -30px;
+            opacity: 0;
+        }
+        #right{
+            width: 45px;
+            height: 60px;
+            background: url("img/btn.gif") bottom;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -30px;
+            opacity: 0;
+        }
+        li {
+            list-style: none;
+            position: absolute;
+            overflow: hidden;
+        }
+
+        #box-bottom {
+            width: 790px;
+            height: 95px;
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+
+        }
+
+        .img2 {
+            width: 120px;
+            height: 95px;
+            float: left;
+            margin-left: 10px;
+            opacity: 0.5;
+        }
+    </style>
+
+    <script src="move3.js"></script>
+    <script>
+
+        window.onload = function () {
+
+            var bigimg = document.getElementById('box-ul');
+            var arrimg1 = document.getElementsByTagName('li');
+            var arrimg2 = document.getElementsByClassName('img2');
+            var oBut = document.getElementById('box-bottom');
+            var oA = document.getElementsByTagName('a');
+            var oLeft = document.getElementById('left');
+            var oRight = document.getElementById('right');
+            var iNow = 0;  //定义当前点击
+            var iMinZindex = 2;   //最小 zindex
+            var indeximg = 0;
+
+
+            //左右按钮的隐藏显示
+            oA[0].onmouseover = function () {
+                move(oLeft,{"opacity":100})
+            }
+            oA[0].onmouseout = function () {
+                move(oLeft,{"opacity":0})
+            }
+            oA[1].onmouseover = function () {
+                move(oRight,{"opacity":100})
+            }
+            oA[1].onmouseout = function () {
+                move(oRight,{"opacity":0})
+            }
+
+            //左右按钮的点击
+            oLeft.onclick = function () {
+                indeximg --;
+                if (indeximg == -1){
+                    indeximg = arrimg1.length-1;
+                }
+                arrimg1[indeximg].style.zIndex = iMinZindex++; //点击时大图片Zindex++(下一张把上一张叠加)
+                arrimg1[indeximg].style.height = 0;
+                move(arrimg1[indeximg], {"height":bigimg.offsetHeight})
+
+            }
+            oRight.onclick = function () {
+                indeximg ++;
+                if (indeximg == arrimg1.length-1){
+                    indeximg = 0;
+                }
+                arrimg1[indeximg].style.zIndex = iMinZindex++; //点击时大图片Zindex++(下一张把上一张叠加)
+                arrimg1[indeximg].style.height = 0;
+                move(arrimg1[indeximg], {"height":bigimg.offsetHeight})
+
+            }
+
+
+
+
+            for (var i = 0; i < arrimg2.length; i++) {
+                arrimg2[i].index = i;
+
+                //移入移出每个li时透明度变化
+                arrimg2[i].onmouseover = function () {
+                    move(this, {"opacity": 100})
+                }
+                arrimg2[i].onmouseout = function () {
+                    if (this.index != iNow) {//如果当前移入的这张不是当前显示的(反过来说如果是当前这张，就不用变)
+                        move(this, {"opacity": 50})
+                    }
+
+                }
+                //小图片点击时
+                arrimg2[i].onclick = function () {
+
+                    iNow = this.index;
+
+                    for (var j = 0; j < arrimg2.length; j++) {
+                        move(arrimg2[j], {"opacity": 50})   //清空
+
+                    }
+                    move(this, {"opacity": 100})    //设置当前
+
+                    arrimg1[this.index].style.zIndex = iMinZindex++; //点击时大图片Zindex++(下一张把上一张叠加)
+                    arrimg1[this.index].style.height = 0;
+                    move(arrimg1[this.index], {"height": bigimg.offsetHeight})
+
+
+                    //控制轮播图的移动
+                    if (this.index == 0) {
+                        move(oBut, {"left": 0})
+                    } else if (this.index == arrimg2.length - 1) {
+                        move(oBut, {"left": -130 * (this.index - 2)})
+                    } else {
+                        move(oBut, {"left": -130 * (this.index - 1)});
+                    }
+
+                }
+
+            }
+        }
+
+    </script>
+</head>
+<body>
+<div class="box">
+    <ul id="box-ul">
+        <li style="z-index: 1"><img src="img/1.jpg"></li>
+        <li><img src="img/2.jpg"></li>
+        <li><img src="img/3.jpg"></li>
+        <li><img src="img/4.jpg"></li>
+        <li><img src="img/5.jpg"></li>
+        <li><img src="img/6.jpg"></li>
+        <a><span id="left"></span></a>
+        <a><span id="right"></span></a>
+    </ul>
+    <div id="box-bottom">
+        <img class="img2" style="opacity: 1" src="img/1.jpg">
+        <img class="img2" src="img/2.jpg">
+        <img class="img2" src="img/3.jpg">
+        <img class="img2" src="img/4.jpg">
+        <img class="img2" src="img/5.jpg">
+        <img class="img2" src="img/6.jpg">
+    </div>
+</div>
+</body>
+</html>

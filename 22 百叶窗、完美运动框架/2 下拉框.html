@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+            padding: 20px 40px;
+            position: relative;
+        }
+
+        div {
+            width: 150px;
+            background-color: red;
+            position: absolute;
+            left: 10px;
+            display: none;
+            overflow: hidden;
+        }
+    </style>
+
+    <script src="move.js"></script>
+    <script>
+
+        window.onload = function () {
+            var arrLi = document.getElementsByTagName("h1");
+            for(var i = 0; i<arrLi.length;i++){
+                arrLi[i].onmouseover = function(){  //onmouseenter
+                    var oDiv = this.nextElementSibling;//下一个同级标签
+                    oDiv.style.display = "block";
+                    oDiv.style.height = "auto";
+                    var height = oDiv.offsetHeight;
+                    oDiv.style.height = "0px";
+                    move(oDiv,"height",height);
+                }
+                arrLi[i].onmouseout = function(){  //onmouseleave
+                    var oDiv = this.nextElementSibling;
+                    move(oDiv,"height",0);
+                }
+            }
+        }
+    </script>
+
+
+</head>
+<body>
+<ul>
+    <li><h1>标题1</h1>
+        <div>asdas<br>asdasd<br>asdasdasd<br>asdas<br>asdasd<br>asdasdasd<br>asdas<br>asdasd<br>asdasdasd<br></div>
+    </li>
+    <li><h1>标题2</h1>
+        <div>asdas<br>asdasd<br>asdasdasd<br>asdas<br>asdasd<br>asdasdasd<br></div>
+    </li>
+    <li><h1>标题3</h1>
+        <div>asdas<br>asdasd<br>asdasdasd<br></div>
+    </li>
+    <li><h1>标题4</h1>
+        <div>asdas<br>asdasd<br>asdasdasd<br>asdas<br>asdasd<br>asdasdasd<br>asdas<br>asdasd<br>asdasdasd<br></div>
+    </li>
+</ul>
+</body>
+</html>

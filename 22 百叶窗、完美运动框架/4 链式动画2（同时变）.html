@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+    }
+</style>
+<script src="move3.js"></script>
+
+<script>
+    window.onload = function () {
+        var oDiv = document.getElementById('div1');
+        oDiv.onmouseover = function () {
+            move(oDiv,{"width":200,"height":200,"borderRadius":100,"margin":100})
+        }
+    }
+</script>
+<body>
+<div id="div1"></div>
+</body>
+</html>
