@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 440px;
+            height: 315px;
+            margin: 50px auto;
+        }
+
+        .imgbox {
+            width: 440px;
+            height: 315px;
+            border: 1px solid #252525;
+            position: relative;
+            overflow: hidden;
+        }
+
+        img {
+            width: 440px;
+            height: 315px;
+        }
+
+        ul {
+            width: 2640px;
+            height: 315px;
+            position: absolute;
+            left: -440px;
+        }
+
+        li {
+            list-style: none;
+            float: left;
+        }
+
+        .abox {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            margin-left: -40px;
+        }
+
+        a {
+            display: block;
+            width: 14px;
+            height: 14px;
+            border-radius: 7px;
+            background-color: #666;
+            float: left;
+            margin-right: 10px;
+        }
+
+        .active {
+            background-color: #c81623;
+        }
+
+        button {
+            width: 30px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            font-size: 25px;
+            color: #fff;
+            background: rgba(12, 12, 12, .4);
+            border: none;
+            outline: 0 none;
+        }
+
+        #btn1 {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            margin-top: -30px;
+        }
+
+        #btn2 {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            margin-top: -30px;
+        }
+    </style>
+
+    <script>
+
+        var timer;
+
+        function move(target, fn) {
+            var oUl = document.getElementById('ul1');
+            clearInterval(timer);
+            timer = setInterval(function () {
+                var iSpeed = 0;
+                if (oUl.offsetLeft <= target) {
+                    iSpeed = 30;
+                } else {
+                    iSpeed = -30;
+                }
+                if (Math.abs(target - oUl.offsetLeft) <= Math.abs(iSpeed)) {
+                    clearInterval(timer);
+                    oUl.style.left = oUl.offsetLeft + (target - oUl.offsetLeft) + "px";
+                    if (fn)fn();
+                } else {
+                    oUl.style.left = oUl.offsetLeft + iSpeed + "px";
+                }
+            }, 20)
+        }
+
+        window.onload = function () {
+            var oUl = document.getElementById('ul1');
+            var arrLi = document.getElementsByTagName("li");
+            var arrA = document.getElementsByTagName("a");
+            for (var i = 0; i < arrA.length; i++) {
+                arrA[i].index = i + 1;
+                arrA[i].onmouseover = function () {
+                    move(-440 * this.index);
+                    index = this.index;
+
+                    tab(index-1);
+                }
+            }
+
+            var oPrev = document.getElementById('btn1');
+            var oNext = document.getElementById('btn2');
+            var index = 1;
+
+            //小点样式
+            function tab(arg){
+                for(var j=0;j<arrA.length;j++){
+                    arrA[j].className = "";
+                }
+                arrA[arg].className = "active";
+            }
+
+            //下一张
+            oNext.onclick = function () {
+                index++;
+                if (index == arrLi.length - 1) {
+                    tab(0);
+                    move(-440 * (arrLi.length - 1), function () {
+                        oUl.style.left = "-440px";
+                        index = 1;
+                    })
+                } else {
+                    move(index * -440);
+                    tab(index-1);
+                }
+            }
+            //上一张
+            oPrev.onclick = function () {
+                index--;
+                if (index == 0) {
+                    tab(arrA.length-1);
+                    move(0, function () {
+                        oUl.style.left = (arrLi.length - 2) * -440 + "px";
+                        index = arrLi.length - 2;
+                    })
+                } else {
+                    move(index * -440);
+                    tab(index-1);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="imgbox">
+        <ul id="ul1">
+            <li><img src="img/4.jpg"></li>
+            <li><img src="img/1.jpg"></li>
+            <li><img src="img/2.jpg"></li>
+            <li><img src="img/3.jpg"></li>
+            <li><img src="img/4.jpg"></li>
+            <li><img src="img/1.jpg"></li>
+        </ul>
+        <div class="abox">
+            <a href="javascript:" class="active"></a>
+            <a href="javascript:"></a>
+            <a href="javascript:"></a>
+            <a href="javascript:"></a>
+        </div>
+        <button id="btn1"><</button>
+        <button id="btn2">></button>
+    </div>
+</div>
+</body>
+</html>

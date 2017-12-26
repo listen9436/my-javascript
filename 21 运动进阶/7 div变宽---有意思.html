@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border: 1px solid #000;
+        }
+    </style>
+    <script>
+        //offWidth 的BUG  当给div加个边框的时候,div 不缩小反而变大。
+
+        // width: 100       offWidth: 102         width----102-1=101px
+        // width: 101       offWidth: 103         width----102-1=102px
+        //  div增大原因
+
+
+        //解决方案：
+        //   逃避问题
+        //   1，，， 不给div设边框
+        //   2,,,,  把div 的width 设置在行内
+        setInterval(function () {
+            var oDiv = document.getElementById('div1');
+
+            oDiv.style.width = oDiv.offsetWidth -1 +"px";
+        },30)
+
+    </script>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>

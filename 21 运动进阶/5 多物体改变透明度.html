@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 50px;
+            background-color: red;
+            opacity: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var arrDiv = document.getElementsByTagName('div');
+            for (var i = 0; i < arrDiv.length; i++) {
+                arrDiv[i].timer = null;
+                arrDiv[i].opacity = 0;
+                arrDiv[i].onmouseover = function () {
+                    move(this,100)
+                }
+                arrDiv[i].onmouseout = function () {
+                    move(this,0)
+                }
+            }
+        }
+
+        //所有东西都不能公用，
+//      属性与运动对象绑定：速度、其他属性值（透明度等）
+        function move(obj, target) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var iSpeed = (target - obj.opacity) / 8;
+                iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                if(target == obj.opacity){
+                    clearInterval(obj.timer);
+                }else {
+                    obj.opacity += iSpeed;
+                    obj.style.opacity = obj.opacity/100;
+                }
+            },30)
+        }
+
+    </script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

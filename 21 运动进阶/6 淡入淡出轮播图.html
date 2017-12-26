@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 500px;
+            margin: 30px auto;
+        }
+        img{
+            position: absolute;
+        }
+    </style>
+    <script>
+        var timer;
+        function move(obj, target) {
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var iSpeed = (target - obj.opacity) / 8;
+                iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                if (obj.opacity == target) {
+                    clearInterval(obj.timer);
+                } else {
+                    obj.opacity += iSpeed;
+                    obj.style.opacity = obj.opacity / 100;
+                }
+            }, 30)
+        }
+        window.onload = function () {
+            var arrimg = document.getElementsByClassName('item');
+            var arrA = document.getElementsByTagName('a');
+            for (var i = 0; i < arrimg.length; i++) {
+                arrimg[i].opacity = 0;
+            }
+            arrimg[0].opacity = 100;
+            for (var i = 0; i < arrA.length; i++) {
+                arrA[i].index = i;
+                arrA[i].onclick = function () {
+                    //清空
+                    for (var j = 0; j < arrimg.length; j++) {
+                        move(arrimg[j], 0)
+                    }
+                    //设置对应的div显示
+                    move(arrimg[this.index], 100);
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div>
+    <img class="item" style="opacity: 1" src="img/1.jpg">
+    <img class="item" src="img/2.jpg">
+    <img class="item" src="img/3.jpg">
+    <img class="item" src="img/4.jpg">
+</div>
+<a href="javascript:">1</a>
+<a href="javascript:">2</a>
+<a href="javascript:">3</a>
+<a href="javascript:">4</a>
+</body>
+</html>

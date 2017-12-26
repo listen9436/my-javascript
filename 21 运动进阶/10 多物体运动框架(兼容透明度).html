@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            filter: alpha(opacity:30); /*   IE透明度   */
+            opacity: 0.3;
+        }
+    </style>
+    <script>
+        
+        function getStyle(obj,attr){
+            if(obj.currentStyle){
+                return obj.currentStyle[attr];
+            }else {
+                return getComputedStyle(obj)[attr];
+            }
+        }
+
+        function move(obj,attr,target){//对象，对象的某个属性，目标值
+            clearInterval(obj.timer);
+            obj.timer = setInterval(function () {
+                var iCur = 0;
+                if(attr == 'opacity'){//如果当对象属性为透明度时，
+                    iCur = parseInt(parseFloat(getStyle(obj,attr))*100);
+                }else {
+                    iCur = parseInt(getStyle(obj,attr)); //currentStyle的版本代替offset
+                }
+
+                var iSpeed = (target - iCur)/8;
+                iSpeed = iSpeed>0?Math.ceil(iSpeed):Math.floor(iSpeed);
+                if(iCur == target){
+                    clearInterval(obj.timer);
+                }else {
+
+                    if(attr == 'opacity'){
+                        obj.style.filter = 'alpha(opacity:'+(iCur+iSpeed)+')';
+                        obj.style.opacity = (iCur+iSpeed)/100;
+
+                        document.getElementById('text1').value = obj.style.opacity;
+                        //输出透明度，，查看BUG
+                        // 计算机计算小数的缺陷，
+                        //用parseInt 把 parseFloor 小数包部分起来(避免处理小数，把小数变成整数处理)
+                    }else {
+                        obj.style[attr] = iCur +iSpeed +"px";
+                    }
+
+                }
+            },30)
+        }
+        
+        //问题原因
+        //因为  parseInt ，所以透明度0.3 永远被取整为 0
+
+        window.onload = function () {
+            var oDiv = document.getElementById('div1');
+            oDiv.onmouseover = function () {
+                move(oDiv,'opacity',100)
+            }
+            oDiv.onmouseout = function () {
+                move(oDiv,'opacity',30)
+            }
+
+        }
+    </script>
+</head>
+<body>
+<input type="text" id="text1">
+<div id="div1"></div>
+</body>
+</html>

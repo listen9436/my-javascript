@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            width: 200px;
+            margin: 50px auto;
+        }
+
+        .ulbox {
+            width: 200px;
+            height: 150px;
+            border: 1px solid #ccc;
+            position: relative;
+            overflow: hidden;
+        }
+
+        ul {
+            width: 1600px;
+            position: absolute;
+            left: -200px;
+        }
+
+        li {
+            list-style: none;
+            width: 200px;
+            height: 150px;
+            float: left;
+        }
+
+    </style>
+    <script>
+        var id;
+        function move(target, fn) {
+            var oUl = document.getElementById('ul1');
+            clearInterval(id);
+            id = setInterval(function () {
+                var iSpeed = 0;
+                if (oUl.offsetLeft <= target) {
+                    iSpeed = 20;
+                } else {
+                    iSpeed = -20;
+                }
+                if (Math.abs(target - oUl.offsetLeft) <= Math.abs(iSpeed)) {
+                    clearInterval(id);
+                    oUl.style.left = oUl.offsetLeft + (target - oUl.offsetLeft) + "px";
+                    if (fn)fn();
+                } else {
+                    oUl.style.left = oUl.offsetLeft + iSpeed + "px";
+                }
+            }, 30)
+        }
+
+        window.onload = function () {
+            var oUl = document.getElementById('ul1');
+            var arrLi = document.getElementsByTagName("li");
+            var arrA = document.getElementsByTagName("a");
+
+            for (var i = 0; i < arrA.length; i++) {
+                arrA[i].index = i + 1;
+                arrA[i].onclick = function () {
+                    move(-200 * this.index);
+                    index = this.index;
+                }
+            }
+
+            var oNext = document.getElementById('btn1');
+            var oPrev = document.getElementById('btn2');
+            var index = 1;
+            oNext.onclick = function () {
+                index++;
+                if (index == arrLi.length - 1) {
+                    move(-200 * (arrLi.length - 1), function () {
+                        oUl.style.left = "-200px";
+                        index = 1;
+                    })
+                } else {
+                    move(index * -200)
+                }
+            }
+            oPrev.onclick = function () {
+                index--;
+                //  1   先动到  0
+                //  2   调到len-2*-200
+                //  3    index len-2
+                if (index == 0) {
+                    move(0, function () {
+                        oUl.style.left = (arrLi.length - 2) * -200 + "px";
+                        index = arrLi.length - 2;
+                    })
+                } else {
+                    move(index * -200)
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="ulbox">
+        <ul id="ul1">
+            <li style="background-color: lightskyblue"></li>
+            <li style="background-color: #e78f23"></li>
+            <li style="background-color: red"></li>
+            <li style="background-color: palegreen"></li>
+            <li style="background-color: pink"></li>
+            <li style="background-color: mediumpurple"></li>
+            <li style="background-color: lightskyblue"></li>
+            <li style="background-color: #e78f23"></li>
+        </ul>
+    </div>
+    <a href="javascript:">1</a>
+    <a href="javascript:">2</a>
+    <a href="javascript:">3</a>
+    <a href="javascript:">4</a>
+    <a href="javascript:">5</a>
+    <a href="javascript:">6</a>
+    <button id="btn1"><</button>
+    <button id="btn2">></button>
+
+</div>
+</body>
+</html>

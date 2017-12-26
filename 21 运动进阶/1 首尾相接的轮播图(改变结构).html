@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            width: 200px;
+            margin: 50px auto;
+        }
+        .ulbox {
+            width: 200px;
+            height: 150px;
+            border: 1px solid #ccc;
+            position: relative;
+            overflow: hidden;
+        }
+
+        ul {
+            width: 1200px;
+            position: absolute;
+            float: left;
+        }
+
+        li {
+            list-style: none;
+            width: 200px;
+            height: 150px;
+            float: left;
+        }
+        button{
+            width: 80px;
+            height: 30px;
+            background-color: #0A7EC3;
+            color: #fff;
+            margin-left: 10px;
+        }
+    </style>
+    <script>
+        var id;
+        function move(target, fn) {
+            var oUl = document.getElementById('ul1');
+            clearInterval(id);
+            id = setInterval(function () {
+                var iSpeed = 0;
+                if (oUl.offsetLeft <= target) {
+                    iSpeed = 20;
+                } else {
+                    iSpeed = -20;
+                }
+                if (Math.abs(target - oUl.offsetLeft) <= iSpeed) {
+                    clearInterval(id);
+                    oUl.style.left = oUl.offsetLeft +(target - oUl.offsetLeft)+"px";
+                    if (fn)fn();
+                } else {
+                    oUl.style.left = oUl.offsetLeft + iSpeed + "px";
+                }
+            }, 30)
+        }
+
+        window.onload = function () {
+            var oUl = document.getElementById('ul1');
+            var oNext = document.getElementById('btn1');
+            var oPrev = document.getElementById('btn2');
+            oNext.onclick = function () {
+//              1  向左移动200个像素
+                move(-200, function () {
+//              2  将第一个元素放到最后一个位置
+                    var oLi = oUl.firstElementChild;
+                    oUl.appendChild(oLi);
+//              3  再向右移动200个像素
+                    oUl.style.left = "0px";
+                })
+            }
+            oPrev.onclick = function () {
+//              1  将最后一个元素放到第一个位置
+                var oLi = oUl.lastElementChild;
+                oUl.insertBefore(oLi, oUl.firstElementChild);
+//              2  将left设置成-200
+                oUl.style.left = "-200px";
+//              3  将left移动到0
+                move(0)
+            }
+        }
+    </script>
+</head>
+<body>
+<div class="box">
+    <div class="ulbox">
+        <ul id="ul1">
+            <li style="background-color: #e78f23"></li>
+            <li style="background-color: red"></li>
+            <li style="background-color: palegreen"></li>
+            <li style="background-color: pink"></li>
+            <li style="background-color: mediumpurple"></li>
+            <li style="background-color: lightskyblue"></li>
+        </ul>
+    </div>
+    <button id="btn1">Next</button>
+    <button id="btn2">Prev</button>
+</div>
+</body>
+</html>

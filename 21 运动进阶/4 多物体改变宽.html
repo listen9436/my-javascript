@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 50px;
+            background-color: #000;
+            margin-top: 40px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var arrDiv = document.getElementsByTagName('div');
+            for(var i=0;i<arrDiv.length;i++){
+                this.timer = null;
+                arrDiv[i].onmouseover = function () {
+                    move(this,600);
+                }
+                arrDiv[i].onmouseout = function () {
+                    move(this,100);
+                }
+            }
+
+        }
+
+        //定时器做为物体的属性(每个物体有个单独的定时器)
+        function move(obj, target) {//参数（物体，目标值）
+            clearInterval(obj.timer);//清空当前对象的定时器
+            obj.timer = setInterval(function () {
+                var iSpeed = (target - obj.offsetWidth) / 5;
+                iSpeed = iSpeed > 0 ? Math.ceil(iSpeed) : Math.floor(iSpeed);
+                if (target == obj.offsetWidth) {
+                    clearInterval(obj.timer);
+                } else {
+                    obj.style.width = obj.offsetWidth + iSpeed + "px";
+                }
+            }, 30)
+        }
+    </script>
+</head>
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>
