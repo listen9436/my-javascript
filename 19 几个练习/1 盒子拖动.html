@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box {
+            width: 800px;
+            height: 500px;
+            background-color: #F5F5F5;
+            position: relative;
+            margin: 50px auto;
+        }
+
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background-color: #0A7EC3;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oDiv = document.getElementById('div1');
+            var oBox = document.getElementById('box');
+            oDiv.onmousedown = function (ev) {
+                var oEvent = window.event || ev;
+                var x = oEvent.clientX - oDiv.offsetLeft;
+                var y = oEvent.clientY - oDiv.offsetTop;
+                document.onmousemove = function (ev) {
+                    var oEvent = window.event || ev;
+//                    oDiv.style.left = oEvent.clientX - x +"px"
+//                    oDiv.style.top = oEvent.clientY -y +"px"
+                    var l = oEvent.clientX - x;
+                    var t = oEvent.clientY - y;
+                    if (l < oBox.clientLeft) {
+                        l = oBox.clientLeft;
+                    }
+                    if (t < oBox.clientTop) {
+                        t = oBox.clientTop;
+                    }
+                    if (l > oBox.clientWidth - oDiv.offsetWidth) {
+                        l = oBox.clientWidth - oDiv.offsetWidth
+                    }
+                    if (t > oBox.clientHeight - oDiv.offsetHeight) {
+                        t = oBox.clientHeight - oDiv.offsetHeight
+                    }
+                    oDiv.style.left = l + "px";
+                    oDiv.style.top = t + "px";
+                }
+                //当鼠标松开时清除跟随事件
+                document.onmouseup = function () {
+                    document.onmousemove = undefined;
+                }
+                return false;
+            };
+
+            var leftId = 0;
+            var rightId = 0;
+            var topId = 0;
+            var bottomId = 0;
+            document.onkeydown = function (ev) {
+                var oEvent = window.event || ev;
+                switch (oEvent.keyCode) {
+                    case 37:
+                        if (!leftId) {
+                            leftId = setInterval(function () {
+                                var z = oDiv.offsetLeft - 3;
+                                if (oDiv.offsetLeft < oBox.clientLeft) {
+                                    z = oBox.clientLeft;
+                                    clearInterval(leftId);
+                                }
+                                oDiv.style.left = z + "px"
+                            }, 1)
+                        }
+                        break;
+                    case 38:
+                        if (!topId) {
+                            topId = setInterval(function () {
+                                var s = oDiv.offsetTop - 3;
+                                if (oDiv.offsetTop < oBox.clientTop) {
+                                    s = oBox.clientTop;
+                                    clearInterval(topId);
+                                }
+                                oDiv.style.top = s + "px"
+                            }, 1)
+                        }
+                        break;
+                    case 39:
+                        if (!rightId) {
+                            rightId = setInterval(function () {
+                                var y = oDiv.offsetLeft + 3;
+                                if (oDiv.offsetLeft >oBox.offsetWidth-oDiv.offsetWidth) {
+                                    y = oBox.offsetWidth-oDiv.offsetWidth;
+                                    clearInterval(rightId);
+                                }
+                                oDiv.style.left = y + "px"
+                            }, 1)
+                        }
+                        break;
+                    case 40:
+                        if (!bottomId) {
+                            bottomId = setInterval(function () {
+                                var x = oDiv.offsetTop + 3;
+                                if (oDiv.offsetTop >oBox.offsetHeight-oDiv.offsetHeight) {
+                                    x = oBox.offsetHeight-oDiv.offsetHeight;
+                                    clearInterval(bottomId);
+                                }
+                                oDiv.style.top = x + "px"
+                            }, 1)
+                        }
+                        break;
+                }
+            }
+            //当按键弹起时清除定时器
+            document.onkeyup = function (ev) {
+                var oEvent = window.event || ev;
+                switch (oEvent.keyCode) {
+                    case 37:
+                        clearInterval(leftId);
+                        leftId = 0;
+                        break;
+                    case 38:
+                        clearInterval(topId);
+                        topId = 0;
+                        break;
+                    case 39:
+                        clearInterval(rightId);
+                        rightId = 0;
+                        break;
+                    case 40:
+                        clearInterval(bottomId);
+                        bottomId = 0;
+                        break;
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+<div id="box">
+    <div id="div1"></div>
+</div>
+</body>
+</html>

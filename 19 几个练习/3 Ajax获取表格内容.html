@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a {
+            display: block;
+            width: 100px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            text-decoration: none;
+            margin-right: 10px;
+            background-color: #0A7EC3;
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            float: left;
+        }
+
+        div {
+            width: 330px;
+            height: 40px;
+            position: absolute;
+            left: 50%;
+            margin-left: -165px;
+            top:10px;
+        }
+        table{
+            width: 500px;
+            margin: 60px auto;
+            border-collapse: collapse;
+            border: 1px solid #0AA6E8;
+        }
+        td{
+            width: 200px;
+            height: 50px;
+            text-align: center;
+        }
+    </style>
+    <script src="ajax.js"></script>
+    <script>
+        window.onload = function () {
+            var oTab = document.getElementById('tab');
+            var arrA = document.getElementsByTagName('a');
+            var arrfile = ["1.txt", "2.txt", "3.txt"];
+
+            for (var i = 0; i < arrA.length; i++) {
+                arrA[i].index = i;
+                arrA[i].onclick = function () {
+                    ajax(arrfile[this.index], function (str) {
+                        oTab.innerHTML = "";
+                        var arr = JSON.parse(str);
+                        for (var j = 0; j < arr.length; j++) {
+                            var otr = document.createElement("tr");
+                            if(arr[j].姓名 && arr[j].年龄){
+                                otr.innerHTML = "<td>" + arr[j].姓名 + "</td>" + "<td>" + arr[j].年龄 + "</td>";
+                            }
+                            if(arr[j].城市 && arr[j].省会){
+                                otr.innerHTML = "<td>" + arr[j].城市 + "</td>" + "<td>" + arr[j].省会 + "</td>" + "<td>" + arr[j].空气质量 + "</td>";
+                            }
+                            if(arr[j].公司 && arr[j].地址){
+                                otr.innerHTML = "<td>" + arr[j].公司 + "</td>" + "<td>" + arr[j].地址 + "</td>" + "<td>" + arr[j].ceo + "</td>";
+                            }
+                            oTab.appendChild(otr);
+                        }
+                    })
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+<table id="tab" border=1></table>
+<div>
+    <a href="javascript:">Sheet1</a>
+    <a href="javascript:">Sheet2</a>
+    <a href="javascript:">Sheet3</a>
+</div>
+</body>
+</html>

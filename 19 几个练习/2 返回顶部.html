@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        body{
+            height: 5000px;
+            background: url("img/8.jpg") center;
+        }
+        #btn{
+            width: 90px;
+            height: 35px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            background-color: #1A66B3;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var oBtn = document.getElementById('btn');
+
+            oBtn.onclick = function () {
+                var id = setInterval(function () {
+                    var scrolltop;
+                    if(document.documentElement.scrollTop){
+                        scrolltop = document.documentElement.scrollTop;
+                    }else {
+                        scrolltop = document.body.scrollTop;
+                    }
+
+                    document.documentElement.scrollTop -= scrolltop/10;
+                    document.body.scrollTop -= scrolltop/10;
+
+                    if(scrolltop <= 0){
+
+                        clearInterval(id);
+                    }
+                    window.onmousewheel = mouseScroll;
+                    window.addEventListener("DOMMouseScroll",mouseScroll);
+                    function mouseScroll(){
+                        window.onscroll = function () {
+                            clearInterval(id);
+                        }
+                    }
+                },20)
+            }
+
+
+        }
+    </script>
+</head>
+<body>
+<button id="btn">返回顶部</button>
+</body>
+</html>
